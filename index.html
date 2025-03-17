@@ -78,51 +78,6 @@
             line-height: 1.5;
         }
 
-
-        .project-container {
-            display: flex;
-            justify-content: space-evenly;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .project-block {
-            width: 45%;
-            height: 300px;
-            background-color: #f296bd;
-            border-radius: 15px;
-            padding: 20px;
-            box-sizing: border-box;
-            color: #FB8159;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-block:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-block2 {
-            background-color: #fcca59;
-            color: #99b7f5;
-        }
-
-        .project-block3 {
-            background-color: #FB8159;
-            color: #fcca59;
-        }
-
-        .project-block4 {
-            background-color: #99b7f5;
-            color: #489a6e;
-        }
-
         footer {
             width: 100%;
             padding: 20px;
@@ -175,17 +130,62 @@
         a:visited {
             color: #fffcfc;
         }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fcca59;
+            min-width: 160px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 100;
+            padding: 10px 0;
+        }
+
+        .dropdown-content li {
+            list-style: none;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: #489a6e;
+            text-decoration: none;
+            padding: 8px 16px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f296bd;
+            color: white;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Amelia Eckard | Student Home</h1>
         <nav>
-            <a href="./">Home</a> | 
-            <a href="introduction.html">Introduction</a> | 
-            <a href="contract.html">Contract</a> | 
-            <a href="about.html">About</a> |
-            <a href="projects.html">Projects</a>
+            <a href="itis3135/index.html">Home</a> | 
+            <a href=".\">Files</a> | 
+            <a href="itis3135/introduction.html">Introduction</a> | 
+            <a href="itis3135/contract.html">Contract</a> | 
+    
+            <div class="dropdown">
+                <a href="itis3135/projects.html">Projects ▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="itis3135/introduction.html">Introduction Page</a></li>
+                    <li><a href="itis3135/index.html">Website Home</a></li>
+                    <li><a href="itis3135/contract.html">Contract Page</a></li>
+                    <li><a href="itis3135/business.html">Business Page</a></li>
+                </ul>
+            </div>
         </nav>
     </header>  
 
@@ -195,28 +195,6 @@
             <p>Hello, you've made it to my personal homepage for school and projects.</p>
         </div>
         
-        <div class="project-container">
-            <div class="project-block project-block1">
-                <h2>Project 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
-            </div>
-            <div class="project-block project-block2">
-                <h2>Project 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
-            </div>
-            <div class="project-block project-block3">
-                <h2>Project 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
-            </div>
-            <div class="project-block project-block4">
-                <h2>Project 4</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
-            </div>
-        </div>
-
-        <div class="bottom">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris, non fringilla massa vehicula non. Pellentesque est elit, maximus nec massa a, semper ullamcorper est. Donec euismod, risus elementum elementum tincidunt, odio felis luctus lorem, ac vulputate magna metus quis eros. </p>
-        </div>
     </main>
 
     <footer>
