@@ -14,6 +14,6 @@ The purpose of this website is to showcase my journey as a CLT student at UNCC. 
 
 ## Contact 📬
 
-If you have any questions, feel free to reach out to me through LinkedIn or GitHub. 📧
+If you have any questions, feel free to reach out to me! 📧
 
 ---
