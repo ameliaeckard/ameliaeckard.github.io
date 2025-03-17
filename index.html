@@ -4,54 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <title>Amelia Eckard - ITIS3135 First Course Page</title>
+    <title>Amelia Eckard | Absurd Eagle | Student Home</title>
     <style>
-        /* Embedded CSS */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #eaf5f7;
-            color: #62466d;
-            margin: 20px;
+            background-color: white;
+            color: #FB8159;
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
         }
+
         header {
-            background-color: #e8caee;
-            color: #eaf5f7;
-            padding: 20px;
+            width: 100%;
+            padding-top: 80px;
+            padding-bottom: 30px;
+            background-color: #99b7f5;
+            color: #489a6e;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        header nav {
+            padding-top: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px;
+            margin: 0 10px;
+        }
+
+        header nav a:hover {
+            color: #FB8159;
+            text-decoration: underline;
+        }
+
         main {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 30px;
             padding: 20px;
+            text-align: left;
+            box-sizing: border-box;
+            border-radius: 15px;
+            background-color: #f7f7f7;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+
+        .project-container {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .project-block {
+            width: 45%;
+            height: 300px;
+            background-color: #f296bd;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #FB8159;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-block:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-block2 {
+            background-color: #fcca59;
+            color: #99b7f5;
+        }
+
+        .project-block3 {
+            background-color: #FB8159;
+            color: #fcca59;
+        }
+
+        .project-block4 {
+            background-color: #99b7f5;
+            color: #489a6e;
+        }
+
         footer {
-            background-color: #e8caee;
-            color: #eaf5f7;
-            padding: 10px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fcca59;
+            color: white;
+            text-align: center;
+            margin-top: auto;
+            box-sizing: border-box;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
         }
-        a {
-            color: #62466d;
+
+        footer nav {
+            margin-bottom: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        footer nav a {
+            color: #ffffff;
             text-decoration: none;
             margin: 0 10px;
+            padding: 8px 15px;
+            border-radius: 25px;
+            background-color: #489a6e;
+            transition: background-color 0.3s;
+        }
+
+        footer nav a:hover {
+            color: #f296bd;
+        }
+
+        footer p {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+
+        a {
+            color: #489a6e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+
+        a:hover {
+            color: #f296bd;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #fffcfc;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Amelia Eckard</h1>
-    </header>
-    
+        <h1>Amelia Eckard | Student Home</h1>
+        <nav>
+            <a href="./">Home</a> | 
+            <a href="introduction.html">Introduction</a> | 
+            <a href="contract.html">Contract</a> | 
+            <a href="about.html">About</a> |
+            <a href="projects.html">Projects</a>
+        </nav>
+    </header>  
+
     <main>
-        <h2>Welcome!</h2>
-        <p>This is my personal homepage for ITIS3135.</p>
+        <div class="title">
+            <h2>Welcome to My Student Website</h2>
+            <p>Hello, you've made it to my personal homepage for school and projects.</p>
+        </div>
+        
+        <div class="project-container">
+            <div class="project-block project-block1">
+                <h2>Project 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
+            </div>
+            <div class="project-block project-block2">
+                <h2>Project 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
+            </div>
+            <div class="project-block project-block3">
+                <h2>Project 3</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
+            </div>
+            <div class="project-block project-block4">
+                <h2>Project 4</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris.</p>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod ligula mauris, non fringilla massa vehicula non. Pellentesque est elit, maximus nec massa a, semper ullamcorper est. Donec euismod, risus elementum elementum tincidunt, odio felis luctus lorem, ac vulputate magna metus quis eros. </p>
+        </div>
     </main>
-    
+
     <footer>
         <nav>
-            <a href="itis3135/">ITIS3135</a> |
-            <a href="https://github.com/ameliaeckard">GitHub.com</a> |
-            <a href="https://github.com/ameliaeckard/ameliaeckard.github.io">GitHub.io</a> |
-            <a href="https://www.linkedin.com/in/ameliaeckard">LinkedIn</a>
+            <a href="https://webpages.charlotte.edu/aeckard3/">CLT Homepage</a> | 
+            <a href="https://github.com/ameliaeckard">GitHub</a> | 
+            <a href="https://ameliaeckard.github.io/">GitHub.io</a> | 
+            <a href="https://www.linkedin.com/in/ameliaeckard/">LinkedIn</a>
         </nav>
-        <p>© 2024 Amelia Eckard</p>
+        <p>Page Built by <a href="https://absurdeagle.com/">Absurd Eagle Enterprises</a> &copy; 2025</p>
     </footer>
 </body>
 </html>
