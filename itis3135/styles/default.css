@@ -169,41 +169,6 @@ a:visited {
     color: #fffcfc;
 }
 
-@media screen and (max-width: 980px) {
-    main {
-        width: 95%;
-    }
-
-    h1 {
-        font-size: 2.2em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    main {
-        text-align: left;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-
-    h2 {
-        font-size: 1.6em;
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    main {
-        text-align: left;
-    }
-}
 
 .dropdown {
     display: inline-block;
@@ -242,3 +207,20 @@ a:visited {
     border-radius: 4px;
 }
 
+@media screen and (max-width: 980px) {
+    main {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    main {
+        text-align: left;
+    }
+}
