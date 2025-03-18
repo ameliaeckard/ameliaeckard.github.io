@@ -6,132 +6,142 @@
     <title>Acrylic Painting</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: white;
-            color: #FB8159;
-            font-family: 'Lucida Console', Monaco, monospace;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-    
-        header {
-            width: 100%;
-            padding-top: 80px;
-            padding-bottom: 30px;
-            background-color: #fcca59;
-            color: white;
-            text-align: center;
-            box-sizing: border-box;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-    
-        h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: bold;
-        }
-    
-        header nav {
-            padding-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-    
-        header nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 8px;
-        }
-    
-        header nav a:hover {
-            color: #FB8159;
-            text-decoration: underline;
-        }
-    
-        main {
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 30px;
-            padding: 20px;
-            text-align: left;
-            box-sizing: border-box;
-            border-radius: 15px;
-            color: #f296bd;
-            background-color: #f7f7f7;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            flex-grow: 1;
-        }
-    
-        section {
-            display: none;
-            margin-bottom: 30px;
-        }
-    
-        .active {
-            display: block;
-        }
-    
-        footer {
-            width: 100%;
-            padding: 20px;
-            background-color: #489a6e;
-            color: #99b7f5;
-            text-align: center;
-            margin-top: auto;
-            box-sizing: border-box;
-            border-radius: 15px 15px 0 0;
-            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
-        }
-    
-        footer nav {
-            margin-bottom: 10px;
-            display: inline-block;
-            text-align: center;
-        }
-    
-        footer nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border-radius: 25px;
-            background-color: #489a6e;
-            transition: background-color 0.3s;
-        }
-    
-        footer nav a:hover {
-            color: #f296bd;
-        }
-    
-        footer p {
-            margin-top: 20px;
-            font-size: 1em;
-        }
-    
-        @media (max-width: 768px) {
-            figure img {
-                max-width: 90%;
-            }
-    
-            header nav {
-                flex-direction: column;
-            }
-        }
-    
-        @media (max-width: 480px) {
-            footer nav a {
-                padding: 8px 12px;
-            }
-        }
-    </style>
-    
-    
+ <style>
+body {
+    background-color: white;
+    color: #FB8159;
+    font-family: 'Lucida Console', Monaco, monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    background-color: #fcca59;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: bold;
+}
+
+header nav {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px;
+}
+
+header nav a:hover {
+    color: #FB8159;
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 25px;
+    color: #f296bd;
+    background-color: #f7f7f7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+figure img {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+section {
+    display: none;
+    margin-bottom: 30px;
+}
+
+.active {
+    display: block;
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #489a6e;
+    color: #99b7f5;
+    text-align: center;
+    margin-top: auto;
+    box-sizing: border-box;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer nav {
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+footer nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: #489a6e;
+    transition: background-color 0.3s;
+}
+
+footer nav a:hover {
+    color: #f296bd;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    figure img {
+        max-width: 90%;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    footer nav a {
+        padding: 8px 12px;
+    }
+}
+
+</style>
 </head>
 <body>
 
@@ -230,15 +240,15 @@
         </a>
     </footer>
 
-    <script>
-        function showSection(sectionId) {
-            let sections = document.querySelectorAll('section');
-            sections.forEach((section) => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-    </script>    
+<script>
+    function showSection(sectionId) {
+        let sections = document.querySelectorAll('section');
+        sections.forEach((section) => {
+            section.classList.remove('active');
+        });
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
 
 </body>
 </html>
