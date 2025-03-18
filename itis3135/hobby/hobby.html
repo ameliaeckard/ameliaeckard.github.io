@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrylic Painting</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: white;
+            color: #FB8159;
+            font-family: 'Lucida Console', Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    
+        header {
+            width: 100%;
+            padding-top: 80px;
+            padding-bottom: 30px;
+            background-color: #fcca59;
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+    
+        header nav {
+            padding-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px;
+        }
+    
+        header nav a:hover {
+            color: #FB8159;
+            text-decoration: underline;
+        }
+    
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 30px;
+            padding: 20px;
+            text-align: left;
+            box-sizing: border-box;
+            border-radius: 15px;
+            color: #f296bd;
+            background-color: #f7f7f7;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+    
+        section {
+            display: none;
+            margin-bottom: 30px;
+        }
+    
+        section.active {
+            display: block;
+        }
+    
+        footer {
+            width: 100%;
+            padding: 20px;
+            background-color: #489a6e;
+            color: #99b7f5;
+            text-align: center;
+            margin-top: auto;
+            box-sizing: border-box;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        footer nav {
+            margin-bottom: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+    
+        footer nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border-radius: 25px;
+            background-color: #489a6e;
+            transition: background-color 0.3s;
+        }
+    
+        footer nav a:hover {
+            color: #f296bd;
+        }
+    
+        footer p {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+    
+        @media (max-width: 768px) {
+            figure img {
+                max-width: 90%;
+            }
+    
+            header nav {
+                flex-direction: column;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+    
+            footer nav a {
+                padding: 8px 12px;
+            }
+        }
+    </style>
+    
+    
+</head>
+<body>
+
+    <header>
+        <h1>Amelia Eckard | Acrylic Painting</h1>
+        <nav>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('about')">About</a>
+            <a href="#" onclick="showSection('when')">When</a>
+            <a href="#" onclick="showSection('where')">Where</a>
+            <a href="#" onclick="showSection('how')">How</a>
+            <a href="#" onclick="showSection('why')">Why</a>
+            <a href="#" onclick="showSection('ai-prompts')">AI Prompts</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="active">
+            <h1>Welcome to Acrylic Painting!</h1>
+            <p>Using acrylic paint is one way to paint on a canvas, and it’s a medium that offers a unique set of advantages. Personally, I love using acrylic for its expansive abilities—it dries at a reasonable pace, is easy to blend and build, and is incredibly versatile. Whether you’re creating delicate details or bold strokes, acrylic can handle it all. The picture below showcases a classic paint setup that can be used with any type of paint, but we’ll focus on acrylic! It's perfect for beginners and seasoned artists alike, offering a smooth learning curve while maintaining professional-level results.</p>
+            <figure>
+                <img src="images/acrylic-painting-setup.jpg" alt="Acrylic painting setup">
+                <figcaption>Acrylic painting setup.</figcaption>
+            </figure>
+        </section>
+
+        <section id="about">
+            <h1>About Acrylic Painting</h1>
+            <p>Acrylic paints are incredibly versatile and easy to use, making them a popular choice for both beginners and professional artists. They dry quickly, allowing you to layer and refine your artwork without long waits in between. Plus, they can be used on many different surfaces, including canvas, paper, wood, and even fabric! This makes acrylics a great choice for a wide range of projects. Whether you’re painting large canvases or creating intricate details, acrylic paints offer flexibility, vibrant colors, and excellent coverage. They can be used in a variety of styles, from abstract art to detailed landscapes or portraits!</p>
+            <figure>
+                <img src="images/acrylic-painting-about.jpg" alt="Acrylic paint materials">
+                <figcaption>Essential acrylic supplies.</figcaption>
+            </figure>
+        </section>
+
+        <section id="when">
+            <h1>Best Times for Painting</h1>
+            <p>The beauty of acrylic painting is that you can paint whenever inspiration strikes! Whether it’s a quiet morning with the soft glow of the sun or a creative evening with the calming ambiance of night, there’s always a time to create. The morning can provide you with fresh ideas from dreams and the energy to start your day with a burst of creativity. On the other hand, painting at night can be relaxing, offering you the chance to unwind and focus on your work after a busy day. The beauty of acrylics is that they are perfect for any time of day!</p>
+            <figure>
+                <img src="images/acrylic-painting-morning.jpg" alt="Morning painting setup">
+                <figcaption>Morning sky.</figcaption>
+            </figure>
+        </section>
+
+        <section id="where">
+            <h1>Perfect Places to Paint</h1>
+            <p>You can paint anywhere! At home, in a studio, or even outdoors in nature. Acrylics are incredibly adaptable and can be used in a variety of settings. Whether you prefer the calm and comfort of your home or the inspiration of an outdoor landscape, acrylics provide the flexibility to work in any environment with how easy it is to move around. Painting outdoors, for example, can give you a unique perspective and allow you to capture the natural world around you. Whether you're inside or outside, the world is your canvas!</p>
+            <figure>
+                <img src="images/outdoor-painting.jpg" alt="Outdoor acrylic painting">
+                <figcaption>Painting outdoors in nature.</figcaption>
+            </figure>
+        </section>
+
+        <section id="how">
+            <h1>Acrylic Painting Techniques</h1>
+            <p>One of the most exciting aspects of acrylic painting is the wide range of techniques you can explore. With acrylics, you can mix colors to create a custom palette, experiment with textures, and try out techniques like dry brushing, glazing, and pouring. Each of these techniques offer different results, allowing you to bring your creative vision to life in new and exciting ways. Dry brushing can create a textured, almost scratchy look, while glazing allows you to build up layers of transparent color for depth and dimension. Acrylics are the perfect medium for experimenting and exploring your artistic abilities!</p>
+            <figure>
+                <img src="images/acrylic-techniques.jpg" alt="Acrylic painting techniques">
+                <figcaption>Acrylic technique practice.</figcaption>
+            </figure>
+        </section>
+
+        <section id="why">
+            <h1>Why We Love Acrylic Painting</h1>
+            <p>Acrylic painting is not only a great creative outlet, but it’s also a wonderful way to relax and express yourself. The process of creating something beautiful with your own hands can help you build confidence in your art skills and allow you to see your progress over time. Plus, acrylics dry quickly, so you can see your work come together rapidly, making it a rewarding medium for those who like to see results. Whether you’re painting for relaxation, personal expression, or to create a masterpiece, acrylic painting can be an incredibly fulfilling experience!</p>
+            <figure>
+                <img src="images/painting-happy.jpg" alt="Happy painter">
+                <figcaption>Bob Ross :)</figcaption>
+            </figure>
+        </section>
+
+        <section id="ai-prompts">
+            <h1>AI Prompts Used</h1>
+            <p>Questions asked to ChatGPT:</p>
+            <ul>
+                <li>What are some ideas for hobbies?</li>
+                <li>How can I make my website more adaptive? It keeps getting stuck.</li>
+                <li>What specific details can I add about acrylic painting?</li>
+                <li>What should I focus on for the sections?</li>
+                <li>How do I make only one section show at a time after clicking on the nav?</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="https://webpages.charlotte.edu/aeckard3/">CLT Homepage</a> | 
+            <a href="https://github.com/ameliaeckard">GitHub.com</a> |
+            <a href="https://ameliaeckard.github.io/">GitHub.io</a> |
+            <a href="https://www.linkedin.com/in/ameliaeckard/">LinkedIn</a>
+        </nav>
+        <p>Page Built by <a href="https://absurdeagle.com/">Absurd Eagle Enterprises</a> &copy; 2025</p>
+        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html"></a>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+            <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+        </a>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
