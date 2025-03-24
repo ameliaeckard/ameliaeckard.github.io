@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables - Amelia Eckard | Absurd Eagle</title>
+    <link rel="stylesheet" href="styles/default.css"> 
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Amelia Eckard | Home</h1>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="./">Files</a> | 
+            <a href="introduction.html">Introduction</a> | 
+            <a href="contract.html">Contract</a> | 
+            <div class="dropdown">
+                <a href="projects.html">Projects ▾</a>
+                <ul class="dropdown-content">
+                    <li><a href="introduction.html">Introduction Page</a></li>
+                    <li><a href="index.html">Website Home</a></li>
+                    <li><a href="contract.html">Contract Page</a></li>
+                    <li><a href="business.html">Business Page</a></li>
+                    <li><a href="stuff/BaDp@ge!!.HTM">CRAPPY Page</a></li>
+                    <li><a href="hobby/hobby.html">Hobby Page</a></li>
+                    <li><a href="tables.html">Tables Page</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>  
+    <main>
+        <h2>Activity 2 - HTML Tables</h2>
+
+        <h3 class="table-title">My Tabular Data</h3>
+        <ol>
+            <li>Alice Morgan – alice@firefoxcorp.com – 5</li>
+            <li>Bob Sanders – bobtheguy@yahoo.com – 12</li>
+            <li>Clara Bell – clara.bell@gmail.com – 8</li>
+            <li>Doug Flint – dflint@stoneinc.com – 4</li>
+            <li>Eve Carter – eve_c@darkbaboonsinc.com – 2</li>
+            <li>Frank Li – frankli1992@gmail.com – 10</li>
+            <li>Gina Wells – gwellz@darkbaboonsinc.com – 7</li>
+        </ol>
+
+        <h3 class="table-title">Employee Data in Simple Table</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Years of Service</th>
+            </tr>
+            <tr><td>Alice Morgan</td><td>alice@firefoxcorp.com</td><td>5</td></tr>
+            <tr><td>Bob Sanders</td><td>bobtheguy@yahoo.com</td><td>12</td></tr>
+            <tr><td>Clara Bell</td><td>clara.bell@gmail.com</td><td>8</td></tr>
+            <tr><td>Doug Flint</td><td>dflint@stoneinc.com</td><td>4</td></tr>
+            <tr><td>Eve Carter</td><td>eve_c@darkbaboonsinc.com</td><td>2</td></tr>
+            <tr><td>Frank Li</td><td>frankli1992@gmail.com</td><td>10</td></tr>
+            <tr><td>Gina Wells</td><td>gwellz@darkbaboonsinc.com</td><td>7</td></tr>
+        </table>
+
+        <h3 class="table-title">Employee Data in Complex Table</h3>
+        <figure>
+            <figcaption>Employee Information</figcaption>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Years of Service</th>
+                    <th>Monthly Salary</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Marketing</td>
+                    <td id="n1">Alice Morgan</td>
+                    <td>alice@firefoxcorp.com</td>
+                    <td headers="n1">5</td>
+                    <td>$4,000</td>
+                </tr>
+                <tr>
+                    <td id="n2">Bob Sanders</td>
+                    <td>bobtheguy@yahoo.com</td>
+                    <td headers="n2">12</td>
+                    <td>$4,800</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Engineering</td>
+                    <td id="n3">Clara Bell</td>
+                    <td>clara.bell@gmail.com</td>
+                    <td headers="n3">8</td>
+                    <td>$5,200</td>
+                </tr>
+                <tr>
+                    <td id="n4">Doug Flint</td>
+                    <td>dflint@stoneinc.com</td>
+                    <td headers="n4">4</td>
+                    <td>$3,900</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">Support</td>
+                    <td id="n5">Eve Carter</td>
+                    <td>eve_c@darkbaboonsinc.com</td>
+                    <td headers="n5">2</td>
+                    <td>$3,000</td>
+                </tr>
+                <tr>
+                    <td id="n6">Frank Li</td>
+                    <td>frankli1992@gmail.com</td>
+                    <td headers="n6">10</td>
+                    <td>$4,500</td>
+                </tr>
+                <tr>
+                    <td id="n7">Gina Wells</td>
+                    <td>gwellz@darkbaboonsinc.com</td>
+                    <td headers="n7">7</td>
+                    <td>$4,100</td>
+                </tr>
+                <tr>
+                    <th colspan="3">Total Years of Service</th>
+                    <td>48</td>
+                    <td>$29,500</td>
+                </tr>
+            </table>
+        </figure>
+    </main>
+    <footer>
+        <nav>
+            <a href="https://webpages.charlotte.edu/aeckard3/">CLT Homepage</a> | 
+            <a href="https://github.com/ameliaeckard">GitHub.com</a> |
+            <a href="https://ameliaeckard.github.io/">GitHub.io</a> |
+            <a href="https://www.linkedin.com/in/ameliaeckard/">LinkedIn</a>
+        </nav>
+        <p>Page Built by <a href="https://absurdeagle.com/">Absurd Eagle Enterprises</a> &copy; 2025</p>
+        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html"></a>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+            <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+        </a>
+    </footer>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        table tr:first-child {
+            background-color: #333;
+            color: #489a6e;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        table tr:nth-child(odd) {
+            background-color: #e0e0e0;
+        }
+        .table-title {
+            color: #99b7f5;
+        }
+    </style>
+</body>
+</html>
