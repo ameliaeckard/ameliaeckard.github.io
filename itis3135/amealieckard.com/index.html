@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ameliaeckard.com | Interactive Code & Creative Design</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0c29, #24243e);
+      color: #00C8B3;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    header {
+      background-color: #302b63;
+      color: #fb2576;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      border-bottom: 4px solid #00C8B3;
+    }
+
+    header img {
+      height: 70px;
+      width: 70px;
+      margin-right: 1rem;
+      border-radius: 50%;
+      border: 3px solid #fb2576;
+      background-color: #0f0c29;
+    }
+
+    .glitch {
+      position: relative;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fb2576;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #00C8B3, -2px -2px #fb2576; }
+      20% { text-shadow: -1px 1px #fb2576, 1px -1px #00C8B3; }
+      40% { text-shadow: 2px -2px #00C8B3, -2px 2px #fb2576; }
+      60% { text-shadow: 1px 1px #fb2576, -1px -1px #00C8B3; }
+      80% { text-shadow: -2px 2px #00C8B3, 2px -2px #fb2576; }
+      100% { text-shadow: 2px 2px #00C8B3, -2px -2px #fb2576; }
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px #00C8B3;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #00C8B3;
+      text-shadow: 0 0 5px #fb2576;
+    }
+
+    ul {
+      list-style-type: "🎮 ";
+      padding-left: 2rem;
+    }
+
+    ul li {
+      margin: 0.75rem 0;
+    }
+
+    address {
+      background-color: #0f0c29;
+      border-left: 5px solid #fb2576;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 2rem;
+      font-style: normal;
+      box-shadow: 0 0 5px #302b63;
+    }
+
+    footer {
+      background-color: #0f0c29;
+      color: #00C8B3;
+      text-align: center;
+      padding: 1rem;
+      border-top: 4px solid #fb2576;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fb2576;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #00C8B3;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <img src="https://www.pngall.com/wp-content/uploads/5/Video-Game-Controller-PNG-File.png" alt="Retro glitch logo" />
+    <h1 class="glitch">ameliaeckard.com</h1>
+  </header>
+
+  <main>
+    <h2>Creative Coding & Interactive Design</h2>
+
+    <p><strong>ameliaeckard.com</strong> is a digital playground built at the intersection of code and creativity. We develop retro-futuristic games, glitchy web experiences, and immersive designs that feel more like art than interface.</p>
+
+    <ul>
+      <li>Playable browser-based games & prototypes</li>
+      <li>Interactive story interfaces</li>
+      <li>Creative coding (p5.js, Three.js)</li>
+      <li>Pixel-perfect UI with animated motion</li>
+      <li>Glitchy micro-sites with flair</li>
+      <li>Generative art using JavaScript</li>
+      <li>Accessible game-inspired UX</li>
+      <li>Portfolio sites that feel like levels</li>
+    </ul>
+
+    <p>If you dream in shaders, storyboards, or side-scrollers — we’ll bring it to life in code.</p>
+
+    <address>
+      ✉️ <a href="mailto:letsplay@ameliaeckard.com">letsplay@ameliaeckard.com</a><br>
+      ☎️ (555) 404-1984<br>
+      📍 Level 3, Code Arcade, Charlotte, NC 28223
+    </address>
+  </main>
+
+  <footer>
+    <p><em>"Websites that play back."</em></p>
+    <p>
+      <a href="https://validator.w3.org/check?uri=referer">HTML Validation</a> |
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Validation</a>
+    </p>
+    <p>&copy; 2025 ameliaeckard.com</p>
+  </footer>
+</body>
+</html>
