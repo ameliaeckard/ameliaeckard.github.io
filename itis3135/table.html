@@ -64,62 +64,50 @@
             <figcaption>Employee Information</figcaption>
             <table>
                 <tr>
-                    <th>Category</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Years of Service</th>
-                    <th>Monthly Salary</th>
-                </tr>
-                <tr>
                     <td rowspan="2">Marketing</td>
-                    <td id="n1">Alice Morgan</td>
+                    <th scope="row" id="n1">Alice Morgan</th>
                     <td>alice@firefoxcorp.com</td>
                     <td headers="n1">5</td>
                     <td>$4,000</td>
                 </tr>
                 <tr>
-                    <td id="n2">Bob Sanders</td>
+                    <th scope="row" id="n2">Bob Sanders</th>
                     <td>bobtheguy@yahoo.com</td>
                     <td headers="n2">12</td>
                     <td>$4,800</td>
                 </tr>
                 <tr>
                     <td rowspan="2">Engineering</td>
-                    <td id="n3">Clara Bell</td>
+                    <th scope="row" id="n3">Clara Bell</th>
                     <td>clara.bell@gmail.com</td>
                     <td headers="n3">8</td>
                     <td>$5,200</td>
                 </tr>
                 <tr>
-                    <td id="n4">Doug Flint</td>
+                    <th scope="row" id="n4">Doug Flint</th>
                     <td>dflint@stoneinc.com</td>
                     <td headers="n4">4</td>
                     <td>$3,900</td>
                 </tr>
                 <tr>
                     <td rowspan="3">Support</td>
-                    <td id="n5">Eve Carter</td>
+                    <th scope="row" id="n5">Eve Carter</th>
                     <td>eve_c@darkbaboonsinc.com</td>
                     <td headers="n5">2</td>
                     <td>$3,000</td>
                 </tr>
                 <tr>
-                    <td id="n6">Frank Li</td>
+                    <th scope="row" id="n6">Frank Li</th>
                     <td>frankli1992@gmail.com</td>
                     <td headers="n6">10</td>
                     <td>$4,500</td>
                 </tr>
                 <tr>
-                    <td id="n7">Gina Wells</td>
+                    <th scope="row" id="n7">Gina Wells</th>
                     <td>gwellz@darkbaboonsinc.com</td>
                     <td headers="n7">7</td>
                     <td>$4,100</td>
-                </tr>
-                <tr>
-                    <th colspan="3">Total Years of Service</th>
-                    <td>48</td>
-                    <td>$29,500</td>
-                </tr>
+                </tr>                
             </table>
         </figure>
     </main>
@@ -150,10 +138,7 @@
             border: 1px solid #444;
             text-align: left;
         }
-        table tr:first-child {
-            background-color: #333;
-            color: #489a6e;
-        }
+
         table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
