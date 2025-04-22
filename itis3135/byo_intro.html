@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Amelia Eckard | Absurd Eagle | BYO Intro</title>
+        <link rel="stylesheet" href="styles/default.css">
+        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Amelia Eckard | Absurd Eagle | BYO Intro</h1>
+            <div data-include="components/header.html"></div>
+        </header>
+        <main>
+            <h2>Build Your Own Introduction</h2>
+            <h3>Time to build your own Intro Page, please fill out the form below so we can create your own page.</h3>
+
+            <div class="form-container">
+                <form id="introForm">
+                    <label>Name: <input type="text" id="name" placeholder="Amelia Eckard" required></label><br>
+                    <label>Mascot: <input type="text" id="mascot" placeholder="Absurd Eagle" required></label><br>
+                    <label>Image: <input type="file" id="image" accept="image/png, image/jpeg" required></label><br>
+                    <label>Image Caption: <input type="text" id="caption" placeholder="Picture provided was taken when it was taken." required></label><br>
+                    <label>Personal Background: <textarea id="personalBg" placeholder="Born and raised in North Carolina." required></textarea></label><br>
+                    <label>Professional Background: <textarea id="profBg" placeholder=" For computer science, I’ve done a bunch of personal projects and am now doing an internship! I’ve also worked for the YMCA back in high school." required></textarea></label><br>
+                    <label>Academic Background: <textarea id="acadBg" placeholder=" I graduated from Southside Christian School with a high school diploma. Took a couple of classes at Wake Tech, and now I’m here at UNCC!" required></textarea></label><br>
+                    <label>Background in Web Development: <textarea id="webBg" placeholder="Took some computer science classes at Wake Tech and learned a lot from personal free learning websites. I also self-taught myself much of what I know beyond the classes I’ve taken here at UNCC." required></textarea></label><br>
+                    <label>Primary Computer Platform: <input type="text" id="platform" placeholder="Windows Laptop for class, Windows Desktop at home." required></label><br>
+                
+                    <label>Courses Currently Taking:</label>
+                    <div id="courses"></div>
+                    <button type="button" onclick="addCourseField()">Add Course</button>
+                    <br><br>
+                
+                    <label>Fun Fact? <input type="text" id="funny" placeholder="I danced ballet for 14+ years."></label><br>
+                    <label>Anything else? <input type="text" id="extra" placeholder="I love animals of all kinds!"></label><br>
+                
+                    <label><input type="checkbox" id="agreement" required> I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.</label><br>
+                
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+            </div>
+
+        </main>
+        <footer>
+            <div data-include="components/footer.html"></div>
+        </footer>
+        <script src="scripts/survey.js"></script>
+        <script src="scripts/include.js"></script>
+    </body>
+</html>
