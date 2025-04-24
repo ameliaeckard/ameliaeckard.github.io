@@ -260,3 +260,26 @@ a:visited {
     width: 88px;
     height: 31px;
 }
+#drawing-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0;
+    background: black;
+    border: 3px solid #a3b565;
+    border-radius: 12px;
+    padding: 0.5em;
+}
+#drawing-area canvas {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(80, 78, 118, 0.3);
+}
+
+.tagline {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1em;
+    color: #777;
+}
