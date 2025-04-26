@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rosier Photography</title>
-  <link rel="stylesheet" href="styles/style.css" />
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  </head>
 <body>
   <header>
-    <div data-include="/components/header.html"></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collections/index.html">Collections</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons">
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>    
   </header>
+
   <main>
     <section class="hero">
-      <h1>Rosier Photography</h1>
+      <img src="img/decay/decay10.jpg" alt="Rosier Photography Hero Image">
+      <section class="title">
+        <h1>Rosier Photography</h1>
+      </section>
     </section>
   </main>
-<div data-include="/components/footer.html"></div>
-<script src="/scripts/include.js"></script>
+  
+
+  <footer>
+    <p>&copy; <span id="year"></span> Rosier Photography. Site by Amelia Eckard.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
