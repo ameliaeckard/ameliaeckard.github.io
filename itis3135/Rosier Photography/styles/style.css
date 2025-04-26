@@ -1,4 +1,4 @@
-/* ===== Reset ===== */
+/* ===== Reset and Global Styles ===== */
 html, body {
   margin: 0;
   padding: 0;
@@ -10,6 +10,11 @@ html, body {
   color: #222;
   line-height: 1.8;
   font-size: 16px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 main {
@@ -18,13 +23,8 @@ main {
   flex-direction: column;
 }
 
-/* ===== Typography ===== */
-h1, h2, h3, p {
-  margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-h1 {
+/* ===== Typography Classes ===== */
+.heading-main {
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
   font-weight: normal;
@@ -32,13 +32,13 @@ h1 {
   margin: 3rem 0 1rem;
 }
 
-h2 {
+.heading-sub {
   font-size: 1.5rem;
   margin: 2rem 0 1rem;
   text-align: center;
 }
 
-p {
+.paragraph {
   max-width: 800px;
   margin: 1rem auto;
   text-align: center;
@@ -124,15 +124,9 @@ nav a:hover::after {
   color: white;
 }
 
-.title h1 {
+.title-text {
   font-size: 2.5rem;
   letter-spacing: 2px;
-}
-
-.title p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  max-width: 600px;
 }
 
 /* ===== Footer ===== */
@@ -145,7 +139,7 @@ footer {
   flex-shrink: 0;
 }
 
-/* ===== Responsive Images ===== */
+/* ===== Gallery Styles ===== */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -161,7 +155,7 @@ footer {
   transition: transform 0.2s;
 }
 
-/* ===== Collections Page ===== */
+/* ===== Collections Grid ===== */
 .collections-grid {
   display: flex;
   flex-wrap: wrap;
@@ -200,7 +194,7 @@ footer {
   color: white;
 }
 
-/* ===== Gallery Pages ===== */
+/* ===== Flex Gallery ===== */
 .gallery-flex {
   display: flex;
   flex-wrap: wrap;
@@ -231,7 +225,7 @@ footer {
     display: none;
   }
 
-  nav ul.show {
+  .show {
     display: flex;
   }
 
