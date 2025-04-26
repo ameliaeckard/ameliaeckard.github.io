@@ -13,7 +13,7 @@ html, body {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+body * {
   box-sizing: inherit;
 }
 
@@ -113,6 +113,7 @@ nav a:hover::after {
 .hero img {
   width: 40%;
   object-fit: cover;
+  box-sizing: border-box;
 }
 
 .title {
@@ -151,8 +152,9 @@ footer {
 .gallery img {
   width: 180px;
   height: auto;
+  object-fit: cover;
   border: 1px solid #ddd;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
 }
 
 /* ===== Collections Grid ===== */
@@ -174,7 +176,7 @@ footer {
 }
 
 .collection-image {
-  width: 500px;
+  width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -194,7 +196,7 @@ footer {
   color: white;
 }
 
-/* ===== Flex Gallery ===== */
+/* ===== Gallery Pages ===== */
 .gallery-flex {
   display: flex;
   flex-wrap: wrap;
