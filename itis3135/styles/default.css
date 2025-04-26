@@ -283,3 +283,74 @@ a:visited {
     margin-bottom: 1em;
     color: #777;
 }
+.mySlides {
+    display: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+.next {
+    right: 30%;
+}
+
+.prev {
+    left: 30%;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption-container {
+    text-align: center;
+    background-color: #a3b565;
+    padding: 2px 16px;
+    color: #f296bd;
+    border-radius: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.column {
+    flex: 0 0 auto;
+    width: calc(100% / 13 - 10px);
+    max-width: 100px;
+}
+
+.demo {
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.active, .demo:hover {
+    opacity: 1;
+}
+
+.mySlides img {
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
