@@ -13,44 +13,44 @@
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="collections.html">Collections</a></li>
+          <li><a href="collections/index.html">Collections</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <div class="social-icons">
-        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+        <a href="https://instagram.com/rosier_photography" target="_blank" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>    
     </header>
     <main>
-      <section class="collections-grid">
-        
-        <a href="marsh.html" class="collection-box">
-          <div class="slideshow" id="slideshow-marsh"></div>
-          <div class="collection-title">Stroll in the Marsh</div>
-        </a>
-  
-        <a href="western.html" class="collection-box">
-          <div class="slideshow" id="slideshow-western"></div>
-          <div class="collection-title">Western Dream</div>
-        </a>
-  
-        <a href="decay.html" class="collection-box">
-          <div class="slideshow" id="slideshow-decay"></div>
-          <div class="collection-title">Life and Decay</div>
-        </a>
-  
-      </section>
-    </main>
+        <section class="collections-grid">
+      
+          <a href="collections/marsh.html" class="collection-box">
+            <div class="collection-image" style="background-image: url('img/marsh/marsh9.jpg');"></div>
+            <div class="collection-title">Stroll in the Marsh</div>
+          </a>
+      
+          <a href="collections/western.html" class="collection-box">
+            <div class="collection-image" style="background-image: url('img/western/western4.jpg');"></div>
+            <div class="collection-title">Western Dream</div>
+          </a>
+      
+          <a href="collections/decay.html" class="collection-box">
+            <div class="collection-image" style="background-image: url('img/decay/decay1.jpg');"></div>
+            <div class="collection-title">Life and Decay</div>
+          </a>
+      
+        </section>
+      </main>
+      
     <footer>
       <p>&copy; <span id="year"></span> Rosier Photography. Site by Amelia Eckard.</p>
     </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    <script src="../scripts/include.js"></script>
-    <script src="../scripts/collections.js"></script>
+    <script src="scripts/include.js"></script>
   </body>
   </html>
