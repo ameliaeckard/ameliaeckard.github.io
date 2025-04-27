@@ -1,30 +1,25 @@
-/* ===== Reset and Global Styles ===== */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+body {
   font-family: 'Cormorant Garamond', Georgia, serif;
   background-color: #ffffff;
   color: #222;
+  margin: 0;
+  padding: 0;
   line-height: 1.8;
   font-size: 16px;
-  box-sizing: border-box;
-}
-
-body * {
-  box-sizing: inherit;
-}
-
-main {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* ===== Typography Classes ===== */
-.heading-main {
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+h1 {
   font-size: 2.5rem;
   letter-spacing: 0.1rem;
   font-weight: normal;
@@ -32,19 +27,18 @@ main {
   margin: 3rem 0 1rem;
 }
 
-.heading-sub {
+h2 {
   font-size: 1.5rem;
   margin: 2rem 0 1rem;
   text-align: center;
 }
 
-.paragraph {
+p {
   max-width: 800px;
   margin: 1rem auto;
   text-align: center;
 }
 
-/* ===== Header and Navigation ===== */
 header {
   padding: 2rem 0;
   background-color: #ffffff;
@@ -81,7 +75,6 @@ nav a:hover::after {
   background: #222;
 }
 
-/* ===== Social Icons ===== */
 .social-icons {
   position: absolute;
   top: 1.5rem;
@@ -100,7 +93,6 @@ nav a:hover::after {
   opacity: 0.6;
 }
 
-/* ===== Hero Section ===== */
 .hero {
   position: relative;
   display: flex;
@@ -113,7 +105,6 @@ nav a:hover::after {
 .hero img {
   width: 40%;
   object-fit: cover;
-  box-sizing: border-box;
 }
 
 .title {
@@ -125,12 +116,24 @@ nav a:hover::after {
   color: white;
 }
 
-.title-text {
+.title h1 {
   font-size: 2.5rem;
   letter-spacing: 2px;
 }
 
-/* ===== Footer ===== */
+.title p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.intro {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 footer {
   text-align: center;
   padding: 2rem;
@@ -140,7 +143,6 @@ footer {
   flex-shrink: 0;
 }
 
-/* ===== Gallery Styles ===== */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -152,20 +154,59 @@ footer {
 .gallery img {
   width: 180px;
   height: auto;
-  object-fit: cover;
   border: 1px solid #ddd;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
 }
 
-/* ===== Collections Grid ===== */
-.collections-grid {
+
+.split {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 2rem;
   padding: 5rem 2rem;
+  gap: 50px;
+  flex-wrap: wrap;
 }
 
+.split-text {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.split-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.split-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.split-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.split-image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border: 1px solid #ddd;
+}
+
+.contact-instagram {
+  color: #222;
+  font-size: 2rem;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.contact-instagram:hover {
+  opacity: 0.6;
+}
 .collection-box {
   position: relative;
   height: 300px;
@@ -176,7 +217,7 @@ footer {
 }
 
 .collection-image {
-  width: 100%;
+  width: 500px;
   height: 100%;
   background-size: cover;
   background-position: center;
@@ -196,7 +237,15 @@ footer {
   color: white;
 }
 
-/* ===== Gallery Pages ===== */
+
+
+.collections-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 5rem 2rem;
+}
 .gallery-flex {
   display: flex;
   flex-wrap: wrap;
@@ -213,22 +262,32 @@ footer {
   transition: transform 0.3s ease;
 }
 
-/* ===== Responsive Design ===== */
+
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav ul {
+    display: none;
     flex-direction: column;
-    gap: 1rem;
     background-color: #fff;
     position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
     border-top: 1px solid #eee;
-    display: none;
   }
 
-  .show {
+  nav ul.show {
     display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .hero img {
