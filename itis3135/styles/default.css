@@ -79,8 +79,8 @@ main p {
 }
 
 .project-block {
-    width: 45%;
-    height: 300px;
+    width: 20%;
+    height: 150px;
     background-color: #f296bd;
     border-radius: 15px;
     padding: 20px;
@@ -255,3 +255,102 @@ a:visited {
       width: 90%;
     }
   }
+  .validator-badge {
+    border: 0;
+    width: 88px;
+    height: 31px;
+}
+#drawing-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0;
+    background: black;
+    border: 3px solid #a3b565;
+    border-radius: 12px;
+    padding: 0.5em;
+}
+#drawing-area canvas {
+    display: block;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(80, 78, 118, 0.3);
+}
+
+.tagline {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 1em;
+    color: #777;
+}
+.mySlides {
+    display: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+}
+
+.next {
+    right: 30%;
+}
+
+.prev {
+    left: 30%;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.caption-container {
+    text-align: center;
+    background-color: #a3b565;
+    padding: 2px 16px;
+    color: #f296bd;
+    border-radius: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.column {
+    flex: 0 0 auto;
+    width: calc(100% / 13 - 10px);
+    max-width: 100px;
+}
+
+.demo {
+    width: 100%;
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.active, .demo:hover {
+    opacity: 1;
+}
+
+.mySlides img {
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}

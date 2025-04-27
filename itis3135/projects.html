@@ -10,25 +10,7 @@
 <body>
     <header>
         <h1>Amelia Eckard | Projects</h1>
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="./">Files</a> | 
-            <a href="introduction.html">Introduction</a> | 
-            <a href="contract.html">Contract</a> | 
-            <div class="dropdown">
-                <a href="projects.html">Projects ▾</a>
-                <ul class="dropdown-content">
-                    <li><a href="introduction.html">Introduction Page</a></li>
-                    <li><a href="index.html">Website Home</a></li>
-                    <li><a href="contract.html">Contract Page</a></li>
-                    <li><a href="absurdeagle.com/about.html">Business Page</a></li>
-                    <li><a href="stuff/BaDp@ge!!.HTM">CRAPPY Page</a></li>
-                    <li><a href="hobby/hobby.html">Hobby Page</a></li>
-                    <li><a href="table.html">Table Page</a></li>
-                    <li><a href="amealieckard.com/index.html">Firm Page</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div data-include="components/header.html"></div>
     </header>  
     <main>
     <div class="title">
@@ -45,13 +27,13 @@
             <h2>Website Home</h2>
             <p><a href="index.html">View Project</a></p>
         </div>
-        <div class="project-block project-block3">
-            <h2>Contract Page</h2>
-            <p><a href="contract.html">View Project</a></p>
-        </div>
         <div class="project-block project-block4">
             <h2>Business Page</h2>
             <p><a href="absurdeagle.com/about.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block3">
+            <h2>Contract Page</h2>
+            <p><a href="contract.html">View Project</a></p>
         </div>
         <div class="project-block project-block2">
             <h2>Hobby Page</h2>
@@ -61,13 +43,41 @@
             <h2>CRAP Page</h2>
             <p><a href="stuff/BaDp@ge!!.HTM">View Project</a></p>
         </div>
+        <div class="project-block project-block3">
+            <h2>Firm Page</h2>
+            <p><a href="amealieckard.com/index.html">View Project</a></p>
+        </div>
         <div class="project-block project-block4">
             <h2>Table Page</h2>
             <p><a href="table.html">View Project</a></p>
         </div>
+        <div class="project-block project-block2">
+            <h2>BYO Intro</h2>
+            <p><a href="byo_intro.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block1">
+            <h2>Slideshow page</h2>
+            <p><a href="slideshow.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block2">
+            <h2>Review 1 page</h2>
+            <p><a href="review1.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block4">
+            <h2>Review 2 page</h2>
+            <p><a href="review2.html">View Project</a></p>
+        </div>
         <div class="project-block project-block3">
-            <h2>Firm Page</h2>
-            <p><a href="amealieckard.com/index.html">View Project</a></p>
+            <h2>Website Evaluations</h2>
+            <p><a href="website_evaluations.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block2">
+            <h2>Drawing page</h2>
+            <p><a href="drawing.html">View Project</a></p>
+        </div>
+        <div class="project-block project-block1">
+            <h2>Client Page</h2>
+            <p><a href="rosier_photography/index.html">View Project</a></p>
         </div>
     </div>
     <div class="bottom">
@@ -75,20 +85,8 @@
     </div>
     </main> 
     <footer>
-        <nav>
-            <a href="https://webpages.charlotte.edu/aeckard3/">CLT Homepage</a> | 
-            <a href="https://github.com/ameliaeckard">GitHub.com</a> |
-            <a href="https://ameliaeckard.github.io/">GitHub.io</a> |
-            <a href="https://www.linkedin.com/in/ameliaeckard/">LinkedIn</a>
-        </nav>
-        <p>
-            Page Built by <a href="https://ameliaeckard.com/">ameliaeckard.com</a>, 
-            <em><a href="https://www.freecodecamp.org/certification/aeckard3/responsive-web-design">Certified in Responsive Web Design</a></em> &copy; 2025
-        </p>
-        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">HTML Validation</a>
-        |
-        <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">CSS Validation</a>
+        <div data-include="components/footer.html"></div>
     </footer>
-    
+    <script src="scripts/include.js"></script> 
 </body>
 </html>

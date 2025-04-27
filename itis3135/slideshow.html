@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amelia Eckard | Absurd Eagle | Slideshow</title>
+    <link rel="stylesheet" href="styles/default.css">
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Amelia Eckard | Absurd Eagle | Slideshow</h1>
+        <div data-include="components/header.html"></div>
+    </header>
+    <main>
+        <h2>Image Slideshow - My Name in Pictures</h2>
+
+        <div class="container">
+            <!-- Slides -->
+            <div class="mySlides">
+                <img src="images/apple.png" alt="A - Apple">
+            </div>
+            <div class="mySlides">
+                <img src="images/moon.png" alt="M - Moon">
+            </div>
+            <div class="mySlides">
+                <img src="images/elephant.png" alt="E - Elephant">
+            </div>
+            <div class="mySlides">
+                <img src="images/lighthouse.png" alt="L - Lighthouse">
+            </div>
+            <div class="mySlides">
+                <img src="images/iceberg.png" alt="I - Iceberg">
+            </div>
+            <div class="mySlides">
+                <img src="images/airplane.png" alt="A - Airplane">
+            </div>
+            <div class="mySlides">
+                <img src="images/eagle.png" alt="E - Eagle">
+            </div>
+            <div class="mySlides">
+                <img src="images/cactus.png" alt="C - Cactus">
+            </div>
+            <div class="mySlides">
+                <img src="images/koala.png" alt="K - Koala">
+            </div>
+            <div class="mySlides">
+                <img src="images/aligator.png" alt="A - Aligator">
+            </div>
+            <div class="mySlides">
+                <img src="images/river.png" alt="R - River">
+            </div>
+            <div class="mySlides">
+                <img src="images/dragonfly.png" alt="D - Dragonfly">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <div class="row">
+                <div class="column"><img class="demo" src="images/apple.png" alt="A - Apple" onclick="currentSlide(1)"></div>
+                <div class="column"><img class="demo" src="images/moon.png" alt="M - Moon" onclick="currentSlide(2)"></div>
+                <div class="column"><img class="demo" src="images/elephant.png" alt="E - Elephant" onclick="currentSlide(3)"></div>
+                <div class="column"><img class="demo" src="images/lighthouse.png" alt="L - Lighthouse" onclick="currentSlide(4)"></div>
+                <div class="column"><img class="demo" src="images/iceberg.png" alt="I - Iceberg" onclick="currentSlide(5)"></div>
+                <div class="column"><img class="demo" src="images/airplane.png" alt="A - Airplane" onclick="currentSlide(6)"></div>
+                <div class="column"><img class="demo" src="images/eagle.png" alt="E - Eagle" onclick="currentSlide(7)"></div>
+                <div class="column"><img class="demo" src="images/cactus.png" alt="C - Cactus" onclick="currentSlide(8)"></div>
+                <div class="column"><img class="demo" src="images/koala.png" alt="K - Koala" onclick="currentSlide(9)"></div>
+                <div class="column"><img class="demo" src="images/aligator.png" alt="A - Aligator" onclick="currentSlide(10)"></div>
+                <div class="column"><img class="demo" src="images/river.png" alt="R - River" onclick="currentSlide(11)"></div>
+                <div class="column"><img class="demo" src="images/dragonfly.png" alt="D - Dragonfly" onclick="currentSlide(12)"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div data-include="components/footer.html"></div>
+    </footer>
+    <script src="scripts/slideshow.js" defer></script>
+    <script src="scripts/include.js" defer></script>
+</body>
+</html>

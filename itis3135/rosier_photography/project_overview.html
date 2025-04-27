@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Overview | Rosier Photography</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/style.css">
+        <style>
+            main, .intro, .intro h3, .intro p, .intro ul, .intro li {
+              text-align: left;
+              margin-left: auto;
+              margin-right: auto;
+              max-width: 800px;
+            }
+          
+            ul {
+              padding-left: 1.5rem;
+            }
+          </style>          
+        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+      </head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="project_overview.html">Overview</a></li>
+        </ul>
+      </nav>
+      <div class="social-icons">
+        <a href="https://instagram.com/rosier_photography" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+</header>
+
+<main>
+  <h2>Rosier Photography Project Overview</h2>
+
+  <section class="intro">
+    <h3>Project Overview</h3>
+    <p>The purpose of this project is to design and develop a portfolio website for Jackson Derosier's film photography work. The website showcases various collections of film photography with a clean, professional design that matches the artistic aesthetic of the client. It is intended to help the client share his work publicly and build a professional online presence.</p>
+
+    <h3>Intended Users</h3>
+    <ul>
+      <li>Potential photography clients</li>
+      <li>Artistic collaborators and galleries</li>
+      <li>Casual viewers and art enthusiasts</li>
+    </ul>
+
+    <h3>Content Overview</h3>
+    <ul>
+      <li>Home Page: Introduction and dynamic hero imagery</li>
+      <li>About Page: Client background and photography journey</li>
+      <li>Contact Page: Ways to reach out and social media links</li>
+      <li>Collections: Gallery previews for different collections</li>
+      <li>Gallery Pages: Full-size images flex-wrapped neatly</li>
+    </ul>
+
+    <h3>Client Information</h3>
+    <ul>
+      <li><strong>Name:</strong> Jackson Derosier</li>
+      <li><strong>Business:</strong> Rosier Photography</li>
+      <li><strong>Email:</strong> **private</li>
+      <li><strong>Phone:</strong> **private</li>
+    </ul>
+
+    <h3>Wireframe</h3>
+    <figure>
+      <img src="../img/wireframe.png" alt="Wireframe for Rosier Photography">
+      <figcaption>Wireframe of Homepage Layout</figcaption>
+    </figure>
+    <p><a href="https://drive.google.com/file/d/YOUR_WIREFRAME_LINK/view?usp=sharing" target="_blank">View Wireframe Here</a></p>
+
+    <h3>Site Map</h3>
+    <figure>
+      <img src="../img/sitemap.png" alt="Site Map for Rosier Photography">
+      <figcaption>Site Map Structure</figcaption>
+    </figure>
+    <p><a href="https://drive.google.com/file/d/YOUR_SITEMAP_LINK/view?usp=sharing" target="_blank">View Site Map Here</a></p>
+
+    <h3>Dynamic Functionality</h3>
+    <ul>
+        <li><strong>Current Year Display:</strong> The footer dynamically displays the current year using JavaScript.</li>
+        <li><strong>Header Color Change on Scroll:</strong> The header background color changes subtly when the user scrolls down past 50px, creating a dynamic visual cue.</li>
+        <li><strong>Dynamic Body Height Adjustment:</strong> On page load, JavaScript sets the body height based on the viewport height to ensure the footer always sticks to the bottom even with minimal content.</li>
+    </ul>
+
+
+    <h3>Additional Features</h3>
+    <ul>
+      <li>Instagram social link integration</li>
+      <li>Flexbox and responsive layout for mobile friendliness</li>
+    </ul>
+
+    <h3>Validation</h3>
+    <ul>
+      <li>HTML validated with no errors</li>
+      <li>CSS validated with no errors</li>
+      <li>WCAG accessibility checked</li>
+    </ul>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Rosier Photography. Site by Amelia Eckard.</p>
+  <p>
+    <a href="https://validator.w3.org/check?uri=referer">HTML Validation</a> |
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Validation</a> |
+    <a href="https://wave.webaim.org/">WCAG Validation</a>
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
