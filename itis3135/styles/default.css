@@ -192,28 +192,38 @@ a:visited {
     cursor: pointer;
 }
 
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 40%;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+.slide-container {
+  position: relative;
 }
 
-.next {
-    right: 30%;
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  background-color: #f296bd;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
 .prev {
-    left: 30%;
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: #a3b565;
 }
 
 .caption-container {

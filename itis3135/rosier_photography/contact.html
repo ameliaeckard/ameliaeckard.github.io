@@ -41,6 +41,20 @@
             <i class="fab fa-instagram"></i>
           </a>
         </p>
+        <div class="email-box">
+          <form onsubmit="sendMessage(event)" class="contact-form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+          
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+          
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+          
+            <button type="submit">Send Message</button>
+          </form>
+        </div>            
       </div>
     </section>
   </main>   
@@ -57,5 +71,21 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+  function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill out all fields.');
+      return;
+    }
+    alert('Thank you, ' + name + '! Your message has been sent.');
+    document.querySelector('.contact-form').reset();
+  }
+</script>
 </body>
 </html>
