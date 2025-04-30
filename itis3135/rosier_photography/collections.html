@@ -11,20 +11,7 @@
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="collections.html">Collections</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="project_overview.html">Overview</a></li>
-        </ul>
-      </nav>
-      <div class="social-icons">
-        <a href="https://instagram.com/rosier_photography" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>    
+      <div data-include="components/header.html"></div> 
     </header>
     <main>
       <h1>Collections</h1>
@@ -53,12 +40,7 @@
     
     
       <footer>
-        <p>&copy; <span id="year"></span> Rosier Photography. Site by Amelia Eckard.</p>
-        <p>
-          <a href="https://validator.w3.org/check?uri=referer">HTML Validation</a> |
-          <a href="https://jigsaw.w3.org/css-validator/check/referer">CSS Validation</a> |
-          <a href="https://wave.webaim.org/report#/">WCAG Validation</a>
-        </p>
+        <div data-include="components/footer.html"></div>
       </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
