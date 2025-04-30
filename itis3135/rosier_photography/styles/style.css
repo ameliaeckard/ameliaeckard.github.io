@@ -147,7 +147,7 @@ footer {
   background-color: #ffffff;
   flex-shrink: 0;
 }
-#backToTopBtn {
+#back-to-top-btn {
   display: none;
   position: fixed;
   bottom: 40px;
@@ -160,10 +160,6 @@ footer {
   cursor: pointer;
   opacity: 0.7;
 }
-#backToTopBtn:hover {
-  opacity: 1;
-}
-
 /* Gallery */
 .gallery {
   display: flex;
