@@ -15,9 +15,9 @@ class StudyBuddyApp {
         ];
         
         this.backgroundSounds = [
-            {name: "Ocean Waves", emoji: "🌊", defaultVolume: 0.4, file: "ocean.mp3"},
-            {name: "Rain", emoji: "🌧️", defaultVolume: 0.3, file: "rain.mp3"},
-            {name: "Background Talking", emoji: "💬", defaultVolume: 0.5, file: "talking.mp3"}
+            {name: "Ocean Waves", emoji: "🌊", defaultVolume: 0, file: "ocean.mp3"},
+            {name: "Rain", emoji: "🌧️", defaultVolume: 0, file: "rain.mp3"},
+            {name: "Background Talking", emoji: "💬", defaultVolume: 0, file: "talking.mp3"}
         ];
 
         this.audioContext = null;
@@ -107,7 +107,7 @@ class StudyBuddyApp {
 
     async loadTimerSounds() {
         try {
-            const startResponse = await fetch('/audio/start.mp3');
+            const startResponse = await fetch('audio/start.mp3');
             if (startResponse.ok) {
                 const startArrayBuffer = await startResponse.arrayBuffer();
                 this.audioBuffers.start = await this.audioContext.decodeAudioData(startArrayBuffer);
@@ -117,7 +117,7 @@ class StudyBuddyApp {
         }
 
         try {
-            const completeResponse = await fetch('/audio/complete.mp3');
+            const completeResponse = await fetch('audio/complete.mp3');
             if (completeResponse.ok) {
                 const completeArrayBuffer = await completeResponse.arrayBuffer();
                 this.audioBuffers.complete = await this.audioContext.decodeAudioData(completeArrayBuffer);
@@ -465,6 +465,8 @@ class StudyBuddyApp {
         taskCounter.textContent = `${completed}/${this.tasks.length} tasks completed`;
     }
 
+    
+
     initFlashcards() {
         const addCardBtn = document.getElementById('add-card-btn');
         const cardFrontInput = document.getElementById('card-front');
@@ -660,7 +662,7 @@ class StudyBuddyApp {
             this.soundGains[soundName] = gainNode;
 
             try {
-                const response = await fetch(`/audio/${fileName}`);
+                const response = await fetch(`audio/${fileName}`);
                 if (response.ok) {
                     const arrayBuffer = await response.arrayBuffer();
                     const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);

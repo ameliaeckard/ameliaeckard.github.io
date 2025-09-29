@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-heading: gill-sans, "Gill Sans MT", Calibri, sans-serif;
+  --font-body: "Playfair Display", serif;
+  --font-mono: gill-sans, "Gill Sans MT", Calibri, sans-serif;
 
   --color-background: #ffffff;
   --color-surface: #fafafa;
@@ -11,14 +11,14 @@
   --color-border: #e5e5e5;
   --color-text: #0a0a0a;
   --color-text-secondary: #737373;
-  --color-primary: #6366f1;
-  --color-primary-hover: #4f46e5;
-  --color-primary-active: #4338ca;
-  --color-success: #22c55e;
-  --color-success-hover: #16a34a;
+  --color-primary: rgb(243, 174, 197);
+  --color-primary-hover: rgb(243, 134, 170);
+  --color-primary-active: rgb(240 110 154);
+  --color-success: #629a77;
+  --color-success-hover: #5f8d70;
   --color-error: #ef4444;
   --color-error-hover: #dc2626;
-  --color-warning: #f59e0b;
+  --color-warning: #f9b744;
   
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
@@ -49,9 +49,9 @@
   --color-border: #262626;
   --color-text: #fafafa;
   --color-text-secondary: #a3a3a3;
-  --color-primary: #818cf8;
-  --color-primary-hover: #6366f1;
-  --color-primary-active: #4f46e5;
+  --color-primary: rgb(243, 174, 197);
+  --color-primary-hover: rgb(243, 134, 170);
+  --color-primary-active: rgb(240 110 154);
   --color-success: #4ade80;
   --color-success-hover: #22c55e;
   --color-error: #f87171;
@@ -529,9 +529,15 @@ h4 {
 }
 
 .flashcard-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.flashcard-list {
+  flex: 0 0 auto;
+  min-width: 280px;
+  max-width: 350px;
 }
 
 .flashcard-list h4 {
@@ -551,7 +557,7 @@ h4 {
 
 .card-list {
   list-style: none;
-  max-height: 320px;
+  max-height: 350px;
   overflow-y: auto;
 }
 
@@ -590,6 +596,7 @@ h4 {
 .card-list-actions {
   display: flex;
   gap: var(--space-1);
+  flex-shrink: 0;
 }
 
 .card-edit-btn, .card-delete-btn {
@@ -608,14 +615,18 @@ h4 {
 }
 
 .flashcard-display {
+  flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flashcard {
   width: 100%;
-  max-width: 400px;
-  height: 240px;
-  margin: 0 auto var(--space-3) auto;
+  max-width: 450px;
+  height: 300px;
+  margin-bottom: var(--space-3);
   cursor: pointer;
 }
 
@@ -653,7 +664,6 @@ h4 {
   justify-content: center;
   gap: var(--space-3);
 }
-
 .master-controls {
   margin-bottom: var(--space-5);
   padding-bottom: var(--space-4);
