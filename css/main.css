@@ -1,0 +1,930 @@
+/*────────────────────────────────────────────
+  01. Root Variables
+────────────────────────────────────────────*/
+:root {
+  --pink:   #FCD6DF;
+  --green:  #A3B565;
+  --blue:   #C4DDF2;
+  --white:  #ffffff;
+  --yellow: #F9C349;
+
+  --serif:  "Playfair Display", serif;
+  --script: "Great Vibes", cursive;
+  --sans:   gill-sans, "Gill Sans MT", Calibri, sans-serif;
+}
+
+/*────────────────────────────────────────────
+  02. Global Reset & Base
+────────────────────────────────────────────*/
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  display: flex;
+  flex-direction: column;
+    background:
+    linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+    url("../images/sparklebackground.png") repeat;
+  background-size: 200px 200px;
+}
+
+/* Make main content grow to fill space above footer */
+main, .main-content, .about, .section, .contact-section {
+  flex: 1 0 auto;
+}
+
+/* Footer always at bottom */
+footer, .glass-footer {
+  flex-shrink: 0;
+}
+/*────────────────────────────────────────────
+  11. Spacer
+────────────────────────────────────────────*/
+.spacer {
+  width: 100vw;
+  height: 2.5rem;
+  background: url("../images/checkerprint.png") repeat-x center;
+  background-size: auto 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+/*────────────────────────────────────────────
+  03. Glassmorphic NAV
+────────────────────────────────────────────*/
+.glass-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255 255 255 / 0.3);
+  background: rgba(255 255 255 / 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(184 191 199 / 0.50);
+  z-index: 1000;
+}
+
+.nav-logo img { height: 40px; width: auto; display: block; }
+
+.nav-links {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+.nav-links a {
+  font: 700 1.1rem var(--serif);
+  color: rgb(240 110 154);
+  text-decoration: none;
+  transition: color 0.3s, font-family 0.3s;
+}
+.nav-links a:hover {
+  font-family: var(--script);
+  font-size: 0.8rem;
+}
+
+.social-links {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center
+}
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: rgb(240 110 154);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.social-links a:hover { color: var(--pink); }
+
+/*────────────────────────────────────────────
+  04. Hero Section
+────────────────────────────────────────────*/
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  min-height: 60vh;
+  padding: 6rem 0 2rem;
+  background: url("../images/main.jpg") center / cover no-repeat;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero .name { display: flex; align-items: center; }
+.name-text { display: flex; flex-direction: column; align-items: flex-start; }
+.hero h1 {
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-family: var(--serif);
+  font-size: 6vw;
+  color: var(--pink);
+  text-shadow: 2px 2px rgb(237 87 112);
+}
+.hero h2 {
+  margin: 0;
+  font-family: var(--script);
+  font-size: 2.5vw;
+  color: rgb(224 237 250);
+}
+.hero-badge {
+  width: 10em;
+  height: 10em;
+  pointer-events: none;
+  animation: spin 20s linear infinite;
+}
+.hero-badge:hover { cursor: url("../images/like.png"), auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/*────────────────────────────────────────────
+  05. Generic Sections
+────────────────────────────────────────────*/
+.section,
+.about-inner,
+.resume-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+.section h2,
+.resume-cta h2 {
+  margin-bottom: 1rem;
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: rgb(240 110 154);
+}
+.section p,
+.cta-copy {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.script-accent{
+  font-family: var(--script);
+  font-size: 2.5rem;
+}
+
+/*────────────────────────────────────────────
+  06. Footer (Glass Style)
+────────────────────────────────────────────*/
+.glass-footer {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.glass-footer .footer-bg {
+  position: absolute;
+  inset: 0;
+  background-color: var(--blue);
+  z-index: 1;
+}
+.glass-footer .footer-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: #333;
+}
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.footer-info,
+.footer-connect,
+.footer-logo { flex: 1 1 200px; min-width: 180px; }
+.footer-info h3,
+.footer-connect h3,
+.footer-penpal h3 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: rgb(240 110 154);
+  letter-spacing: 0.05em;
+  font-family: var(--script);
+}
+.footer-info ul,
+.footer-social ul { list-style: none; margin: 0; padding: 0; }
+.footer-info ul li,
+.footer-social ul li { margin-bottom: 0.3rem; }
+.footer-info ul li a,
+.footer-social ul li a {
+  color: var(--white);
+  font-family: var(--sans);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-info ul li a:hover,
+.footer-social ul li a:hover { font-family: var(--script); }
+.footer-social {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+.footer-logo { display: flex; align-items: center; justify-content: center; }
+.footer-logo img { height: 10rem; width: auto; border-radius: 12px; }
+.footer-copy {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: rgb(240 110 154);
+  letter-spacing: 0.03em;
+}
+
+/*────────────────────────────────────────────
+  07. Featured Work Section
+────────────────────────────────────────────*/
+.curved-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+.curved-title svg {
+  width: 400px;
+  max-width: 90vw;
+  height: 80px;
+  overflow: visible;
+}
+.curved-text {
+  font-family: var(--script);
+  font-size: 3.5rem;
+  fill: rgb(240 110 154);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-shadow: 1px 1px 8px rgba(163,181,101,0.08);
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0 0 0 / 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03) rotate(-1deg);
+  box-shadow: 0 12px 32px rgba(0 0 0 / 0.10);
+}
+.project-card h3 {
+  margin: 1rem 1.2rem 0.5rem;
+  font-family: var(--script);
+  font-size: 1.6rem;
+  color: rgb(240 110 154);
+  display: flex;
+  justify-content: center;
+  letter-spacing: .05rem;
+}
+.project-desc {
+  flex: 1;
+  margin: 0 1.2rem 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #864b58;
+}
+
+/*────────────────────────────────────────────
+  08. Buttons
+────────────────────────────────────────────*/
+.btn,
+.resume-btn {
+  display: inline-block;
+  margin: 0 1.2rem 1.6rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2em;
+  font: 600 1rem var(--sans);
+  color: rgb(240 110 154);
+  background: color-mix(in srgb, #e2eaee 70%, var(--blue) 30%);
+  box-shadow:
+    0 4px 24px rgba(196, 221, 242, 0.18),
+    0 1.5px 6px rgba(255,255,255,0.18) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+.btn:hover,
+.resume-btn:hover {
+  font-family: var(--script);
+}
+
+/*────────────────────────────────────────────
+  09. Resume CTA
+────────────────────────────────────────────*/
+.resume-cta {
+  width: 100%;
+  background: var(--white);
+}
+.star-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.star {
+  width: 5em;
+  height: 5em;
+  pointer-events: none;
+  animation: star-pulse 2.5s ease-in-out infinite;
+}
+@keyframes star-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.18); opacity: 0.85; }
+}
+
+.resume-links {
+  text-align: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: -1rem;
+}
+
+/*────────────────────────────────────────────
+  10. About Section
+────────────────────────────────────────────*/
+.about {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: var(--white);
+  padding: 4rem 0;
+  box-sizing: border-box;
+}
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 1.4fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+.about .hello {
+  margin: 0 0 0.6rem;
+  font-family: var(--script);
+  letter-spacing: -0.02em;
+  color: var(--pink);
+  text-shadow: 2.2px 2.2px rgb(237 87 112);
+  font-size: 6rem;
+  line-height: 0.9;
+}
+.about .about-bio {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgb(240 110 154);
+}
+.about-image {
+  width: 180px;
+  max-width: 100%;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.about-points {
+  width: 5.5rem;
+  height: auto;
+  vertical-align: middle;
+  margin-top:-2.5rem;
+}
+.about-image-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.about-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.about-badge {
+  color: rgb(240 110 154);
+  background: color-mix(in srgb, #e2eaee 70%, var(--blue) 30%);
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 0.35em 1.1em;
+  border-radius: 2em;
+  box-shadow: 0 2px 8px rgba(163,181,101,0.10);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+  cursor: default;
+  user-select: none;
+  z-index: 1;
+  position: relative;
+}
+.about-badge:hover {
+  transform: scale(1.25) rotate(-7deg);
+  box-shadow: 0 4px 16px rgba(163,181,101,0.18);
+  z-index: 2;
+}
+.contact-form {
+  background-color: var(--white);
+  border-radius: 36px;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 750px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 50rem;
+  max-width: 700px;
+  padding: 0.8em 1em;
+  border: 1.5px solid var(--blue);
+  border-radius: 1.5em;
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  background: #e2eaee;
+  color: rgb(240 110 154);
+  box-shadow: 0 2px 8px rgba(163,181,101,0.08);
+  transition: border 0.2s, box-shadow 0.2s;
+
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgb(240, 110, 154);
+  opacity: 1;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgb(240, 110, 154);
+  box-shadow: 0 0 0 2px var(--pink);
+  outline: none;
+}
+
+.contact-form button.btn {
+  display: inline-block;
+  margin: 0 1.2rem 1.6rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2em;
+  font: 600 1rem var(--sans);
+  color: rgb(240 110 154);
+  background: color-mix(in srgb, #e2eaee 70%, var(--blue) 30%);
+  box-shadow:
+    0 4px 24px rgba(196, 221, 242, 0.18),
+    0 1.5px 6px rgba(255,255,255,0.18) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+}
+
+.contact-form button.btn:hover {
+  font-family: var(--script);
+}
+
+.connect {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.desc {
+  flex: 1;
+  margin: 0 1.2rem 1.2rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgb(240 110 154);
+  background: color-mix(in srgb, #e2eaee 70%, var(--blue) 30%);
+  box-shadow:
+    0 4px 24px rgba(196, 221, 242, 0.18),
+    0 1.5px 6px rgba(255,255,255,0.18) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+}
+
+.links-curved-title {
+  margin-bottom: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+.links-curved-title svg {
+  width: 400px;
+  max-width: 90vw;
+  height: 80px;
+  overflow: visible;
+}
+
+.links {
+  padding: 1rem;
+  margin: 0 auto;
+  gap: 0.4rem;
+  max-width: 340px;
+  background-color: var(--white);
+}
+
+.links a.btn {
+  margin: 0;
+  padding: 0.7rem 1.2rem;
+}
+
+
+/* Add to the end of main.css */
+/*────────────────────────────────────────────
+  Resume Classic Styling
+────────────────────────────────────────────*/
+.resume-section {
+  background: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(163,181,101,0.10);
+  max-width: 1000px;
+  margin: 3rem auto 2rem auto;
+  padding: 2.5rem 2rem;
+  font-family: var(--sans);
+}
+
+.resume-section h2 {
+  font-size: 2.2rem;
+  font-family: var(--serif);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.resume-section .desc {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.resume-section h3.resume-heading {
+  font-size: 1.1rem;
+  font-family: var(--serif);
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin-top: 2.2rem;
+  margin-bottom: 0.7rem;
+  color: #222;
+  border-bottom: 2px solid #222;
+  padding-bottom: 0.2rem;
+}
+
+.resume-section ul {
+  margin: 0 0 1.2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-section li {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.7rem;
+  color: #222;
+}
+
+.resume-section .resume-job,
+.resume-section .resume-edu,
+.resume-section .resume-involve {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.resume-section .resume-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.resume-section .resume-date {
+  font-size: 1rem;
+  color: #222;
+  font-family: var(--sans);
+  white-space: nowrap;
+}
+
+.resume-section ul ul {
+  margin: 0.3rem 0 0.7rem 1.5rem;
+  list-style: disc inside;
+  font-weight: normal;
+  color: #444;
+  font-size: 0.98rem;
+}
+
+.resume-section a {
+  color: var(--pink);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.resume-section a:hover {
+  color: var(--green);
+  font-family: var(--script);
+}
+
+/* Interactive Resume Features */
+.interactive-hover {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-bottom: 2px dotted transparent;
+}
+
+.interactive-hover:hover {
+  color: rgb(240 110 154);
+  border-bottom-color: rgb(240 110 154);
+}
+
+.tooltip {
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  max-width: 300px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  line-height: 1.4;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #333;
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-link {
+  color: rgb(240 110 154);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.project-link:hover {
+  color: var(--green);
+  transform: translateY(-1px);
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--green);
+  transition: width 0.3s ease;
+}
+
+.project-link:hover::after {
+  width: 100%;
+}
+
+.demo-link {
+  background: linear-gradient(135deg, rgb(240 110 154), var(--green));
+  color: white !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.demo-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(240, 110, 154, 0.3);
+}
+
+.resume-download-section {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e0e0e0;
+}
+
+.download-btn {
+  background: color-mix(in srgb, #e2eaee 70%, var(--blue) 30%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(240, 110, 154, 0.3);
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(240, 110, 154, 0.4);
+}
+
+.download-btn i {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+}
+
+.resume-contact {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #000000;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Enhanced hover effects for resume sections */
+.resume-section .resume-job,
+.resume-section .resume-edu,
+.resume-section .resume-involve {
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.resume-section .resume-job:hover,
+.resume-section .resume-edu:hover,
+.resume-section .resume-involve:hover {
+  background: rgba(240, 110, 154, 0.05);
+  transform: translateX(5px);
+}
+
+@media (max-width: 700px) {
+  .resume-section {
+    padding: 1.2rem 0.5rem;
+    border-radius: 12px;
+    margin: 2rem 0.2rem;
+  }
+  .resume-section h2 {
+    font-size: 1.5rem;
+  }
+  .resume-section .resume-job,
+  .resume-section .resume-edu,
+  .resume-section .resume-involve {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  
+  .tooltip {
+    max-width: 250px;
+    font-size: 0.8rem;
+  }
+  
+  .download-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/*────────────────────────────────────────────
+  11. Spacer
+────────────────────────────────────────────*/
+.spacer {
+  width: 100vw;
+  height: 2.5rem;
+  background: url("../images/checkerprint.png") repeat-x center;
+  background-size: auto 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+
+/* Responsive Tweaks for Contact Section */
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 2rem 0.5rem;
+  }
+  .contact-section > * {
+    max-width: 98vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .contact-form {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/*────────────────────────────────────────────
+  12. Responsive Tweaks
+────────────────────────────────────────────*/
+@media (max-width: 900px) {
+  .glass-nav      { padding: 0.7rem 1rem; }
+  .nav-links      { gap: 1rem; }
+  .hero           { min-height: 50vh; padding-top: 5rem; }
+  .hero-badge     { width: 70px; height: 70px; }
+  .hero h1        { font-size: 8vw; }
+  .hero h2        { font-size: 4vw; }
+}
+@media (max-width: 800px) {
+  .about-inner { grid-template-columns: 1fr; }
+  .about .about-photo img { max-width: 420px; }
+  .about .hello,
+  .about .about-bio { text-align: center; }
+}
+@media (max-width: 600px) {
+  .glass-nav        { flex-direction: column; align-items: stretch; padding: 0.5rem; border-radius: 0 0 12px 12px; }
+  .nav-logo         { display: flex; justify-content: center; margin-bottom: 0.5rem; }
+  .nav-links        { flex: none; justify-content: center; gap: 0.7rem; margin-bottom: 0.5rem; }
+  .social-links     { justify-content: center; width: 100%; margin-bottom: 0.5rem; }
+  .hero             { min-height: 40vh; padding: 4rem 0 1rem; }
+  .hero-badge       { width: 8em; height: 8em; }
+  .hero h1          { font-size: 12vw; }
+  .hero h2          { font-size: 6vw; }
+  .section          { padding: 2rem 0.5rem; }
+  footer            { padding: 1rem 0.5rem; }
+}
