@@ -3,164 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Buddy - Pomodoro & Focus Tools</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <title>Study Buddy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span class="theme-icon">☀️</span>
-    </button>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <h1 class="app-title">StudyBuddy</h1>
+            <span class="subtitle">Focus & Productivity</span>
+        </div>
+        <div class="top-bar-center">
+            <div class="timer-status">
+                <span class="icon">⏱</span>
+                <span class="timer-small" id="timerSmall">25:00</span>
+                <span class="status-label" id="statusLabel">Ready</span>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <div class="datetime">
+                <span class="time" id="currentTime">12:00 PM</span>
+                <span class="date" id="currentDate">Mon, Oct 12</span>
+            </div>
+            <button class="icon-btn" id="settingsBtn">⚙</button>
+        </div>
+    </div>
 
-    <div class="container">
-        <header class="app-header">
-            <h1>Study Buddy</h1>
-            <p>Your complete study companion</p>
-        </header>
+    <div class="sidebar">
+        <button class="tab-btn active" data-tab="dashboard" title="Dashboard">⌘</button>
+        <button class="tab-btn" data-tab="timer" title="Timer">⏱</button>
+        <button class="tab-btn" data-tab="tasks" title="Tasks">✓</button>
+        <button class="tab-btn" data-tab="flashcards" title="Flashcards">◧</button>
+        <button class="tab-btn" data-tab="sounds" title="Sounds">♪</button>
+    </div>
 
-        <main class="app-main">
-            <section class="section session-planner">
-                <div class="card">
-                    <h2>Session Planner</h2>
-                    
-                    <div class="planner-input">
-                        <div style="flex: 1;">
-                            <label class="form-label">Study Time (minutes)</label>
-                            <input type="number" id="total-time" class="form-control" value="120" min="25" max="480" step="5">
-                        </div>
-                        <button id="plan-session-btn" class="btn btn--primary" style="margin-top: 21px;">Plan Session</button>
+    <main class="main-content">
+        <div class="tab-content active" id="dashboard-tab">
+            <div class="dashboard-grid">
+                <div class="card timer-card">
+                    <div class="card-header">
+                        <h3>⏱ Focus Session</h3>
                     </div>
-
-                    <div id="session-suggestion" class="session-suggestion hidden">
-                        <h4>Suggested Timeline</h4>
-                        <div id="timeline-display" class="timeline"></div>
-                        <div class="session-stats">
-                            <span id="work-sessions-count">0 work sessions</span>
-                            <span id="break-time-total">0 min breaks</span>
-                        </div>
+                    <div class="timer-display-large">
+                        <span id="timerDisplayDash">25:00</span>
                     </div>
-
-                    <div class="global-timer">
-                        <div class="global-progress">
-                            <div id="global-progress-bar" class="progress-bar"></div>
-                        </div>
-                        <div class="timer-info">
-                            <span>Overall Progress: <span id="global-timer-display">00:00 / 00:00</span></span>
-                        </div>
-                    </div>
-
-                    <div class="session-controls">
-                        <button id="start-session-btn" class="btn btn--primary btn--lg" disabled>Start Session</button>
-                        <button id="pause-session-btn" class="btn btn--secondary" disabled>Pause</button>
-                        <button id="stop-session-btn" class="btn btn--outline" disabled>Stop Session</button>
+                    <div class="quick-actions">
+                        <button class="btn btn-primary" id="quickStart">Start</button>
+                        <button class="btn btn-outline" id="quickReset">Reset</button>
                     </div>
                 </div>
-            </section>
 
-            <section class="section timer-section">
-                <div class="card">
-                    <h2>Current Pomodoro</h2>
-                    
-                    <div class="timer-display">
-                        <div class="timer-circle">
-                            <span id="timer-display">25:00</span>
-                        </div>
-                        <div class="timer-mode">
-                            <span id="timer-mode">Ready to Start</span>
-                        </div>
+                <div class="card stats-card">
+                    <div class="card-header">
+                        <h3>✓ Today's Progress</h3>
                     </div>
-
-                    <div class="pomodoro-progress">
-                        <div class="session-indicator">
-                            <span>Session: <span id="current-session">0</span> / <span id="total-sessions">0</span></span>
-                        </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Tasks Completed</span>
+                        <span class="stat-value" id="dashTaskCount">0/0</span>
                     </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Focus Time</span>
+                        <span class="stat-value" id="dashFocusTime">0m</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Cards Reviewed</span>
+                        <span class="stat-value" id="dashCardCount">0</span>
+                    </div>
+                </div>
 
+                <div class="card quick-add-card">
+                    <div class="card-header">
+                        <h3>+ Quick Add Task</h3>
+                    </div>
+                    <input type="text" id="dashTaskInput" placeholder="What needs to be done?">
+                    <button class="btn btn-primary full-width" id="dashAddTask">Add Task</button>
+                </div>
+
+                <div class="card notes-card">
+                    <div class="card-header">
+                        <h3>📝 Sticky Notes</h3>
+                        <button class="btn-icon" id="dashAddNote">+</button>
+                    </div>
+                    <p class="card-desc">Create floating notes that stay on top</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="timer-tab">
+            <div class="content-center">
+                <div class="card timer-full-card">
+                    <h2>Pomodoro Timer</h2>
+                    <div class="timer-circle">
+                        <span class="timer-display" id="timerDisplay">25:00</span>
+                        <span class="timer-mode" id="timerMode">Work Session</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="btn btn-primary" id="startBtn">Start</button>
+                        <button class="btn btn-secondary" id="pauseBtn">Pause</button>
+                        <button class="btn btn-outline" id="resetBtn">Reset</button>
+                    </div>
                     <div class="timer-settings">
                         <div class="setting-group">
-                            <label class="form-label">Work Time (minutes)</label>
-                            <input type="number" id="work-time" class="form-control" value="25" min="1" max="60">
+                            <label>Work Duration</label>
+                            <input type="number" id="workTime" value="25" min="1" max="60">
+                            <span>min</span>
                         </div>
                         <div class="setting-group">
-                            <label class="form-label">Break Time (minutes)</label>
-                            <input type="number" id="break-time" class="form-control" value="5" min="1" max="30">
+                            <label>Break Duration</label>
+                            <input type="number" id="breakTime" value="5" min="1" max="30">
+                            <span>min</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section class="section tasks-section">
+        <div class="tab-content" id="tasks-tab">
+            <div class="content-center">
                 <div class="card">
-                    <h2>Tasks</h2>
-                    
+                    <h2>Task List</h2>
                     <div class="task-input">
-                        <input type="text" id="new-task" class="form-control" placeholder="Add a new task...">
-                        <button id="add-task-btn" class="btn btn--primary">Add</button>
+                        <input type="text" id="taskInput" placeholder="Add a new task...">
+                        <button class="btn btn-primary" id="addTaskBtn">Add</button>
                     </div>
-
-                    <div class="task-counter">
-                        <span id="task-counter">0/0 tasks completed</span>
-                    </div>
-
-                    <ul id="task-list" class="task-list"></ul>
+                    <div class="task-stats" id="taskStats">0/0 completed</div>
+                    <ul class="task-list" id="taskList"></ul>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section class="section flashcard-section">
-                <div class="card">
-                    <h2>Flashcards</h2>
-                    
-                    <div class="flashcard-container">
-                        <div class="flashcard-list">
-                            <h4>Card List</h4>
-                            <div class="flashcard-create">
-                                <input type="text" id="card-front" class="form-control" placeholder="Front...">
-                                <input type="text" id="card-back" class="form-control" placeholder="Back...">
-                                <button id="add-card-btn" class="btn btn--primary">Add</button>
+        <div class="tab-content" id="flashcards-tab">
+            <div class="content-center">
+                <div class="card flashcard-card">
+                    <div class="flashcard-layout">
+                        <div class="flashcard-sidebar">
+                            <h3>Card Library</h3>
+                            <div class="card-create">
+                                <input type="text" id="cardFront" placeholder="Front">
+                                <input type="text" id="cardBack" placeholder="Back">
+                                <button class="btn btn-primary full-width" id="addCardBtn">Add Card</button>
                             </div>
-                            <ul id="card-list" class="card-list"></ul>
+                            <ul class="card-list" id="cardList"></ul>
                         </div>
-
-                        <div class="flashcard-display">
-                            <div class="flashcard" id="current-card">
-                                <div class="card-content">
-                                    <div id="card-content-text">Click to flip</div>
+                        <div class="flashcard-main">
+                            <div class="flashcard" id="flashcard">
+                                <div class="flashcard-content" id="flashcardContent">
+                                    Click to start
                                 </div>
                             </div>
-                            <div class="card-counter">
-                                <span id="card-counter">0/0</span>
+                            <div class="card-info">
+                                <span class="card-counter" id="cardCounter">0/0</span>
                             </div>
                             <div class="flashcard-controls">
-                                <button id="prev-card-btn" class="btn btn--outline">Previous</button>
-                                <button id="flip-card-btn" class="btn btn--secondary">Flip</button>
-                                <button id="next-card-btn" class="btn btn--outline">Next</button>
+                                <button class="btn btn-outline" id="prevCardBtn">← Prev</button>
+                                <button class="btn btn-primary" id="flipCardBtn">Flip</button>
+                                <button class="btn btn-outline" id="nextCardBtn">Next →</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <section class="section audio-section">
+        <div class="tab-content" id="sounds-tab">
+            <div class="content-center">
                 <div class="card">
-                    <h2>Background Sounds</h2>
-                    
-                    <div class="master-controls">
-                        <div class="volume-control">
-                            <label class="form-label">Master Volume</label>
-                            <input type="range" id="master-volume" class="volume-slider" min="0" max="100" value="50">
-                            <button id="mute-btn" class="btn btn--outline">🔊</button>
-                        </div>
+                    <h2>Focus Sounds</h2>
+                    <div class="sound-master">
+                        <label>♪ Master Volume</label>
+                        <input type="range" id="masterVolume" min="0" max="100" value="50">
+                        <button class="btn btn-outline" id="muteBtn">🔊</button>
                     </div>
-
-                    <div class="sound-mixer" id="sound-mixer"></div>
-
-                    <div class="audio-info">
-                        <p class="text-sm">Sounds loaded from /audio/ folder. Timer sounds: start.mp3, complete.mp3</p>
-                    </div>
+                    <div class="sound-list" id="soundList"></div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
+    </main>
+
+    <div class="settings-modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙ Settings</h2>
+                <button class="btn-close" id="closeSettings">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-section">
+                    <label>Theme</label>
+                    <select id="themeSelect">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="setting-section">
+                    <label>Font Family</label>
+                    <select id="fontSelect">
+                        <option value="system">System Default</option>
+                        <option value="serif">Serif</option>
+                        <option value="mono">Monospace</option>
+                    </select>
+                </div>
+                <div class="setting-section">
+                    <label>Background Style</label>
+                    <select id="bgStyleSelect">
+                        <option value="gradient">Gradient (Default)</option>
+                        <option value="solid">Solid Color</option>
+                        <option value="image">Custom Image</option>
+                    </select>
+                </div>
+                <div class="setting-section" id="bgColorSection">
+                    <label>Background Color</label>
+                    <input type="color" id="bgColorPicker" value="#4facfe">
+                </div>
+                <div class="setting-section hidden" id="bgImageSection">
+                    <label>Background Image URL</label>
+                    <input type="text" id="bgImageInput" placeholder="Enter image URL">
+                    <button class="btn btn-secondary" id="applyBgImage">Apply</button>
+                </div>
+                <div class="setting-section">
+                    <label>Card Opacity</label>
+                    <input type="range" id="cardOpacity" min="50" max="100" value="95">
+                </div>
+                <button class="btn btn-primary full-width" id="saveSettings">Save Settings</button>
+            </div>
+        </div>
     </div>
+
+    <div id="stickyNotesContainer"></div>
 
     <script src="app.js"></script>
 </body>

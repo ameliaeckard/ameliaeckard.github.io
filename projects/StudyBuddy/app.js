@@ -1,835 +1,669 @@
-class StudyBuddyApp {
+class StudyBuddy {
     constructor() {
         this.settings = {
-            workTime: 25,
-            breakTime: 5,
-            volume: 0.5,
-            theme: 'light'
+            theme: 'light',
+            font: 'system',
+            bgStyle: 'gradient',
+            bgColor: '#4facfe',
+            bgImage: '',
+            cardOpacity: 95
         };
         
-        this.sampleTasks = ["Review Chapter 3", "Complete homework", "Study flashcards"];
-        this.sampleFlashcards = [
-            {id: 1, front: "What is HTML?", back: "HyperText Markup Language"},
-            {id: 2, front: "CSS stands for?", back: "Cascading Style Sheets"},
-            {id: 3, front: "What is JavaScript?", back: "A programming language for web development"}
-        ];
-        
-        this.backgroundSounds = [
-            {name: "Ocean Waves", emoji: "🌊", defaultVolume: 0, file: "ocean.mp3"},
-            {name: "Rain", emoji: "🌧️", defaultVolume: 0, file: "rain.mp3"},
-            {name: "Background Talking", emoji: "💬", defaultVolume: 0, file: "talking.mp3"}
-        ];
-
-        this.audioContext = null;
-        this.masterGain = null;
-        this.soundGains = {};
-        this.soundSources = {};
-        this.audioBuffers = {};
-        this.isMuted = false;
-
-        this.sessionPlan = {
-            totalMinutes: 120,
-            sessions: [],
-            isPlanned: false
-        };
-
-        this.globalTimer = {
-            elapsedMinutes: 0,
-            elapsedSeconds: 0,
-            totalMinutes: 0,
-            isRunning: false,
-            intervalId: null
-        };
-
         this.timer = {
-            minutes: this.settings.workTime,
+            minutes: 25,
             seconds: 0,
             isRunning: false,
-            isWorkSession: true,
-            currentSessionIndex: 0,
-            intervalId: null
+            isWork: true,
+            workTime: 25,
+            breakTime: 5,
+            interval: null,
+            totalFocusMinutes: 0
         };
-
+        
         this.tasks = [];
-        this.taskIdCounter = 0;
-
-        this.flashcards = [...this.sampleFlashcards];
-        this.cardIdCounter = 4;
-        this.currentCardIndex = 0;
+        this.taskId = 0;
+        
+        this.flashcards = [
+            {id: 1, front: "What is HTML?", back: "HyperText Markup Language"},
+            {id: 2, front: "CSS stands for?", back: "Cascading Style Sheets"}
+        ];
+        this.cardId = 3;
+        this.currentCard = 0;
         this.showingFront = true;
-
+        this.cardsReviewed = 0;
+        
+        this.sounds = [
+            {name: "Ocean Waves", icon: "~", volume: 0},
+            {name: "Rain", icon: "◦", volume: 0},
+            {name: "Cafe Chatter", icon: "※", volume: 0}
+        ];
+        
+        this.notes = [];
+        this.noteId = 0;
+        
         this.init();
     }
-
-    async init() {
-        this.initTheme();
-        await this.initAudio();
-        this.initSessionPlanner();
+    
+    init() {
+        this.loadSettings();
+        this.applySettings();
+        this.initClock();
+        this.initTabs();
+        this.initSettings();
         this.initTimer();
         this.initTasks();
         this.initFlashcards();
-        this.initBackgroundSounds();
-        this.loadSampleData();
+        this.initSounds();
+        this.initNotes();
+        this.updateDashboard();
     }
-
-    initTheme() {
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        this.settings.theme = savedTheme;
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        this.updateThemeIcon();
-
-        themeToggle.addEventListener('click', () => {
-            this.settings.theme = this.settings.theme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', this.settings.theme);
-            localStorage.setItem('theme', this.settings.theme);
-            this.updateThemeIcon();
-        });
+    
+    loadSettings() {
+        const saved = localStorage.getItem('studyBuddySettings');
+        if (saved) {
+            this.settings = {...this.settings, ...JSON.parse(saved)};
+        }
     }
-
-    updateThemeIcon() {
-        const icon = document.querySelector('.theme-icon');
-        icon.textContent = this.settings.theme === 'light' ? '🌙' : '☀️';
+    
+    saveSettings() {
+        localStorage.setItem('studyBuddySettings', JSON.stringify(this.settings));
     }
-
-    async initAudio() {
-        try {
-            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            this.masterGain = this.audioContext.createGain();
-            this.masterGain.connect(this.audioContext.destination);
-            this.masterGain.gain.value = this.settings.volume;
+    
+    applySettings() {
+        document.documentElement.setAttribute('data-theme', this.settings.theme);
+        document.documentElement.setAttribute('data-font', this.settings.font);
+        
+        if (this.settings.bgStyle === 'gradient') {
+            document.body.classList.remove('bg-image');
+            document.body.style.backgroundImage = '';
             
-            await this.loadTimerSounds();
-        } catch (error) {
-            console.warn('Audio context initialization failed:', error);
-        }
-    }
-
-    async loadTimerSounds() {
-        try {
-            const startResponse = await fetch('audio/start.mp3');
-            if (startResponse.ok) {
-                const startArrayBuffer = await startResponse.arrayBuffer();
-                this.audioBuffers.start = await this.audioContext.decodeAudioData(startArrayBuffer);
-            }
-        } catch (error) {
-            console.warn('Could not load start.mp3:', error);
-        }
-
-        try {
-            const completeResponse = await fetch('audio/complete.mp3');
-            if (completeResponse.ok) {
-                const completeArrayBuffer = await completeResponse.arrayBuffer();
-                this.audioBuffers.complete = await this.audioContext.decodeAudioData(completeArrayBuffer);
-            }
-        } catch (error) {
-            console.warn('Could not load complete.mp3:', error);
-        }
-    }
-
-    initSessionPlanner() {
-        const totalTimeInput = document.getElementById('total-time');
-        const planSessionBtn = document.getElementById('plan-session-btn');
-        const startSessionBtn = document.getElementById('start-session-btn');
-        const pauseSessionBtn = document.getElementById('pause-session-btn');
-        const stopSessionBtn = document.getElementById('stop-session-btn');
-
-        totalTimeInput.addEventListener('change', () => this.planSession());
-        planSessionBtn.addEventListener('click', () => this.planSession());
-        startSessionBtn.addEventListener('click', () => this.startSession());
-        pauseSessionBtn.addEventListener('click', () => this.pauseSession());
-        stopSessionBtn.addEventListener('click', () => this.stopSession());
-
-        this.planSession();
-    }
-
-    planSession() {
-        const totalMinutes = parseInt(document.getElementById('total-time').value);
-        this.sessionPlan.totalMinutes = totalMinutes;
-        this.sessionPlan.sessions = this.generateSessionPlan(totalMinutes);
-        this.sessionPlan.isPlanned = true;
-
-        this.displaySessionPlan();
-        this.resetGlobalTimer();
-        
-        document.getElementById('start-session-btn').disabled = false;
-    }
-
-    generateSessionPlan(totalMinutes) {
-        const sessions = [];
-        let remainingMinutes = totalMinutes;
-        let sessionCount = 0;
-
-        while (remainingMinutes > 0) {
-            if (remainingMinutes >= 25) {
-                sessions.push({type: 'work', duration: 25});
-                remainingMinutes -= 25;
-                sessionCount++;
-
-                if (remainingMinutes > 0) {
-                    const isLongBreak = totalMinutes >= 120 && sessionCount % 4 === 0;
-                    const breakDuration = isLongBreak ? 15 : 5;
-                    sessions.push({type: isLongBreak ? 'long-break' : 'break', duration: breakDuration});
-                }
+            if (this.settings.theme === 'dark') {
+                document.documentElement.style.setProperty('--bg-gradient-start', '#1a1d23');
+                document.documentElement.style.setProperty('--bg-gradient-end', '#2c3e50');
             } else {
-                sessions.push({type: 'work', duration: remainingMinutes});
-                remainingMinutes = 0;
+                document.documentElement.style.setProperty('--bg-gradient-start', this.settings.bgColor);
+                document.documentElement.style.setProperty('--bg-gradient-end', '#ffffff');
             }
+        } else if (this.settings.bgStyle === 'solid') {
+            document.body.classList.remove('bg-image');
+            document.body.style.backgroundImage = '';
+            document.documentElement.style.setProperty('--bg-gradient-start', this.settings.bgColor);
+            document.documentElement.style.setProperty('--bg-gradient-end', this.settings.bgColor);
+        } else if (this.settings.bgStyle === 'image' && this.settings.bgImage) {
+            document.body.classList.add('bg-image');
+            document.body.style.backgroundImage = `url(${this.settings.bgImage})`;
         }
-
-        return sessions;
-    }
-
-    displaySessionPlan() {
-        const suggestionDiv = document.getElementById('session-suggestion');
-        const timelineDiv = document.getElementById('timeline-display');
-        const workSessionsSpan = document.getElementById('work-sessions-count');
-        const breakTimeSpan = document.getElementById('break-time-total');
-
-        suggestionDiv.classList.remove('hidden');
-
-        timelineDiv.innerHTML = '';
-        this.sessionPlan.sessions.forEach((session, index) => {
-            const item = document.createElement('div');
-            item.className = `timeline-item ${session.type}`;
-            item.textContent = `${session.type === 'work' ? 'W' : session.type === 'long-break' ? 'LB' : 'B'}${session.duration}`;
-            timelineDiv.appendChild(item);
-        });
-
-        const workSessions = this.sessionPlan.sessions.filter(s => s.type === 'work').length;
-        const totalBreakTime = this.sessionPlan.sessions
-            .filter(s => s.type === 'break' || s.type === 'long-break')
-            .reduce((sum, s) => sum + s.duration, 0);
-
-        workSessionsSpan.textContent = `${workSessions} work sessions`;
-        breakTimeSpan.textContent = `${totalBreakTime} min breaks`;
-    }
-
-    startSession() {
-        if (!this.sessionPlan.isPlanned) return;
-
-        this.globalTimer.totalMinutes = this.sessionPlan.totalMinutes;
-        this.globalTimer.isRunning = true;
-        this.globalTimer.intervalId = setInterval(() => this.tickGlobalTimer(), 1000);
-
-        this.timer.currentSessionIndex = 0;
-        this.startCurrentPomodoro();
-
-        document.getElementById('start-session-btn').disabled = true;
-        document.getElementById('pause-session-btn').disabled = false;
-        document.getElementById('stop-session-btn').disabled = false;
-        document.getElementById('total-sessions').textContent = this.sessionPlan.sessions.filter(s => s.type === 'work').length;
-    }
-
-    pauseSession() {
-        this.globalTimer.isRunning = false;
-        if (this.globalTimer.intervalId) {
-            clearInterval(this.globalTimer.intervalId);
-            this.globalTimer.intervalId = null;
-        }
-
-        this.stopTimer();
-
-        document.getElementById('start-session-btn').disabled = false;
-        document.getElementById('pause-session-btn').disabled = true;
-    }
-
-    stopSession() {
-        this.resetGlobalTimer();
-        this.resetTimer();
-        this.timer.currentSessionIndex = 0;
-
-        document.getElementById('start-session-btn').disabled = false;
-        document.getElementById('pause-session-btn').disabled = true;
-        document.getElementById('stop-session-btn').disabled = true;
-        document.getElementById('timer-mode').textContent = 'Ready to Start';
-    }
-
-    startCurrentPomodoro() {
-        if (this.timer.currentSessionIndex >= this.sessionPlan.sessions.length) {
-            this.completeAllSessions();
-            return;
-        }
-
-        const currentSession = this.sessionPlan.sessions[this.timer.currentSessionIndex];
-        this.timer.isWorkSession = currentSession.type === 'work';
-        this.timer.minutes = currentSession.duration;
-        this.timer.seconds = 0;
-
-        if (currentSession.type === 'work') {
-            document.getElementById('timer-mode').textContent = 'Work Session';
-            document.querySelector('.timer-circle').className = 'timer-circle work-mode pulse';
-            const workSessionNumber = this.sessionPlan.sessions.slice(0, this.timer.currentSessionIndex + 1)
-                .filter(s => s.type === 'work').length;
-            document.getElementById('current-session').textContent = workSessionNumber;
+        
+        const opacity = this.settings.cardOpacity / 100;
+        if (this.settings.theme === 'dark') {
+            document.documentElement.style.setProperty('--card-bg', `rgba(37, 40, 46, ${opacity})`);
         } else {
-            const breakType = currentSession.type === 'long-break' ? 'Long Break' : 'Break Time';
-            document.getElementById('timer-mode').textContent = breakType;
-            document.querySelector('.timer-circle').className = 'timer-circle break-mode pulse';
+            document.documentElement.style.setProperty('--card-bg', `rgba(255, 255, 255, ${opacity})`);
         }
-
-        this.updateTimerDisplay();
-        this.startTimer();
     }
-
-    tickGlobalTimer() {
-        this.globalTimer.elapsedSeconds++;
-        if (this.globalTimer.elapsedSeconds >= 60) {
-            this.globalTimer.elapsedMinutes++;
-            this.globalTimer.elapsedSeconds = 0;
-        }
-
-        this.updateGlobalTimerDisplay();
-    }
-
-    updateGlobalTimerDisplay() {
-        const elapsedStr = `${String(this.globalTimer.elapsedMinutes).padStart(2, '0')}:${String(this.globalTimer.elapsedSeconds).padStart(2, '0')}`;
-        const totalStr = `${String(this.globalTimer.totalMinutes).padStart(2, '0')}:00`;
-        document.getElementById('global-timer-display').textContent = `${elapsedStr} / ${totalStr}`;
-
-        const totalSeconds = this.globalTimer.totalMinutes * 60;
-        const elapsedSeconds = this.globalTimer.elapsedMinutes * 60 + this.globalTimer.elapsedSeconds;
-        const progress = Math.min((elapsedSeconds / totalSeconds) * 100, 100);
-        document.getElementById('global-progress-bar').style.width = `${progress}%`;
-    }
-
-    resetGlobalTimer() {
-        this.globalTimer.elapsedMinutes = 0;
-        this.globalTimer.elapsedSeconds = 0;
-        this.globalTimer.isRunning = false;
-        if (this.globalTimer.intervalId) {
-            clearInterval(this.globalTimer.intervalId);
-            this.globalTimer.intervalId = null;
-        }
-        this.updateGlobalTimerDisplay();
-    }
-
-    completeAllSessions() {
-        this.resetGlobalTimer();
-        this.resetTimer();
-        document.getElementById('timer-mode').textContent = 'Session Complete!';
-        this.playCompletionSound();
+    
+    initSettings() {
+        const modal = document.getElementById('settingsModal');
+        document.getElementById('settingsBtn').addEventListener('click', () => {
+            modal.classList.add('active');
+            this.populateSettings();
+        });
         
-        document.getElementById('start-session-btn').disabled = false;
-        document.getElementById('pause-session-btn').disabled = true;
-        document.getElementById('stop-session-btn').disabled = true;
-    }
-
-    initTimer() {
-        const workTimeInput = document.getElementById('work-time');
-        const breakTimeInput = document.getElementById('break-time');
+        document.getElementById('closeSettings').addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
         
-        workTimeInput.addEventListener('change', (e) => {
-            this.settings.workTime = parseInt(e.target.value);
-            if (!this.timer.isRunning) {
-                this.resetTimer();
+        document.getElementById('bgStyleSelect').addEventListener('change', (e) => {
+            const imageSection = document.getElementById('bgImageSection');
+            if (e.target.value === 'image') {
+                imageSection.classList.remove('hidden');
+            } else {
+                imageSection.classList.add('hidden');
             }
         });
         
-        breakTimeInput.addEventListener('change', (e) => {
-            this.settings.breakTime = parseInt(e.target.value);
+        document.getElementById('applyBgImage').addEventListener('click', () => {
+            const url = document.getElementById('bgImageInput').value.trim();
+            if (url) {
+                this.settings.bgImage = url;
+                this.applySettings();
+            }
         });
-
+        
+        document.getElementById('saveSettings').addEventListener('click', () => {
+            this.settings.theme = document.getElementById('themeSelect').value;
+            this.settings.font = document.getElementById('fontSelect').value;
+            this.settings.bgStyle = document.getElementById('bgStyleSelect').value;
+            this.settings.bgColor = document.getElementById('bgColorPicker').value;
+            this.settings.cardOpacity = parseInt(document.getElementById('cardOpacity').value);
+            
+            this.saveSettings();
+            this.applySettings();
+            modal.classList.remove('active');
+        });
+    }
+    
+    populateSettings() {
+        document.getElementById('themeSelect').value = this.settings.theme;
+        document.getElementById('fontSelect').value = this.settings.font;
+        document.getElementById('bgStyleSelect').value = this.settings.bgStyle;
+        document.getElementById('bgColorPicker').value = this.settings.bgColor;
+        document.getElementById('bgImageInput').value = this.settings.bgImage;
+        document.getElementById('cardOpacity').value = this.settings.cardOpacity;
+        
+        if (this.settings.bgStyle === 'image') {
+            document.getElementById('bgImageSection').classList.remove('hidden');
+        }
+    }
+    
+    initClock() {
+        this.updateClock();
+        setInterval(() => this.updateClock(), 1000);
+    }
+    
+    updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
+        const date = now.toLocaleDateString('en-US', {weekday: 'short', month: 'short', day: 'numeric'});
+        document.getElementById('currentTime').textContent = time;
+        document.getElementById('currentDate').textContent = date;
+    }
+    
+    initTabs() {
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const tabName = tab.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(`${tabName}-tab`).classList.add('active');
+            });
+        });
+    }
+    
+    initTimer() {
+        document.getElementById('startBtn').addEventListener('click', () => this.startTimer());
+        document.getElementById('pauseBtn').addEventListener('click', () => this.pauseTimer());
+        document.getElementById('resetBtn').addEventListener('click', () => this.resetTimer());
+        document.getElementById('quickStart').addEventListener('click', () => this.startTimer());
+        document.getElementById('quickReset').addEventListener('click', () => this.resetTimer());
+        
+        document.getElementById('workTime').addEventListener('change', (e) => {
+            this.timer.workTime = parseInt(e.target.value);
+            if (!this.timer.isRunning && this.timer.isWork) {
+                this.timer.minutes = this.timer.workTime;
+                this.timer.seconds = 0;
+                this.updateTimerDisplay();
+            }
+        });
+        
+        document.getElementById('breakTime').addEventListener('change', (e) => {
+            this.timer.breakTime = parseInt(e.target.value);
+        });
+        
         this.updateTimerDisplay();
     }
-
+    
     startTimer() {
         if (!this.timer.isRunning) {
             this.timer.isRunning = true;
-            this.playStartSound();
-            this.timer.intervalId = setInterval(() => this.tick(), 1000);
-        }
-    }
-
-    stopTimer() {
-        this.timer.isRunning = false;
-        if (this.timer.intervalId) {
-            clearInterval(this.timer.intervalId);
-            this.timer.intervalId = null;
-        }
-        document.querySelector('.timer-circle').classList.remove('pulse');
-    }
-
-    resetTimer() {
-        this.stopTimer();
-        if (this.timer.isWorkSession) {
-            this.timer.minutes = this.settings.workTime;
+            this.timer.interval = setInterval(() => this.tick(), 1000);
+            document.getElementById('statusLabel').textContent = this.timer.isWork ? 'Working' : 'Break';
+            
+            const startBtns = [document.getElementById('startBtn'), document.getElementById('quickStart')];
+            startBtns.forEach(btn => {
+                if (btn) {
+                    btn.textContent = 'Stop';
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-secondary');
+                }
+            });
         } else {
-            this.timer.minutes = this.settings.breakTime;
+            this.pauseTimer();
         }
-        this.timer.seconds = 0;
-        this.updateTimerDisplay();
     }
-
+    
+    pauseTimer() {
+        this.timer.isRunning = false;
+        if (this.timer.interval) {
+            clearInterval(this.timer.interval);
+        }
+        document.getElementById('statusLabel').textContent = 'Paused';
+        
+        const startBtns = [document.getElementById('startBtn'), document.getElementById('quickStart')];
+        startBtns.forEach(btn => {
+            if (btn) {
+                btn.textContent = 'Start';
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-primary');
+            }
+        });
+    }
+    
+    resetTimer() {
+        this.pauseTimer();
+        this.timer.minutes = this.timer.isWork ? this.timer.workTime : this.timer.breakTime;
+        this.timer.seconds = 0;
+        document.getElementById('statusLabel').textContent = 'Ready';
+        this.updateTimerDisplay();
+        
+        const startBtns = [document.getElementById('startBtn'), document.getElementById('quickStart')];
+        startBtns.forEach(btn => {
+            if (btn) {
+                btn.textContent = 'Start';
+                btn.classList.remove('btn-secondary');
+                btn.classList.add('btn-primary');
+            }
+        });
+    }
+    
     tick() {
         if (this.timer.seconds > 0) {
             this.timer.seconds--;
         } else if (this.timer.minutes > 0) {
             this.timer.minutes--;
             this.timer.seconds = 59;
+            if (this.timer.isWork) {
+                this.timer.totalFocusMinutes++;
+                this.updateDashboard();
+            }
         } else {
-            this.completeCurrentPomodoro();
+            this.timerComplete();
         }
         this.updateTimerDisplay();
     }
-
-    completeCurrentPomodoro() {
-        this.stopTimer();
-        this.playCompletionSound();
-        
-        this.timer.currentSessionIndex++;
-        
-        setTimeout(() => {
-            if (this.globalTimer.isRunning) {
-                this.startCurrentPomodoro();
-            }
-        }, 1000);
+    
+    timerComplete() {
+        this.pauseTimer();
+        this.timer.isWork = !this.timer.isWork;
+        this.timer.minutes = this.timer.isWork ? this.timer.workTime : this.timer.breakTime;
+        this.timer.seconds = 0;
+        this.updateTimerDisplay();
+        document.getElementById('statusLabel').textContent = 'Complete!';
+        alert(this.timer.isWork ? 'Break complete! Time to work!' : 'Work session complete! Take a break!');
     }
-
+    
     updateTimerDisplay() {
-        const display = document.getElementById('timer-display');
-        const minutes = String(this.timer.minutes).padStart(2, '0');
-        const seconds = String(this.timer.seconds).padStart(2, '0');
-        display.textContent = `${minutes}:${seconds}`;
-    }
-
-    initTasks() {
-        const addTaskBtn = document.getElementById('add-task-btn');
-        const newTaskInput = document.getElementById('new-task');
-
-        addTaskBtn.addEventListener('click', () => this.addTask());
-        newTaskInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.addTask();
-            }
-        });
-    }
-
-    addTask(taskText = null) {
-        const input = document.getElementById('new-task');
-        const text = taskText || input.value.trim();
+        const mins = String(this.timer.minutes).padStart(2, '0');
+        const secs = String(this.timer.seconds).padStart(2, '0');
+        const display = `${mins}:${secs}`;
         
+        document.getElementById('timerDisplay').textContent = display;
+        document.getElementById('timerDisplayDash').textContent = display;
+        document.getElementById('timerSmall').textContent = display;
+        document.getElementById('timerMode').textContent = this.timer.isWork ? 'Work Session' : 'Break Time';
+    }
+    
+    initTasks() {
+        document.getElementById('addTaskBtn').addEventListener('click', () => this.addTask('taskInput'));
+        document.getElementById('taskInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.addTask('taskInput');
+        });
+        
+        document.getElementById('dashAddTask').addEventListener('click', () => this.addTask('dashTaskInput'));
+        document.getElementById('dashTaskInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.addTask('dashTaskInput');
+        });
+        
+        this.renderTasks();
+    }
+    
+    addTask(inputId) {
+        const input = document.getElementById(inputId);
+        const text = input.value.trim();
         if (text) {
-            const task = {
-                id: this.taskIdCounter++,
-                text: text,
-                completed: false
-            };
-            
-            this.tasks.push(task);
+            this.tasks.push({id: this.taskId++, text, completed: false});
+            input.value = '';
             this.renderTasks();
-            
-            if (!taskText) {
-                input.value = '';
-                this.playTaskSound();
-            }
+            this.updateDashboard();
         }
     }
-
-    toggleTask(taskId) {
-        const task = this.tasks.find(t => t.id === taskId);
+    
+    toggleTask(id) {
+        const task = this.tasks.find(t => t.id === id);
         if (task) {
             task.completed = !task.completed;
             this.renderTasks();
-            if (task.completed) {
-                this.playTaskCompleteSound();
-            }
+            this.updateDashboard();
         }
     }
-
-    deleteTask(taskId) {
-        this.tasks = this.tasks.filter(t => t.id !== taskId);
+    
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(t => t.id !== id);
         this.renderTasks();
+        this.updateDashboard();
     }
-
+    
     renderTasks() {
-        const taskList = document.getElementById('task-list');
-        const taskCounter = document.getElementById('task-counter');
+        const list = document.getElementById('taskList');
+        const completed = this.tasks.filter(t => t.completed).length;
+        const total = this.tasks.length;
+        const statsText = `${completed}/${total} completed`;
+        document.getElementById('taskStats').textContent = statsText;
         
-        taskList.innerHTML = '';
-        
+        list.innerHTML = '';
         this.tasks.forEach(task => {
             const li = document.createElement('li');
             li.className = `task-item ${task.completed ? 'completed' : ''}`;
-            li.innerHTML = `
-                <input type="checkbox" ${task.completed ? 'checked' : ''} 
-                       onchange="app.toggleTask(${task.id})">
-                <span class="task-text">${this.escapeHtml(task.text)}</span>
-                <button class="task-delete" onclick="app.deleteTask(${task.id})">×</button>
-            `;
-            li.classList.add('fade-in');
-            taskList.appendChild(li);
-        });
-        
-        const completed = this.tasks.filter(t => t.completed).length;
-        taskCounter.textContent = `${completed}/${this.tasks.length} tasks completed`;
-    }
-
-    
-
-    initFlashcards() {
-        const addCardBtn = document.getElementById('add-card-btn');
-        const cardFrontInput = document.getElementById('card-front');
-        const cardBackInput = document.getElementById('card-back');
-        const flipBtn = document.getElementById('flip-card-btn');
-        const prevBtn = document.getElementById('prev-card-btn');
-        const nextBtn = document.getElementById('next-card-btn');
-        const cardElement = document.getElementById('current-card');
-
-        addCardBtn.addEventListener('click', () => this.addFlashcard());
-        flipBtn.addEventListener('click', () => this.flipCard());
-        prevBtn.addEventListener('click', () => this.previousCard());
-        nextBtn.addEventListener('click', () => this.nextCard());
-        cardElement.addEventListener('click', () => this.flipCard());
-
-        cardFrontInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && e.target.value.trim()) {
-                document.getElementById('card-back').focus();
-            }
-        });
-        cardBackInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.addFlashcard();
-        });
-
-        this.renderFlashcardList();
-        this.renderFlashcard();
-    }
-
-    addFlashcard() {
-        const frontInput = document.getElementById('card-front');
-        const backInput = document.getElementById('card-back');
-        const front = frontInput.value.trim();
-        const back = backInput.value.trim();
-        
-        if (front && back) {
-            const card = {
-                id: this.cardIdCounter++,
-                front,
-                back
-            };
             
-            this.flashcards.push(card);
-            frontInput.value = '';
-            backInput.value = '';
-            this.currentCardIndex = this.flashcards.length - 1;
-            this.showingFront = true;
-            this.renderFlashcardList();
-            this.renderFlashcard();
-            this.playTaskSound();
-        }
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = task.completed;
+            checkbox.addEventListener('change', () => this.toggleTask(task.id));
+            
+            const span = document.createElement('span');
+            span.className = 'task-text';
+            span.textContent = task.text;
+            
+            const btn = document.createElement('button');
+            btn.className = 'task-delete';
+            btn.textContent = '×';
+            btn.addEventListener('click', () => this.deleteTask(task.id));
+            
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            li.appendChild(btn);
+            list.appendChild(li);
+        });
     }
-
-    editFlashcard(cardId) {
-        const card = this.flashcards.find(c => c.id === cardId);
-        if (!card) return;
-
-        const newFront = prompt('Edit front:', card.front);
-        if (newFront !== null && newFront.trim()) {
-            const newBack = prompt('Edit back:', card.back);
-            if (newBack !== null && newBack.trim()) {
-                card.front = newFront.trim();
-                card.back = newBack.trim();
-                this.renderFlashcardList();
-                this.renderFlashcard();
-            }
-        }
+    
+    updateDashboard() {
+        const completed = this.tasks.filter(t => t.completed).length;
+        const total = this.tasks.length;
+        document.getElementById('dashTaskCount').textContent = `${completed}/${total}`;
+        document.getElementById('dashFocusTime').textContent = `${this.timer.totalFocusMinutes}m`;
+        document.getElementById('dashCardCount').textContent = this.cardsReviewed;
     }
-
-    deleteFlashcard(cardId) {
-        if (confirm('Delete this flashcard?')) {
-            this.flashcards = this.flashcards.filter(c => c.id !== cardId);
-            if (this.currentCardIndex >= this.flashcards.length) {
-                this.currentCardIndex = Math.max(0, this.flashcards.length - 1);
-            }
-            this.renderFlashcardList();
-            this.renderFlashcard();
-        }
-    }
-
-    selectCard(index) {
-        this.currentCardIndex = index;
-        this.showingFront = true;
-        this.renderFlashcardList();
+    
+    initFlashcards() {
+        document.getElementById('addCardBtn').addEventListener('click', () => this.addCard());
+        document.getElementById('flipCardBtn').addEventListener('click', () => this.flipCard());
+        document.getElementById('prevCardBtn').addEventListener('click', () => this.prevCard());
+        document.getElementById('nextCardBtn').addEventListener('click', () => this.nextCard());
+        document.getElementById('flashcard').addEventListener('click', () => this.flipCard());
+        
+        document.getElementById('cardFront').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') document.getElementById('cardBack').focus();
+        });
+        
+        document.getElementById('cardBack').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.addCard();
+        });
+        
+        this.renderCards();
         this.renderFlashcard();
     }
-
+    
+    addCard() {
+        const front = document.getElementById('cardFront').value.trim();
+        const back = document.getElementById('cardBack').value.trim();
+        if (front && back) {
+            this.flashcards.push({id: this.cardId++, front, back});
+            document.getElementById('cardFront').value = '';
+            document.getElementById('cardBack').value = '';
+            this.currentCard = this.flashcards.length - 1;
+            this.showingFront = true;
+            this.renderCards();
+            this.renderFlashcard();
+        }
+    }
+    
+    deleteCard(id) {
+        if (confirm('Delete this card?')) {
+            const cardIndex = this.flashcards.findIndex(c => c.id === id);
+            this.flashcards = this.flashcards.filter(c => c.id !== id);
+            
+            if (this.flashcards.length === 0) {
+                this.currentCard = 0;
+            } else if (this.currentCard >= this.flashcards.length) {
+                this.currentCard = this.flashcards.length - 1;
+            } else if (cardIndex <= this.currentCard && this.currentCard > 0) {
+                this.currentCard--;
+            }
+            
+            this.renderCards();
+            this.renderFlashcard();
+        }
+    }
+    
+    selectCard(index) {
+        this.currentCard = index;
+        this.showingFront = true;
+        this.renderCards();
+        this.renderFlashcard();
+    }
+    
     flipCard() {
         if (this.flashcards.length > 0) {
             this.showingFront = !this.showingFront;
+            if (!this.showingFront) {
+                this.cardsReviewed++;
+                this.updateDashboard();
+            }
             this.renderFlashcard();
-            this.playFlipSound();
         }
     }
-
-    previousCard() {
+    
+    prevCard() {
         if (this.flashcards.length > 0) {
-            this.currentCardIndex = (this.currentCardIndex - 1 + this.flashcards.length) % this.flashcards.length;
+            this.currentCard = (this.currentCard - 1 + this.flashcards.length) % this.flashcards.length;
             this.showingFront = true;
-            this.renderFlashcardList();
+            this.renderCards();
             this.renderFlashcard();
         }
     }
-
+    
     nextCard() {
         if (this.flashcards.length > 0) {
-            this.currentCardIndex = (this.currentCardIndex + 1) % this.flashcards.length;
+            this.currentCard = (this.currentCard + 1) % this.flashcards.length;
             this.showingFront = true;
-            this.renderFlashcardList();
+            this.renderCards();
             this.renderFlashcard();
         }
     }
-
-    renderFlashcardList() {
-        const cardList = document.getElementById('card-list');
-        
-        cardList.innerHTML = '';
-        
+    
+    renderCards() {
+        const list = document.getElementById('cardList');
+        list.innerHTML = '';
         this.flashcards.forEach((card, index) => {
             const li = document.createElement('li');
-            li.className = `card-list-item ${index === this.currentCardIndex ? 'active' : ''}`;
-            li.innerHTML = `
-                <div class="card-front-preview" onclick="app.selectCard(${index})">${this.escapeHtml(card.front)}</div>
-                <div class="card-list-actions">
-                    <button class="card-edit-btn" onclick="app.editFlashcard(${card.id})" title="Edit">✏️</button>
-                    <button class="card-delete-btn" onclick="app.deleteFlashcard(${card.id})" title="Delete">×</button>
-                </div>
-            `;
-            cardList.appendChild(li);
+            li.className = `card-item ${index === this.currentCard ? 'active' : ''}`;
+            
+            const span = document.createElement('span');
+            span.textContent = card.front;
+            span.addEventListener('click', () => this.selectCard(index));
+            
+            const actions = document.createElement('div');
+            actions.className = 'card-actions';
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = '×';
+            deleteBtn.addEventListener('click', () => this.deleteCard(card.id));
+            
+            actions.appendChild(deleteBtn);
+            li.appendChild(span);
+            li.appendChild(actions);
+            list.appendChild(li);
         });
     }
-
+    
     renderFlashcard() {
-        const cardContent = document.getElementById('card-content-text');
-        const cardCounter = document.getElementById('card-counter');
+        const content = document.getElementById('flashcardContent');
+        const counter = document.getElementById('cardCounter');
         
         if (this.flashcards.length === 0) {
-            cardContent.textContent = 'No cards available';
-            cardCounter.textContent = '0/0';
+            content.textContent = 'No cards yet';
+            counter.textContent = '0/0';
         } else {
-            const currentCard = this.flashcards[this.currentCardIndex];
-            cardContent.textContent = this.showingFront ? currentCard.front : currentCard.back;
-            cardCounter.textContent = `${this.currentCardIndex + 1}/${this.flashcards.length}`;
+            const card = this.flashcards[this.currentCard];
+            content.textContent = this.showingFront ? card.front : card.back;
+            counter.textContent = `${this.currentCard + 1}/${this.flashcards.length}`;
         }
     }
-
-    initBackgroundSounds() {
-        const masterVolumeSlider = document.getElementById('master-volume');
-        const muteBtn = document.getElementById('mute-btn');
-        const soundMixer = document.getElementById('sound-mixer');
-
-        masterVolumeSlider.addEventListener('input', (e) => {
-            this.settings.volume = e.target.value / 100;
-            if (this.masterGain) {
-                this.masterGain.gain.value = this.isMuted ? 0 : this.settings.volume;
-            }
+    
+    initSounds() {
+        const container = document.getElementById('soundList');
+        
+        document.getElementById('masterVolume').addEventListener('input', (e) => {
+            console.log('Master volume:', e.target.value);
         });
-
-        muteBtn.addEventListener('click', () => this.toggleMute());
-
-        this.backgroundSounds.forEach(sound => {
-            const trackDiv = document.createElement('div');
-            trackDiv.className = 'sound-track';
-            trackDiv.innerHTML = `
-                <div class="sound-emoji">${sound.emoji}</div>
+        
+        document.getElementById('muteBtn').addEventListener('click', (e) => {
+            e.target.textContent = e.target.textContent === '🔊' ? '🔇' : '🔊';
+        });
+        
+        this.sounds.forEach((sound, index) => {
+            const item = document.createElement('div');
+            item.className = 'sound-item';
+            item.innerHTML = `
+                <div class="sound-icon">${sound.icon}</div>
                 <div class="sound-name">${sound.name}</div>
-                <input type="range" class="volume-slider sound-volume" 
-                       id="volume-${sound.name.toLowerCase()}" 
-                       min="0" max="100" value="${sound.defaultVolume * 100}">
-                <div class="volume-value" id="value-${sound.name.toLowerCase()}">${Math.round(sound.defaultVolume * 100)}%</div>
+                <input type="range" class="sound-slider" min="0" max="100" value="${sound.volume}" data-index="${index}">
+                <div class="sound-value">${sound.volume}%</div>
             `;
-            soundMixer.appendChild(trackDiv);
-
-            const slider = trackDiv.querySelector('.sound-volume');
-            const valueDisplay = trackDiv.querySelector('.volume-value');
+            container.appendChild(item);
             
+            const slider = item.querySelector('.sound-slider');
+            const value = item.querySelector('.sound-value');
             slider.addEventListener('input', (e) => {
-                const volume = e.target.value / 100;
-                valueDisplay.textContent = `${e.target.value}%`;
-                this.setSoundVolume(sound.name.toLowerCase(), volume);
+                this.sounds[index].volume = parseInt(e.target.value);
+                value.textContent = `${e.target.value}%`;
             });
-
-            this.initSoundTrack(sound.name.toLowerCase(), sound.defaultVolume, sound.file);
         });
     }
-
-    async initSoundTrack(soundName, defaultVolume, fileName) {
-        if (!this.audioContext) return;
-
-        try {
-            const gainNode = this.audioContext.createGain();
-            gainNode.connect(this.masterGain);
-            gainNode.gain.value = 0;
-            this.soundGains[soundName] = gainNode;
-
-            try {
-                const response = await fetch(`audio/${fileName}`);
-                if (response.ok) {
-                    const arrayBuffer = await response.arrayBuffer();
-                    const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
-                    this.audioBuffers[soundName] = audioBuffer;
-                    this.createLoopingSource(soundName, gainNode);
-                } else {
-                    throw new Error(`Failed to load ${fileName}`);
-                }
-            } catch (error) {
-                console.warn(`Could not load ${fileName}, using fallback:`, error);
-                this.createFallbackSound(soundName, gainNode);
-            }
-        } catch (error) {
-            console.warn(`Failed to initialize ${soundName}:`, error);
-        }
-    }
-
-    createLoopingSource(soundName, gainNode) {
-        if (!this.audioBuffers[soundName]) return;
-
-        const source = this.audioContext.createBufferSource();
-        source.buffer = this.audioBuffers[soundName];
-        source.loop = true;
-        source.connect(gainNode);
-        source.start();
-        this.soundSources[soundName] = source;
-    }
-
-    createFallbackSound(soundName, gainNode) {
-        const bufferSize = this.audioContext.sampleRate * 2;
-        const noiseBuffer = this.audioContext.createBuffer(1, bufferSize, this.audioContext.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
+    
+    initNotes() {
+        const addNoteBtn = document.getElementById('addNoteBtn');
+        const dashAddNote = document.getElementById('dashAddNote');
         
-        for (let i = 0; i < bufferSize; i++) {
-            output[i] = (Math.random() * 2 - 1) * 0.3;
+        if (addNoteBtn) {
+            addNoteBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.addNote();
+            });
         }
         
-        const source = this.audioContext.createBufferSource();
-        const filter = this.audioContext.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.value = 800;
-        
-        source.buffer = noiseBuffer;
-        source.loop = true;
-        source.connect(filter);
-        filter.connect(gainNode);
-        source.start();
-        this.soundSources[soundName] = source;
-    }
-
-    setSoundVolume(soundName, volume) {
-        if (this.soundGains[soundName]) {
-            this.soundGains[soundName].gain.value = volume;
+        if (dashAddNote) {
+            dashAddNote.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.addNote();
+            });
         }
     }
-
-    toggleMute() {
-        this.isMuted = !this.isMuted;
-        const muteBtn = document.getElementById('mute-btn');
+    
+    addNote() {
+        const colors = ['yellow', 'pink', 'blue', 'green', 'purple'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const note = {
+            id: this.noteId++,
+            text: '',
+            color: color,
+            x: 120 + (this.notes.length * 40),
+            y: 120 + (this.notes.length * 40)
+        };
+        this.notes.push(note);
+        this.renderNote(note);
+        console.log('Note created:', note);
+    }
+    
+    renderNote(note) {
+        const container = document.getElementById('stickyNotesContainer');
+        const div = document.createElement('div');
+        div.className = `sticky-note ${note.color}`;
+        div.style.left = `${note.x}px`;
+        div.style.top = `${note.y}px`;
+        div.id = `note-${note.id}`;
         
-        if (this.masterGain) {
-            this.masterGain.gain.value = this.isMuted ? 0 : this.settings.volume;
+        const header = document.createElement('div');
+        header.className = 'sticky-note-header';
+        
+        const pin = document.createElement('span');
+        pin.textContent = '📌';
+        
+        const controls = document.createElement('div');
+        controls.className = 'sticky-note-controls';
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '×';
+        deleteBtn.addEventListener('click', () => this.deleteNote(note.id));
+        
+        controls.appendChild(deleteBtn);
+        header.appendChild(pin);
+        header.appendChild(controls);
+        
+        const textarea = document.createElement('textarea');
+        textarea.placeholder = 'Type here...';
+        textarea.value = note.text;
+        textarea.addEventListener('input', (e) => this.updateNoteText(note.id, e.target.value));
+        
+        div.appendChild(header);
+        div.appendChild(textarea);
+        container.appendChild(div);
+        
+        this.makeDraggable(div, note);
+    }
+    
+    makeDraggable(element, note) {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        const header = element.querySelector('.sticky-note-header');
+        
+        if (!header) return;
+        
+        header.onmousedown = dragMouseDown;
+        
+        function dragMouseDown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
         }
         
-        muteBtn.textContent = this.isMuted ? '🔇' : '🔊';
-    }
-
-    playStartSound() {
-        if (this.audioBuffers.start) {
-            const source = this.audioContext.createBufferSource();
-            source.buffer = this.audioBuffers.start;
-            source.connect(this.masterGain);
-            source.start();
-        } else {
-            this.playBeep(800, 0.1, 0.1);
+        function elementDrag(e) {
+            e.preventDefault();
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            const newX = element.offsetLeft - pos1;
+            const newY = element.offsetTop - pos2;
+            element.style.top = newY + "px";
+            element.style.left = newX + "px";
+            note.x = newX;
+            note.y = newY;
+        }
+        
+        function closeDragElement() {
+            document.onmouseup = null;
+            document.onmousemove = null;
         }
     }
-
-    playCompletionSound() {
-        if (this.audioBuffers.complete) {
-            const source = this.audioContext.createBufferSource();
-            source.buffer = this.audioBuffers.complete;
-            source.connect(this.masterGain);
-            source.start();
-        } else {
-            if (!this.audioContext) return;
-            
-            const now = this.audioContext.currentTime;
-            const oscillator1 = this.audioContext.createOscillator();
-            const oscillator2 = this.audioContext.createOscillator();
-            const gainNode = this.audioContext.createGain();
-            
-            oscillator1.connect(gainNode);
-            oscillator2.connect(gainNode);
-            gainNode.connect(this.masterGain);
-            
-            oscillator1.type = 'sine';
-            oscillator1.frequency.setValueAtTime(523, now);
-            oscillator1.frequency.exponentialRampToValueAtTime(784, now + 0.3);
-            
-            oscillator2.type = 'sine';
-            oscillator2.frequency.setValueAtTime(659, now);
-            oscillator2.frequency.exponentialRampToValueAtTime(988, now + 0.3);
-            
-            gainNode.gain.setValueAtTime(0, now);
-            gainNode.gain.linearRampToValueAtTime(0.3, now + 0.05);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
-            
-            oscillator1.start(now);
-            oscillator2.start(now);
-            oscillator1.stop(now + 0.5);
-            oscillator2.stop(now + 0.5);
-        }
+    
+    updateNoteText(id, text) {
+        const note = this.notes.find(n => n.id === id);
+        if (note) note.text = text;
     }
-
-    playTaskCompleteSound() {
-        this.playBeep(600, 0.15, 0.05);
+    
+    deleteNote(id) {
+        this.notes = this.notes.filter(n => n.id !== id);
+        document.getElementById(`note-${id}`).remove();
     }
-
-    playTaskSound() {
-        this.playBeep(400, 0.1, 0.03);
-    }
-
-    playFlipSound() {
-        this.playBeep(300, 0.05, 0.02);
-    }
-
-    playBeep(frequency, duration, volume) {
-        if (!this.audioContext) return;
-        
-        const oscillator = this.audioContext.createOscillator();
-        const gainNode = this.audioContext.createGain();
-        const now = this.audioContext.currentTime;
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(this.masterGain);
-        
-        oscillator.type = 'sine';
-        oscillator.frequency.value = frequency;
-        
-        gainNode.gain.setValueAtTime(0, now);
-        gainNode.gain.linearRampToValueAtTime(volume, now + 0.01);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, now + duration);
-        
-        oscillator.start(now);
-        oscillator.stop(now + duration);
-    }
-
-    loadSampleData() {
-        this.sampleTasks.forEach(task => this.addTask(task));
-        this.renderFlashcardList();
-        this.renderFlashcard();
-    }
-
-    escapeHtml(text) {
+    
+    escape(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 }
 
+let app;
 document.addEventListener('DOMContentLoaded', () => {
-    window.app = new StudyBuddyApp();
-    
-    document.addEventListener('click', () => {
-        if (window.app.audioContext && window.app.audioContext.state === 'suspended') {
-            window.app.audioContext.resume();
-        }
-    }, { once: true });
+    app = new StudyBuddy();
 });
