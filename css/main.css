@@ -10,9 +10,6 @@
   --sans:   gill-sans, "Gill Sans MT", Calibri, sans-serif;
 }
 
-/*────────────────────────────────────────────
-  02. Global Reset & Base
-────────────────────────────────────────────*/
 * { box-sizing: border-box; }
 html, body {
   height: 100%;
@@ -29,18 +26,14 @@ body {
   background-size: 200px 200px;
 }
 
-/* Make main content grow to fill space above footer */
 main, .main-content, .about, .section, .contact-section {
   flex: 1 0 auto;
 }
 
-/* Footer always at bottom */
 footer, .glass-footer {
   flex-shrink: 0;
 }
-/*────────────────────────────────────────────
-  11. Spacer
-────────────────────────────────────────────*/
+
 .spacer {
   width: 100vw;
   height: 2.5rem;
@@ -56,9 +49,6 @@ footer, .glass-footer {
   box-sizing: border-box;
 }
 
-/*────────────────────────────────────────────
-  03. Glassmorphic NAV
-────────────────────────────────────────────*/
 .glass-nav {
   position: fixed;
   inset: 0 0 auto 0;
@@ -117,9 +107,6 @@ footer, .glass-footer {
 }
 .social-links a:hover { color: var(--pink); }
 
-/*────────────────────────────────────────────
-  04. Hero Section
-────────────────────────────────────────────*/
 .hero {
   position: relative;
   display: flex;
@@ -158,9 +145,6 @@ footer, .glass-footer {
 .hero-badge:hover { cursor: url("../images/like.png"), auto; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/*────────────────────────────────────────────
-  05. Generic Sections
-────────────────────────────────────────────*/
 .section,
 .about-inner,
 .resume-cta-inner {
@@ -185,9 +169,6 @@ footer, .glass-footer {
   font-size: 2.5rem;
 }
 
-/*────────────────────────────────────────────
-  06. Footer (Glass Style)
-────────────────────────────────────────────*/
 .glass-footer {
   position: relative;
   z-index: 10;
@@ -262,9 +243,6 @@ footer, .glass-footer {
   letter-spacing: 0.03em;
 }
 
-/*────────────────────────────────────────────
-  07. Featured Work Section
-────────────────────────────────────────────*/
 .curved-title {
   display: flex;
   justify-content: center;
@@ -321,9 +299,6 @@ footer, .glass-footer {
   color: #864b58;
 }
 
-/*────────────────────────────────────────────
-  08. Buttons
-────────────────────────────────────────────*/
 .btn,
 .resume-btn {
   display: inline-block;
@@ -349,9 +324,6 @@ footer, .glass-footer {
   font-family: var(--script);
 }
 
-/*────────────────────────────────────────────
-  09. Resume CTA
-────────────────────────────────────────────*/
 .resume-cta {
   width: 100%;
   background: var(--white);
@@ -380,9 +352,6 @@ footer, .glass-footer {
   margin-bottom: -1rem;
 }
 
-/*────────────────────────────────────────────
-  10. About Section
-────────────────────────────────────────────*/
 .about {
   width: 100vw;
   position: relative;
@@ -587,11 +556,6 @@ footer, .glass-footer {
   padding: 0.7rem 1.2rem;
 }
 
-
-/* Add to the end of main.css */
-/*────────────────────────────────────────────
-  Resume Classic Styling
-────────────────────────────────────────────*/
 .resume-section {
   background: var(--white);
   border-radius: 4px;
@@ -684,7 +648,6 @@ footer, .glass-footer {
   font-family: var(--script);
 }
 
-/* Interactive Resume Features */
 .interactive-hover {
   cursor: pointer;
   position: relative;
@@ -818,7 +781,6 @@ footer, .glass-footer {
   50% { transform: translateY(-5px); }
 }
 
-/* Enhanced hover effects for resume sections */
 .resume-section .resume-job,
 .resume-section .resume-edu,
 .resume-section .resume-involve {
@@ -862,9 +824,6 @@ footer, .glass-footer {
   }
 }
 
-/*────────────────────────────────────────────
-  11. Spacer
-────────────────────────────────────────────*/
 .spacer {
   width: 100vw;
   height: 2.5rem;
@@ -880,8 +839,6 @@ footer, .glass-footer {
   box-sizing: border-box;
 }
 
-
-/* Responsive Tweaks for Contact Section */
 @media (max-width: 600px) {
   .contact-section {
     padding: 2rem 0.5rem;
@@ -896,9 +853,6 @@ footer, .glass-footer {
   }
 }
 
-/*────────────────────────────────────────────
-  12. Responsive Tweaks
-────────────────────────────────────────────*/
 @media (max-width: 900px) {
   .glass-nav      { padding: 0.7rem 1rem; }
   .nav-links      { gap: 1rem; }
