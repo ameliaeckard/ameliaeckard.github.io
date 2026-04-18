@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amelia Eckard - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="./images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 class="hero-title" id="hero-title">Amelia Eckard</h1>
+                <p class="hero-subtitle">Software Engineer</p>
+                <div class="hero-meta" aria-label="Focus areas">
+                    <span>AR/VR</span>
+                    <span>Machine Learning</span>
+                    <span>Research</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section id="work" class="section" aria-labelledby="work-title">
+            <div class="container section-grid">
+                <h3>Selected Work</h3>
+                <div class="section-content">
+                    <h2 class="section-title" id="work-title">Featured Projects</h2>
+                    <div class="carousel-container">
+                        <div class="carousel" id="projects-carousel">
+                            <div class="carousel-slide active">
+                                <div class="project-card">
+                                    <div class="project-thumbnail project-placeholder">AR/VR · Swift · visionOS</div>
+                                    <div class="project-info">
+                                        <h3>Spatial Audio AR/VR Research</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            Research on using spatial audio cues to help visually impaired users navigate indoors via Apple Vision Pro. Combines ARKit object detection with directional 3D audio, targeting 85% identification accuracy and 30% faster navigation.
+                                        </p>
+                                        <a href="https://github.com/ameliaeckard/spatial-audio-research-arvr" target="_blank" rel="noreferrer" class="button btn-small">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail project-placeholder">Python · ML · scikit-learn</div>
+                                    <div class="project-info">
+                                        <h3>Emergency Fund Predictor</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            Machine learning models predicting whether Americans can cover a $400 emergency expense. Trained on 12,295 Federal Reserve SHED survey respondents — key finding: 56.3% cannot cover it with cash or savings alone.
+                                        </p>
+                                        <a href="https://github.com/ameliaeckard/emergency-fund-predictor" target="_blank" rel="noreferrer" class="button btn-small">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail project-placeholder">JS · face-api.js · Canvas</div>
+                                    <div class="project-info">
+                                        <h3>Facial Expression Detector</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            Real-time webcam app that detects 7 facial expressions and maps each emotion to a matching hamster image. Built with vanilla JS and face-api.js, with light/dark theme support and adjustable detection settings.
+                                        </p>
+                                        <a href="https://github.com/ameliaeckard/facial-expression-detector" target="_blank" rel="noreferrer" class="button btn-small">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail project-placeholder">HTML · CSS · JavaScript</div>
+                                    <div class="project-info">
+                                        <h3>1-3-5 Task Manager</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            Productivity web app built around the 1-3-5 Rule: one big task, three medium tasks, five small tasks per day. No frameworks — pure HTML, CSS, and JS with local storage persistence and progress animations.
+                                        </p>
+                                        <a href="https://github.com/ameliaeckard/135-tasks" target="_blank" rel="noreferrer" class="button btn-small">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-controls" aria-label="Project navigation">
+                            <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Previous project">&larr;</button>
+                            <div class="carousel-dots" id="carousel-dots" aria-hidden="true">
+                                <button class="carousel-dot active"></button>
+                                <button class="carousel-dot"></button>
+                                <button class="carousel-dot"></button>
+                                <button class="carousel-dot"></button>
+                            </div>
+                            <button class="carousel-btn" id="carousel-next" type="button" aria-label="Next project">&rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="about" class="section" aria-labelledby="about-title">
+    <div class="container section-grid">
+        <h3>About</h3>
+        <div class="section-content">
+            <h2 class="section-title" id="about-title">Who I Am</h2>
+            <p class="section-text">
+                I'm a Computer Science student at UNC Charlotte concentrating in AI, Robotics, & Gaming, with a passion for work that sits at the intersection of creativity, research, and real-world impact. My experience ranges from researching spatial audio solutions on Apple Vision Pro to mentoring first-year students and leading within Alpha Omega Epsilon. I'm a Kode With Klossy and UR2PhD Scholar, and a volunteer with FIRST Robotics.
+            </p>
+
+            <div class="experience-timeline">
+                <h2>Experience</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="./images/cci-logo.png" alt="UNC Charlotte CCI">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4 class="timeline-title">Undergraduate Researcher</h4>
+                            <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
+                            <p class="timeline-meta">Aug 2024 - Present · Part-time</p>
+                        </div>
+                        <p class="timeline-description">
+                            Focused on AR/VR accessibility research developing spatial audio-augmented computer vision solutions for visually impaired users. Building Swift-based prototypes using Apple Vision Pro that integrate spatial audio cues with machine learning for object identification, targeting 85% accuracy and 30% improved navigation efficiency.
+                        </p>
+                        <div class="timeline-skills">
+                            <svg viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/>
+                            </svg>
+                            <span>Swift (Programming Language) and Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="./images/cci-logo.png" alt="UNC Charlotte CCI">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4 class="timeline-title">Peer Mentor</h4>
+                            <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
+                            <p class="timeline-meta">Aug 2024 - Present · Part-time</p>
+                        </div>
+                        <p class="timeline-description">
+                            Supported first-year students with academic engagement and personal growth through check-ins, group discussions, and events. Guided their performance by promoting effective study habits and campus resources.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="./images/aoe-logo.png" alt="Alpha Omega Epsilon">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h4 class="timeline-title">Formal Committee Head</h4>
+                            <p class="timeline-company">Alpha Omega Epsilon - Beta Kappa Chapter</p>
+                            <p class="timeline-meta">Aug 2024 - Present · Part-time</p>
+                        </div>
+                        <p class="timeline-description">
+                            Responsible for coordinating all planning, logistics, and communication to ensure the event runs smoothly, aligns with executive board expectations, and reflects the collective efforts of the committee.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="container section-grid">
+                <h3>Get In Touch</h3>
+                <div class="section-content">
+                    <h2 class="section-title" id="contact-title">Let's Work Together</h2>
+                    <p class="section-text">
+                        I'm always interested in hearing about new projects and opportunities. Whether you have a
+                        question or just want to say hello, feel free to reach out.
+                    </p>
+
+                    <form id="contact-form" class="form-container" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="form-input"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="form-input"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                rows="5"
+                                class="form-input"
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="button">
+                            Send Message
+                        </button>
+                        <div id="form-message" aria-live="polite"></div>
+                    </form>
+
+                    <p class="section-text">
+                        Or email directly:
+                        <a
+                            href="mailto:amelia@eckard.com"
+                            style="color: var(--color-accent); text-decoration: underline;"
+                        >
+                            amelia@eckard.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:amelia@eckard.com">Email</a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let current = 0;
+
+        function goTo(n) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = (n + slides.length) % slides.length;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    </script>
+</body>
+</html>
