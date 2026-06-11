@@ -53,33 +53,6 @@
     moveTo(1, true);
 })();
 
-// ── Garden popup (appears after 15 seconds) ───────────────────
-(function () {
-    const popup   = document.getElementById('garden-popup');
-    const backdrop = popup.querySelector('.garden-popup-backdrop');
-    const closeBtn = popup.querySelector('.garden-popup-close');
-
-    function openPopup() {
-        popup.classList.add('visible');
-        popup.setAttribute('aria-hidden', 'false');
-    }
-
-    function closePopup() {
-        popup.classList.remove('visible');
-        setTimeout(() => popup.setAttribute('aria-hidden', 'true'), 500);
-    }
-
-    backdrop.addEventListener('click', closePopup);
-    closeBtn.addEventListener('click', closePopup);
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closePopup();
-    });
-
-    setTimeout(openPopup, 15000);
-})();
-
 // ── Contact form ───────────────────────────────────────────────
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
