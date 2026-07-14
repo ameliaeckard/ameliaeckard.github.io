@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hera's Garden | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Hera's Garden</h1>
+                <p class="hero-subtitle">Creative Studio and Community Hub</p>
+                <div class="hero-meta">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>Railway</span>
+                    <span>Discord OAuth2</span>
+                    <span>herasgarden.net</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container section-center">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail">
+                        <img src="../images/project-herasgarden.jpg" alt="Hera's Garden" />
+                    </div>
+
+                    <h2 class="section-title">What It Is</h2>
+                    <p class="section-text">
+                        Hera's Garden is my personal creative universe -- a hub for writing, photography, coding, and game development, with a community built around it. It operates under the handle Heraclid and lives at herasgarden.net. Rather than scattering creative work across a dozen platforms with no connective tissue, Hera's Garden is a system: a public-facing website, a Discord community, a Roblox game, and the infrastructure to hold it all together.
+                    </p>
+                    <p class="section-text">
+                        The aesthetic is "botanical journal meets cozy creative studio" -- soft, deliberate, and built to feel like a real place rather than just another portfolio page. Every component of the stack is designed around the creator's need for control and visibility, not general-purpose flexibility.
+                    </p>
+
+                    <h2 class="section-title">The Website</h2>
+                    <p class="section-text">
+                        herasgarden.net is a Node.js and Express application hosted on Railway with a persistent volume for file storage. The public side surfaces creative work and community information. Behind a Discord OAuth2 login, an admin dashboard gives full control over content, member management, and site configuration -- access is gated by a whitelist of Discord user IDs rather than a traditional account system, which keeps the setup lean and eliminates a whole category of credential management.
+                    </p>
+                    <p class="section-text">
+                        Storage is intentionally flat: a structured directory of JSON files rather than a database, which keeps the deployment simple and the data portable. File uploads are handled via Multer. DNS runs through Squarespace with the www subdomain active and the bare domain forwarding to it.
+                    </p>
+
+                    <h2 class="section-title">The Ecosystem</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>Iris</h4>
+                            <p>The operational program powering the community behind the scenes -- Discord automation, calendar sync, and the Express API that the website connects to for live member data. Iris is Hera's Garden's infrastructure layer.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Discord Community</h4>
+                            <p>The primary community surface. Iris operates here, handling events, member XP, moderation, and scheduled reports. Discord scheduled events sync automatically to the Hera's Garden brand calendar.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>SGUT: RP</h4>
+                            <p>A cozy social roleplay hangout on Roblox built around a custom 2D character system. Players upload their own character art as decals and interact across multiple worlds. Billy, the SGUT historian bot, tracks everything that happens there.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Billy</h4>
+                            <p>The historian bot for the SGUT roleplay community -- tracks scenes, scores participation, and posts AI-generated weekly chronicles in character. See the Billy project page for details.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Why Build It</h2>
+                    <p class="section-text">
+                        The alternative is the standard scattered-accounts setup: creative work on one platform, community on another, no persistent infrastructure, no single place to manage any of it. Hera's Garden exists because I wanted creative work to have a real home -- not a collection of accounts, but a system I actually control, with the infrastructure to support it long-term.
+                    </p>
+                    <p class="section-text">
+                        Building and maintaining all of it -- the website, the community systems, the Roblox game, the bots -- is also how I stay close to the full stack. It is a live project, not a portfolio piece. Everything in it is running.
+                    </p>
+
+                    <div class="project-page-links">
+                        <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="button">Visit herasgarden.net</a>
+                        <a href="./billy.html" class="button">Billy Project Page</a>
+                    </div>
+
+                    <div class="project-page-back">
+                        <a href="/#work" class="button">&larr; Back to Projects</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:amelia@eckard.com">Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

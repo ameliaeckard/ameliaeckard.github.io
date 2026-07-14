@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iris -- Personal Operational Program | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Iris</h1>
+                <p class="hero-subtitle">Personal Operational Program</p>
+                <div class="hero-meta">
+                    <span>Node.js</span>
+                    <span>discord.js v14</span>
+                    <span>MariaDB</span>
+                    <span>Google Calendar API</span>
+                    <span>Express</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container section-center">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail">
+                        <img src="../images/project-iris.jpg" alt="Iris -- Personal Operational Program" />
+                    </div>
+
+                    <h2 class="section-title">The Problem</h2>
+                    <p class="section-text">
+                        Running a creative community, keeping up with school, and managing a personal calendar across three separate Google accounts means a lot of context-switching between tools that don't talk to each other. Discord has no idea what's on my calendar. My calendar has no idea what's happening in the community. Nothing surfaces the right information at the right time.
+                    </p>
+                    <p class="section-text">
+                        Iris is the fix. It is a single Node.js codebase that functions as my personal operational program -- one system with visibility and control over community management, scheduling, and cross-calendar coordination, instead of a pile of separate tools per concern.
+                    </p>
+
+                    <h2 class="section-title">Architecture</h2>
+                    <p class="section-text">
+                        Iris runs as a single process with three distinct layers. The Discord connector handles all community-facing work: slash commands, event listeners, and a task scheduler for timed operations. The Express API is the only layer that touches MariaDB -- it manages the member system, XP tracking, and moderation records, and is accessible internally by the Discord connector or externally by the Hera's Garden website via HTTPS and an API key. The calendar layer connects to three separate Google accounts (school, personal, and the Hera's Garden brand calendar) via OAuth2.
+                    </p>
+                    <p class="section-text">
+                        The calendar layer is deliberately narrow in scope: Iris only syncs what it creates itself. Events added externally via phone or browser are invisible to it by design. When Iris creates an event on one calendar, it automatically mirrors a "Busy" block to the other two, keeping all three accounts aware of conflicts without duplicating the full event. Urgency and blocker metadata live entirely in Google's extended properties -- no new database tables needed.
+                    </p>
+
+                    <h2 class="section-title">What Iris Does</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>Discord Automation</h4>
+                            <p>Slash commands, event handling, and a scheduler for timed community tasks -- reports, reminders, and activity detection.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Cross-Calendar Sync</h4>
+                            <p>Connects to three Google Calendar accounts. Events Iris creates automatically generate busy-blocks on the other two calendars to prevent conflicts.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Morning and Weekly Briefings</h4>
+                            <p>Scheduled digests posted to a private Discord channel summarizing the day's and week's calendar events across all three accounts.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Community Member System</h4>
+                            <p>MariaDB-backed XP, moderation records, and member data served via an internal Express API used by both the Discord layer and the Hera's Garden website.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Discord Event Sync</h4>
+                            <p>Discord scheduled events are automatically pushed one-way to the Hera's Garden brand calendar to keep the public-facing schedule current.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Why One Program</h2>
+                    <p class="section-text">
+                        The alternative is running a Discord bot, a separate calendar sync script, a cron job for briefings, and a standalone API -- each with their own process, their own auth, their own failure modes. Iris consolidates all of that into one entry point, one deployment, and one place to look when something breaks. It is a single-operator system, built for me and not designed for multi-tenant use, which keeps the architecture honest: no unnecessary abstraction, no generalization for hypothetical other users.
+                    </p>
+
+                    <div class="project-page-back">
+                        <a href="/#work" class="button">&larr; Back to Projects</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:amelia@eckard.com">Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

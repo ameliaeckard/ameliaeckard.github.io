@@ -16,9 +16,10 @@
             </a>
             <nav aria-label="Primary">
                 <a href="#work">Work</a>
+                <a href="#now">Now</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden ✦</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
             </nav>
         </div>
     </header>
@@ -28,7 +29,7 @@
         <section class="hero" aria-labelledby="hero-title">
             <div class="container">
                 <h1 class="hero-title" id="hero-title">Amelia Eckard</h1>
-                <p class="hero-subtitle">CS Student @ UNC Charlotte</p>
+                <p class="hero-subtitle">M.S. AI & B.S. CS Student @ UNC Charlotte</p>
                 <div class="hero-meta" aria-label="Focus areas">
                     <span>AI & Machine Learning</span>
                     <span>AR/VR</span>
@@ -64,59 +65,74 @@
                             <div class="carousel-slide">
                                 <div class="project-card">
                                     <div class="project-thumbnail">
+                                        <img src="./images/project-billy.jpg" alt="SGUT Historian - Billy" />
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>Billy -- SGUT Historian Bot</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            Discord bot for a roleplay community that silently tracks every scene, scores participation, and posts AI-generated weekly chronicles in character as BILLY -- a deadpan surveillance AI working the cash register at a McDonald's in the Afterlife. Built with Python, discord.py, MariaDB, and a local Ollama LLM.
+                                        </p>
+                                        <a href="./projects/billy.html" class="button btn-small">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail">
+                                        <img src="./images/project-iris.jpg" alt="Iris - Personal Operational Program" />
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>Iris -- Personal Operational Program</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            A single Node.js program that runs my personal Discord automation, syncs three Google Calendars, and manages a MariaDB-backed community system -- all from one codebase. Replaces a dozen separate tools with one operator-controlled program.
+                                        </p>
+                                        <a href="./projects/iris.html" class="button btn-small">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail">
+                                        <img src="./images/project-herasgarden.jpg" alt="Hera's Garden" />
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>Hera's Garden</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            A creative studio and community hub at herasgarden.net -- home for writing, photography, and game development. Built with Node.js and Express, hosted on Railway with a Discord OAuth2-protected admin dashboard and persistent file storage.
+                                        </p>
+                                        <a href="./projects/herasgarden.html" class="button btn-small">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail">
+                                        <img src="./images/project-roomcode.jpg" alt="RoomCode" />
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>RoomCode</h3>
+                                        <p class="section-text" style="font-size:1rem;">
+                                            A lightweight browser-based collaborative coding environment. One person runs a server pointed at a local folder; anyone on the network joins via browser and gets a shared IDE with live selection highlighting, file drag-and-drop, role-based host controls, and per-session file trees. Built with Python and vanilla JS.
+                                        </p>
+                                        <a href="https://github.com/ameliaeckard/roomcode" target="_blank" rel="noreferrer" class="button btn-small">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-thumbnail">
                                         <img src="./images/project-ml.jpg" alt="Emergency Fund Predictor" />
                                     </div>
                                     <div class="project-info">
                                         <h3>Emergency Fund Predictor</h3>
                                         <p class="section-text" style="font-size:1rem;">
-                                            Machine learning models predicting whether Americans can cover a $400 emergency expense. Trained on 12,295 Federal Reserve SHED survey respondents — key finding: 56.3% cannot cover it with cash or savings alone.
+                                            Machine learning models predicting whether Americans can cover a $400 emergency expense. Trained on 12,295 Federal Reserve SHED survey respondents -- key finding: 56.3% cannot cover it with cash or savings alone.
                                         </p>
                                         <a href="https://github.com/ameliaeckard/emergency-fund-predictor" target="_blank" rel="noreferrer" class="button btn-small">View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail">
-                                        <img src="./images/project-hamsterface.jpg" alt="HamsterFace Facial Expression Detector" />
-                                    </div>
-                                    <div class="project-info">
-                                        <h3>HamsterFace — Facial Expression Detector</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Real-time webcam app that detects 7 facial expressions and maps each emotion to a matching hamster image. Built with vanilla JS and face-api.js, with light/dark theme support and adjustable detection settings.
-                                        </p>
-                                        <a href="https://github.com/ameliaeckard/facial-expression-detector" target="_blank" rel="noreferrer" class="button btn-small">View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail">
-                                        <img src="./images/project-soundquest.jpg" alt="SoundQuest Location-Based Music Discovery" />
-                                    </div>
-                                    <div class="project-info">
-                                        <h3>SoundQuest — Location-Based Music Discovery</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Designed a location-based music discovery app helping college students collect songs tied to the places they first heard them. Led user research including usability testing and interviews, producing an interactive music map as an alternative to algorithmic recommendations.
-                                        </p>
-                                        <a href="https://github.com/ameliaeckard/soundquest" target="_blank" rel="noreferrer" class="button btn-small">View</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail">
-                                        <img src="./images/project-135.jpg" alt="1-3-5 Task Manager" />
-                                    </div>
-                                    <div class="project-info">
-                                        <h3>1-3-5 Task Manager</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Productivity web app built around the 1-3-5 Rule: one big task, three medium tasks, five small tasks per day. No frameworks — pure HTML, CSS, and JS with local storage persistence and progress animations.
-                                        </p>
-                                        <a href="https://github.com/ameliaeckard/135-tasks" target="_blank" rel="noreferrer" class="button btn-small">View</a>
                                     </div>
                                 </div>
                             </div>
@@ -128,6 +144,7 @@
                             <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Previous project">&larr;</button>
                             <div class="carousel-dots" id="carousel-dots" aria-hidden="true">
                                 <button class="carousel-dot active"></button>
+                                <button class="carousel-dot"></button>
                                 <button class="carousel-dot"></button>
                                 <button class="carousel-dot"></button>
                                 <button class="carousel-dot"></button>
@@ -146,7 +163,9 @@
                 <h2 class="section-title" id="about-title">Who I Am</h2>
                 <div class="section-content">
                     <p class="section-text">
-                        I'm a Computer Science student at UNC Charlotte concentrating in AI, Robotics, & Gaming, with a passion for work that sits at the intersection of creativity, research, and real-world impact. My experience ranges from researching spatial audio solutions on Apple Vision Pro to mentoring first-year students and leading within Alpha Omega Epsilon. I'm a Kode With Klossy and UR2PhD Scholar, and a volunteer with FIRST Robotics.
+                        I am a Computer Science student at UNC Charlotte, currently in the MS in Artificial Intelligence Early Entry program, concentrating in AI, Robotics, and Gaming. My coursework and research have centered on computer vision and human-centered AI, including work on spatial audio-augmented navigation tools using Apple Vision Pro, ARKit, and RealityKit to support accessibility for visually impaired users. I am actively applying what I learn through hands-on research and development, working across Swift, Python, and machine learning frameworks to build and test real systems.</p>
+                    <p class="section-text">Alongside my technical work, I have experience mentoring first-year CS students and volunteering with FIRST Robotics, where I have supported program coordination and helped others build foundational skills and confidence. I am also a Kode With Klossy Scholar and a UR2PhD Scholar, and currently contribute as a CRA REU researcher at Stevens Institute of Technology.</p>
+                    <p class="section-text">I am particularly interested in research, documentation, and applied AI work that has direct real-world impact, especially where technology can support accessibility and human wellbeing. My goal is to grow into a researcher who can bridge technical development with thoughtful, user-centered design, using intelligently deployed technology to make people's lives better.
                     </p>
 
                     <div class="experience-timeline">
@@ -158,19 +177,29 @@
                             </div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Undergraduate Researcher</h4>
+                                    <h4 class="timeline-title">Instructional Assistant</h4>
                                     <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Aug 2025 – Present · Part-time</p>
+                                    <p class="timeline-meta">Jun 2026 – Present · Part-time</p>
                                 </div>
                                 <p class="timeline-description">
-                                    Focused on AR/VR accessibility research developing spatial audio-augmented computer vision solutions for visually impaired users. Building Swift-based prototypes using Apple Vision Pro that integrate spatial audio cues with machine learning for object identification, targeting 85% accuracy and 30% improved navigation efficiency.
+                                    Led lab sections for a foundational computer science course, assisting students in understanding core concepts and debugging their knowledge of the fundamentals.
                                 </p>
-                                <div class="timeline-skills">
-                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/>
-                                    </svg>
-                                    <span>Swift · ARKit · RealityKit · Computer Vision</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-logo">
+                                <img src="./images/stevens-logo.png" alt="Stevens Institute of Technology" />
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <h4 class="timeline-title">Undergraduate Researcher (CRA REU)</h4>
+                                    <p class="timeline-company">Stevens Institute of Technology</p>
+                                    <p class="timeline-meta">Jun 2026 – Present · Part-time · Remote</p>
                                 </div>
+                                <p class="timeline-description">
+                                    CRA-funded research under Prof. Jina Huh-Yoo focused on mental health and social media, in collaboration with multiple institutions.
+                                </p>
                             </div>
                         </div>
 
@@ -192,16 +221,38 @@
 
                         <div class="timeline-item">
                             <div class="timeline-logo">
+                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-header">
+                                    <h4 class="timeline-title">Undergraduate Researcher</h4>
+                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
+                                    <p class="timeline-meta">Aug 2025 – May 2026 · Part-time</p>
+                                </div>
+                                <p class="timeline-description">
+                                    Focused on AR/VR accessibility research developing spatial audio-augmented computer vision solutions for visually impaired users. Built Swift-based prototypes using Apple Vision Pro integrating spatial audio cues with machine learning for object identification, targeting 85% accuracy and 30% improved navigation efficiency.
+                                </p>
+                                <div class="timeline-skills">
+                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/>
+                                    </svg>
+                                    <span>Swift · ARKit · RealityKit · Computer Vision</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-logo">
                                 <img src="./images/aoe-logo.png" alt="Alpha Omega Epsilon" />
                             </div>
                             <div class="timeline-content">
                                 <div class="timeline-header">
                                     <h4 class="timeline-title">Formal Committee Head</h4>
                                     <p class="timeline-company">Alpha Omega Epsilon — Beta Kappa Chapter</p>
-                                    <p class="timeline-meta">Aug 2025 – Present · Part-time</p>
+                                    <p class="timeline-meta">Aug 2025 – May 2026 · Seasonal</p>
                                 </div>
                                 <p class="timeline-description">
-                                    Responsible for coordinating all planning, logistics, and communication to ensure the event runs smoothly, aligns with executive board expectations, and reflects the collective efforts of the committee.
+                                    Coordinated all planning, logistics, and communication for formal events to ensure smooth execution aligned with executive board expectations.
                                 </p>
                             </div>
                         </div>
@@ -252,7 +303,7 @@
                 <a href="mailto:amelia@eckard.com">Email</a>
                 <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
                 <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden ✦</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
             </div>
         </div>
     </footer>

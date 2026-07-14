@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billy -- SGUT Historian Bot | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Billy</h1>
+                <p class="hero-subtitle">SGUT Historian Bot</p>
+                <div class="hero-meta">
+                    <span>Python</span>
+                    <span>discord.py</span>
+                    <span>MariaDB</span>
+                    <span>Ollama (LLaMA 3.1)</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container section-center">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail">
+                        <img src="../images/project-billy.jpg" alt="Billy -- SGUT Historian Bot" />
+                    </div>
+
+                    <h2 class="section-title">The Concept</h2>
+                    <p class="section-text">
+                        SGUT is an active Discord roleplay community built around a custom 2D character system on Roblox. The server generates a constant stream of collaborative storytelling -- scenes open and close, characters do things, dramatic moments happen, and then everyone moves on and forgets about it a week later.
+                    </p>
+                    <p class="section-text">
+                        Billy exists to fix that. He is a custom Discord bot built to silently observe all roleplay activity, log it to a database, and report back weekly -- in character. His persona is BILLY: a surveillance AI who physically works the cash register at a McDonald's in the Afterlife, the in-between space where souls pass through before moving on. He has been watching everyone their entire lives. He is permanently unimpressed about it.
+                    </p>
+
+                    <h2 class="section-title">What It Does</h2>
+                    <p class="section-text">
+                        Billy runs continuously in the background, tracking every message sent through Tupperbox (the proxy system players use to speak as their characters). It correlates webhook messages back to the players behind them, opens and closes scenes based on activity gaps, and builds up a structured database of everything that happens in the RP.
+                    </p>
+                    <p class="section-text">
+                        Every Sunday, Billy posts a full weekly report covering the previous seven days. The report includes an AI-generated story chronicle -- a narrative summary of what actually happened in roleplay that week, grounded entirely in the stored transcripts -- plus a scoreboard, six weekly awards, and a "Quote of the Week" surfaced from flagged high-drama lines. Between reports, Billy rotates sassy status messages generated from live RP context every ten minutes and responds in character when mentioned in the server's designated McDonald's channel.
+                    </p>
+
+                    <h2 class="section-title">Awards System</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>The Bard</h4>
+                            <p>Most messages sent that week.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>The Dramatist</h4>
+                            <p>Most notable/flagged moments across the week.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>The Novelist</h4>
+                            <p>Highest average message length -- the one writing paragraphs.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>The Traveler</h4>
+                            <p>Active across the most different scenes or channels.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>The Consistent</h4>
+                            <p>Posted on the most active days that week.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Quote of the Week</h4>
+                            <p>One flagged line surfaced from the week's transcripts -- no context, no explanation.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Technical Details</h2>
+                    <p class="section-text">
+                        Billy is written in Python using discord.py for the bot layer and aiomysql for async database access against a MariaDB instance. The AI layer runs locally via Ollama with LLaMA 3.1 8B -- all story summaries, BILLY responses, and status lines are generated on-device, no external API calls. Tupperbox webhook correlation is handled by matching webhook user IDs and display names against a known-proxies table to reconstruct which player was speaking as which character.
+                    </p>
+                    <p class="section-text">
+                        Scene detection is automatic: a scene is considered open when messages are flowing and closed after two hours of inactivity in the same channel. The historical scan command lets admins backfill the database from messages sent before the bot was running. Week boundaries are Sunday-to-Saturday throughout the entire codebase. The bot is self-hosted on a personal server alongside the other programs that make up the Hera's Garden infrastructure.
+                    </p>
+
+                    <div class="project-page-back">
+                        <a href="/#work" class="button">&larr; Back to Projects</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:amelia@eckard.com">Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>
