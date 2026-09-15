@@ -8,13 +8,6 @@
     let pos        = 1;
     let busy       = false;
 
-    // shuffle project order on every load (Fisher-Yates)
-    for (let i = origSlides.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [origSlides[i], origSlides[j]] = [origSlides[j], origSlides[i]];
-    }
-    origSlides.forEach(s => track.appendChild(s));
-
     // Clone first & last for seamless wrap
     const pre = origSlides[origSlides.length - 1].cloneNode(true);
     const suf = origSlides[0].cloneNode(true);

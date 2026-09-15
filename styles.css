@@ -726,6 +726,15 @@ h4 {
 
 .footer-garden-link:hover { color: var(--black); }
 
+nav .footer-garden-link {
+    font-size: 1.2rem;
+    color: #b5585c;
+}
+
+nav .footer-garden-link:hover {
+    color: var(--black);
+}
+
 .garden-label {
     font-family: 'Silkscreen', monospace;
     font-size: 0.7rem;
@@ -893,7 +902,7 @@ h4 {
    ============================================ */
 
 .project-page-content {
-    max-width: 720px;
+    max-width: 100%;
     margin: 0;
     text-align: left;
 }
