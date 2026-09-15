@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spatial Audio AR/VR Research | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-doc" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Spatial Audio AR/VR Research</h1>
+                <p class="hero-subtitle">Accessible Indoor Navigation on Apple Vision Pro</p>
+                <div class="hero-meta">
+                    <span>Swift</span>
+                    <span>ARKit</span>
+                    <span>RealityKit</span>
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail">
+                        <img src="../images/project-arvr.jpg" alt="Spatial Audio AR/VR Research" />
+                    </div>
+
+                    <h2 class="section-title">The Problem</h2>
+                    <p class="section-text">
+                        Indoor navigation is a persistent accessibility gap for people who are blind or have low vision. GPS does not work reliably indoors, and most existing tools rely on pre-mapped environments or infrastructure that most buildings do not have. The goal of this research is a system that works in unfamiliar indoor spaces using only the sensors already built into a headset.
+                    </p>
+                    <p class="section-text">
+                        The approach combines real-time object detection with directional 3D audio, so that a user hears where obstacles and points of interest are relative to their own position, rather than reading a screen or feeling for a cane tap.
+                    </p>
+
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-text">
+                        ARKit's scene understanding and object detection identify obstacles, doorways, and landmarks in the environment in real time. Each detected object is assigned a position in 3D space, and RealityKit's spatial audio engine renders a directional sound cue anchored to that position, so a user hears a doorway "to the left and ahead" the same way they would hear a person speaking from that direction.
+                    </p>
+                    <p class="section-text">
+                        The system is being built and evaluated on Apple Vision Pro, chosen for its sensor suite and headroom for on-device processing without needing a connection to an external server.
+                    </p>
+
+                    <h2 class="section-title">Targets</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>Identification Accuracy</h4>
+                            <p>Targeting 85% accuracy identifying obstacles and points of interest in unfamiliar indoor spaces.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Navigation Speed</h4>
+                            <p>Targeting 30% faster navigation through unfamiliar indoor spaces compared to unassisted wayfinding.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Status</h2>
+                    <p class="section-text">
+                        This is active undergraduate research at UNC Charlotte, developing Swift-based prototypes and iterating on detection accuracy and audio cue design. Source and progress notes are tracked on GitHub.
+                    </p>
+
+                    <div class="project-page-links">
+                        <a href="https://github.com/ameliaeckard/spatial-audio-research-arvr" target="_blank" rel="noreferrer" class="button">View on GitHub</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="/bug">Report a Bug</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

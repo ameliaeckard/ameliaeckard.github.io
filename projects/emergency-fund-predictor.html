@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Fund Predictor | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-doc" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Emergency Fund Predictor</h1>
+                <p class="hero-subtitle">Machine Learning on Federal Reserve Survey Data</p>
+                <div class="hero-meta">
+                    <span>Python</span>
+                    <span>scikit-learn</span>
+                    <span>pandas</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail">
+                        <img src="../images/project-ml.jpg" alt="Emergency Fund Predictor" />
+                    </div>
+
+                    <h2 class="section-title">The Question</h2>
+                    <p class="section-text">
+                        Can a household cover a sudden $400 expense using cash or savings alone, without borrowing or selling something? This is the Federal Reserve's standard measure of financial fragility in the annual Survey of Household Economics and Decisionmaking (SHED), and it is a sharper test of financial resilience than income alone.
+                    </p>
+
+                    <h2 class="section-title">The Approach</h2>
+                    <p class="section-text">
+                        Several classification models were trained on 12,295 SHED survey respondents, using demographic, income, and financial behavior features to predict whether a respondent could cover the expense from cash or savings. Models were compared on accuracy, precision, and recall, with attention to which features carried the most predictive weight.
+                    </p>
+
+                    <h2 class="section-title">Key Finding</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>56.3%</h4>
+                            <p>of respondents could not cover a $400 emergency expense with cash or savings alone.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>12,295</h4>
+                            <p>respondents in the training and evaluation dataset, drawn from the Federal Reserve SHED survey.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Why It Matters</h2>
+                    <p class="section-text">
+                        Financial fragility at this scale is a policy-relevant problem, not just a modeling exercise. Understanding which factors predict the ability to absorb a small financial shock helps identify where interventions, emergency savings programs, access to short-term credit, financial literacy resources, would have the most impact.
+                    </p>
+
+                    <div class="project-page-links">
+                        <a href="https://github.com/ameliaeckard/emergency-fund-predictor" target="_blank" rel="noreferrer" class="button">View on GitHub</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="/bug">Report a Bug</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

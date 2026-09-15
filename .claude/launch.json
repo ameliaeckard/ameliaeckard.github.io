@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "portfolio",
-      "runtimeExecutable": "C:\\Program Files\\Python311\\python.exe",
-      "runtimeArgs": ["-m", "http.server", "5500"],
-      "port": 5500
+      "name": "static-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server", "-p", "8080", "-c-1"],
+      "port": 8080
     }
   ]
 }

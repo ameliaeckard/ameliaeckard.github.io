@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomCode | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-doc" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">RoomCode</h1>
+                <p class="hero-subtitle">Browser-Based Collaborative Coding Environment</p>
+                <div class="hero-meta">
+                    <span>Python</span>
+                    <span>Vanilla JS</span>
+                    <span>WebSockets</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="project-page-content">
+
+                    <div class="project-page-thumbnail gradient-3"></div>
+
+                    <h2 class="section-title">The Idea</h2>
+                    <p class="section-text">
+                        Pairing on code across a local network usually means screen sharing, which is laggy, one-directional, and gives only one person real control. RoomCode is a lightweight alternative: one person runs a small server pointed at a local project folder, and anyone else on the same network joins through a browser tab and gets a shared, editable view of the same files.
+                    </p>
+
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-text">
+                        The host runs a Python server against a folder on their machine. Guests connect over the local network with nothing to install, just a browser. Edits, cursor position, and selection are synced live between everyone in the room, and the host can set role-based permissions to control who can edit versus just view.
+                    </p>
+
+                    <h2 class="section-title">Features</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>Live Selection Highlighting</h4>
+                            <p>See exactly where everyone else in the room is looking and editing in real time.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>File Drag-and-Drop</h4>
+                            <p>Add files to the shared project directly from the browser.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Role-Based Host Controls</h4>
+                            <p>The host decides who can edit and who can only view, per session.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Per-Session File Trees</h4>
+                            <p>Each room reflects the state of the host's folder as it changes, without needing a manual refresh.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Why It Exists</h2>
+                    <p class="section-text">
+                        Most collaborative editors require an account, a cloud service, and an internet connection even when everyone involved is sitting in the same room on the same network. RoomCode skips all of that: no accounts, no cloud dependency, just a server and a browser tab.
+                    </p>
+
+                    <div class="project-page-links">
+                        <a href="https://github.com/ameliaeckard/roomcode" target="_blank" rel="noreferrer" class="button">View on GitHub</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="/bug">Report a Bug</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

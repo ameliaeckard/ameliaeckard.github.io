@@ -1,10 +1,19 @@
 // ── Infinite Carousel ──────────────────────────────────────────
 (function () {
-    const track      = document.getElementById('projects-carousel');
-    const origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
-    const dots       = Array.from(document.querySelectorAll('.carousel-dot'));
-    let pos          = 1;
-    let busy         = false;
+    const track = document.getElementById('projects-carousel');
+    if (!track) return; // carousel only lives on the homepage
+
+    let origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+    const dots     = Array.from(document.querySelectorAll('.carousel-dot'));
+    let pos        = 1;
+    let busy       = false;
+
+    // shuffle project order on every load (Fisher-Yates)
+    for (let i = origSlides.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [origSlides[i], origSlides[j]] = [origSlides[j], origSlides[i]];
+    }
+    origSlides.forEach(s => track.appendChild(s));
 
     // Clone first & last for seamless wrap
     const pre = origSlides[origSlides.length - 1].cloneNode(true);
@@ -54,24 +63,53 @@
 })();
 
 // ── Contact form ───────────────────────────────────────────────
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const msg  = document.getElementById('form-message');
-    msg.textContent = 'Sending…';
-    try {
-        const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-            msg.textContent = "Message sent! I'll be in touch soon.";
-            form.reset();
-        } else {
-            msg.textContent = 'Something went wrong — please email directly.';
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const msg  = document.getElementById('form-message');
+        msg.textContent = 'Sending…';
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                msg.textContent = "Message sent! I'll be in touch soon.";
+                form.reset();
+            } else {
+                msg.textContent = 'Something went wrong, please email directly.';
+            }
+        } catch {
+            msg.textContent = 'Something went wrong, please email directly.';
         }
-    } catch {
-        msg.textContent = 'Something went wrong — please email directly.';
-    }
-});
+    });
+}
+
+// ── Bug report form ────────────────────────────────────────────
+const bugForm = document.getElementById('bug-form');
+if (bugForm) {
+    bugForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const form = e.target;
+        const msg  = document.getElementById('bug-form-message');
+        msg.textContent = 'Sending…';
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                msg.textContent = "Thanks, got it. I'll take a look.";
+                form.reset();
+            } else {
+                msg.textContent = 'Something went wrong, please email me directly instead.';
+            }
+        } catch {
+            msg.textContent = 'Something went wrong, please email me directly instead.';
+        }
+    });
+}
