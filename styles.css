@@ -1174,81 +1174,80 @@ h4 {
     }
 }
 /* ============================================
-   MOBILE CAROUSEL
+   MOBILE NAV
    ============================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
-    .carousel-container {
-        padding: 1.25rem 0;
-        margin-top: 1rem;
-    }
-
-    /*
-       IMPORTANT:
-       Keep this at 80%.
-       The carousel JavaScript is built around 80% slides.
-    */
-    .carousel-slide {
-        flex: 0 0 80%;
-        padding: 0 0.4rem;
-    }
-
-    /*
-       Narrow the actual card instead of changing
-       the carousel slide width.
-    */
-    .project-card {
+    .header {
         width: 100%;
-        max-width: 290px;
-        margin: 0 auto;
-        border-radius: 14px;
     }
 
-    /* Hide project image on phones */
-    .project-thumbnail {
-        display: none;
-    }
+    .nav {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.9rem 1rem;
 
-    .project-info {
-        padding: 1.4rem;
-        min-height: 0;
-    }
-
-    .project-info h3 {
-        font-size: 1.1rem;
-        line-height: 1.35;
-        margin-bottom: 0.75rem;
-    }
-
-    .project-info .section-text {
-        font-size: 0.9rem !important;
-        line-height: 1.65;
-        margin-bottom: 1.25rem;
-    }
-
-    .project-card-actions {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0.7rem;
+    }
+
+    .nav nav {
         width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0.45rem 1rem;
     }
 
-    .project-card-actions .button {
-        flex: 1 1 auto;
-        text-align: center;
-        padding: 7px 12px;
+    .header nav > a {
+        flex: 0 1 auto;
+
+        font-size: 0.68rem;
+        letter-spacing: 0.8px;
+
+        white-space: nowrap;
     }
 
-    .carousel-controls {
-        gap: 1rem;
-        margin-top: 1.25rem;
+    .logo-img {
+        height: 32px;
+    }
+}
+
+
+/* ============================================
+   SMALL PHONES
+   ============================================ */
+
+@media (max-width: 480px) {
+
+    .nav {
+        padding: 0.75rem 0.65rem;
+        gap: 0.55rem;
     }
 
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
+    .nav nav {
+        gap: 0.4rem 0.7rem;
+    }
+
+    .header nav > a {
+        font-size: 0.62rem;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-img {
+        height: 29px;
+    }
+
+    .footer-garden-link {
+        font-size: 0.75rem;
     }
 }
 
@@ -1257,37 +1256,23 @@ h4 {
    VERY SMALL PHONES
    ============================================ */
 
-@media (max-width: 420px) {
+@media (max-width: 380px) {
 
-    /*
-       Still keep 80% because of the JS calculation.
-    */
-    .carousel-slide {
-        flex: 0 0 80%;
-        padding: 0 0.25rem;
+    .nav {
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
     }
 
-    .project-card {
-        max-width: 275px;
+    .nav nav {
+        gap: 0.35rem 0.55rem;
     }
 
-    .project-info {
-        padding: 1.2rem;
+    .header nav > a {
+        font-size: 0.58rem;
+        letter-spacing: 0.25px;
     }
 
-    .project-info h3 {
-        font-size: 1.05rem;
-    }
-
-    .project-card-actions {
-        flex-direction: column;
-    }
-
-    .project-card-actions .button {
-        width: 100%;
-    }
-
-    .carousel-dots {
-        gap: 0.3rem;
+    .footer-garden-link {
+        font-size: 0.7rem;
     }
 }
