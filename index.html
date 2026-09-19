@@ -1,355 +1,832 @@
+---
+layout: null
+---
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Amelia Eckard</title>
+
     <link rel="stylesheet" href="styles.css?v=2" />
-    <!-- drop project images in /images/ matching the src paths below -->
     <link rel="icon" type="image/x-icon" href="./images/logo.png" />
 </head>
+
 <body>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+
     <header class="header">
+
         <div class="container nav">
-            <a href="/" class="logo" aria-label="Amelia Eckard home">
-                <img src="./images/logo.png" alt="AE logo" class="logo-img" />
+
+            <a
+                href="/"
+                class="logo"
+                aria-label="Amelia Eckard home"
+            >
+                <img
+                    src="./images/logo.png"
+                    alt="AE logo"
+                    class="logo-img"
+                />
             </a>
+
             <nav aria-label="Primary">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+
+                <a href="#work">
+                    Work
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a
+                    href="https://herasgarden.net"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="footer-garden-link"
+                >
+                    hera's garden *
+                </a>
+
             </nav>
+
         </div>
+
     </header>
 
+
     <main>
-        <!-- HERO -->
-        <section class="hero" aria-labelledby="hero-title">
+
+        <!-- ============================================
+             HERO
+             ============================================ -->
+
+        <section
+            class="hero"
+            aria-labelledby="hero-title"
+        >
+
             <div class="container">
-                <h1 class="hero-title" id="hero-title">Amelia Eckard</h1>
-                <p class="hero-subtitle">M.S. AI & B.S. CS Student @ UNC Charlotte</p>
-                <div class="hero-meta" aria-label="Focus areas">
-                    <span>AI & Machine Learning</span>
-                    <span>AR/VR</span>
-                    <span>KWK & UR2PhD Scholar</span>
+
+                <h1
+                    class="hero-title"
+                    id="hero-title"
+                >
+                    Amelia Eckard
+                </h1>
+
+                <p class="hero-subtitle">
+                    M.S. AI &amp; B.S. CS Student @ UNC Charlotte
+                </p>
+
+                <div
+                    class="hero-meta"
+                    aria-label="Focus areas"
+                >
+
+                    <span>
+                        AI &amp; Machine Learning
+                    </span>
+
+                    <span>
+                        AR/VR
+                    </span>
+
+                    <span>
+                        KWK &amp; UR2PhD Scholar
+                    </span>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- WORK -->
-        <section id="work" class="section" aria-labelledby="work-title">
+
+        <!-- ============================================
+             WORK
+             ============================================ -->
+
+        <section
+            id="work"
+            class="section"
+            aria-labelledby="work-title"
+        >
+
             <div class="container section-center">
-                <h3>Selected Work</h3>
-                <h2 class="section-title" id="work-title">Featured Projects</h2>
-                    <div class="carousel-container">
-                        <div class="carousel-viewport">
-                        <div class="carousel" id="projects-carousel">
 
-                            <div class="carousel-slide active">
-                                <div class="project-card">
-                                    <div class="project-thumbnail">
-                                        <img src="./images/project-arvr.jpg" alt="Spatial Audio AR/VR Research" />
-                                    </div>
-                                    <div class="project-info">
-                                        <h3>Spatial Audio AR/VR Research</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Research on using spatial audio cues to help visually impaired users navigate indoors via Apple Vision Pro. Combines ARKit object detection with directional 3D audio, targeting 85% identification accuracy and 30% faster navigation.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/arvr.html" class="button btn-small btn-read">Read More</a>
-                                            <a href="https://github.com/ameliaeckard/spatial-audio-research-arvr" target="_blank" rel="noreferrer" class="button btn-small btn-view">View</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <h3>
+                    Selected Work
+                </h3>
 
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail gradient-3"></div>
-                                    <div class="project-info">
-                                        <h3>Iris: Personal Memory & Community System</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            A two-part local-first AI system. Iris Aelios passively records screen and audio into a searchable, threaded memory. Iris Phylax guards the Hera's Garden Discord servers with verification, XP ranking, and moderation. Built with Electron, SQLite, Ollama, and Node.js.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/iris.html" class="button btn-small btn-read">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <h2
+                    class="section-title"
+                    id="work-title"
+                >
+                    Featured Projects
+                </h2>
 
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail gradient-2"></div>
-                                    <div class="project-info">
-                                        <h3>Billy: SGUT Historian Bot</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Discord bot for a storytelling community that silently tracks every scene, scores participation, and posts AI-generated weekly chronicles in character as BILLY, a deadpan surveillance AI. Built with Python, discord.py, MariaDB, and a local Ollama LLM.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/billy.html" class="button btn-small btn-read">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail gradient-4"></div>
-                                    <div class="project-info">
-                                        <h3>Hera's Garden</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            A creative studio and community hub at herasgarden.net, home for writing, photography, and game development. Built with Node.js and Express, hosted on Railway with a Discord OAuth2-protected admin dashboard and persistent file storage.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/herasgarden.html" class="button btn-small btn-read">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!--
+                    Automatically find every page that has:
 
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail gradient-1"></div>
-                                    <div class="project-info">
-                                        <h3>RoomCode</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            A lightweight browser-based collaborative coding environment. One person runs a server pointed at a local folder; anyone on the network joins via browser and gets a shared IDE with live selection highlighting, file drag-and-drop, role-based host controls, and per-session file trees. Built with Python and vanilla JS.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/roomcode.html" class="button btn-small btn-read">Read More</a>
-                                            <a href="https://github.com/ameliaeckard/roomcode" target="_blank" rel="noreferrer" class="button btn-small btn-view">View</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    carousel: true
 
-                            <div class="carousel-slide">
-                                <div class="project-card">
-                                    <div class="project-thumbnail">
-                                        <img src="./images/project-ml.jpg" alt="Emergency Fund Predictor" />
-                                    </div>
-                                    <div class="project-info">
-                                        <h3>Emergency Fund Predictor</h3>
-                                        <p class="section-text" style="font-size:1rem;">
-                                            Machine learning models predicting whether Americans can cover a $400 emergency expense. Trained on 12,295 Federal Reserve SHED survey respondents, key finding: 56.3% cannot cover it with cash or savings alone.
-                                        </p>
-                                        <div class="project-card-actions">
-                                            <a href="./projects/emergency-fund-predictor.html" class="button btn-small btn-read">Read More</a>
-                                            <a href="https://github.com/ameliaeckard/emergency-fund-predictor" target="_blank" rel="noreferrer" class="button btn-small btn-view">View</a>
+                    in its front matter.
+                -->
+
+                {% assign projects = site.pages | where: "carousel", true | sort: "order" %}
+
+
+                <div class="carousel-container">
+
+                    <div class="carousel-viewport">
+
+                        <div
+                            class="carousel"
+                            id="projects-carousel"
+                        >
+
+                            {% for project in projects %}
+
+                                <div class="carousel-slide{% if forloop.first %} active{% endif %}">
+
+                                    <div class="project-card">
+
+
+                                        <!-- PROJECT IMAGE / PLACEHOLDER -->
+
+                                        {% if project.card_image %}
+
+                                            <div class="project-thumbnail">
+
+                                                <img
+                                                    src="{{ project.card_image | relative_url }}"
+                                                    alt="{{ project.card_title }}"
+                                                />
+
+                                            </div>
+
+                                        {% else %}
+
+                                            <div class="project-thumbnail {{ project.card_placeholder | default: 'gradient-1' }}"></div>
+
+                                        {% endif %}
+
+
+                                        <!-- PROJECT INFORMATION -->
+
+                                        <div class="project-info">
+
+                                            <h3>
+                                                {{ project.card_title }}
+                                            </h3>
+
+                                            <p
+                                                class="section-text"
+                                                style="font-size: 1rem;"
+                                            >
+                                                {{ project.card_description }}
+                                            </p>
+
+
+                                            <div class="project-card-actions">
+
+                                                <a
+                                                    href="{{ project.url | relative_url }}"
+                                                    class="button btn-small btn-read"
+                                                >
+                                                    Read More
+                                                </a>
+
+
+                                                {% if project.github %}
+
+                                                    <a
+                                                        href="{{ project.github }}"
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        class="button btn-small btn-view"
+                                                    >
+                                                        View
+                                                    </a>
+
+                                                {% endif %}
+
+                                            </div>
+
                                         </div>
+
                                     </div>
+
                                 </div>
-                            </div>
+
+                            {% endfor %}
 
                         </div>
-                        </div><!-- /.carousel-viewport -->
 
-                        <div class="carousel-controls" aria-label="Project navigation">
-                            <button class="carousel-btn" id="carousel-prev" type="button" aria-label="Previous project">&larr;</button>
-                            <div class="carousel-dots" id="carousel-dots" aria-hidden="true">
-                                <button class="carousel-dot active"></button>
-                                <button class="carousel-dot"></button>
-                                <button class="carousel-dot"></button>
-                                <button class="carousel-dot"></button>
-                                <button class="carousel-dot"></button>
-                                <button class="carousel-dot"></button>
-                            </div>
-                            <button class="carousel-btn" id="carousel-next" type="button" aria-label="Next project">&rarr;</button>
-                        </div>
                     </div>
+
+
+                    <!-- CAROUSEL CONTROLS -->
+
+                    <div
+                        class="carousel-controls"
+                        aria-label="Project navigation"
+                    >
+
+                        <button
+                            class="carousel-btn"
+                            id="carousel-prev"
+                            type="button"
+                            aria-label="Previous project"
+                        >
+                            &larr;
+                        </button>
+
+
+                        <div
+                            class="carousel-dots"
+                            id="carousel-dots"
+                            aria-hidden="true"
+                        >
+
+                            {% for project in projects %}
+
+                                <button
+                                    class="carousel-dot{% if forloop.first %} active{% endif %}"
+                                ></button>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <button
+                            class="carousel-btn"
+                            id="carousel-next"
+                            type="button"
+                            aria-label="Next project"
+                        >
+                            &rarr;
+                        </button>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </section>
 
-        <!-- ABOUT -->
-        <section id="about" class="section" aria-labelledby="about-title">
+
+        <!-- ============================================
+             ABOUT
+             ============================================ -->
+
+        <section
+            id="about"
+            class="section"
+            aria-labelledby="about-title"
+        >
+
             <div class="container section-center">
-                <h3>About</h3>
-                <h2 class="section-title" id="about-title">Who I Am</h2>
+
+                <h3>
+                    About
+                </h3>
+
+                <h2
+                    class="section-title"
+                    id="about-title"
+                >
+                    Who I Am
+                </h2>
+
+
                 <div class="section-content">
+
                     <p class="section-text">
-                        I am a Computer Science student at UNC Charlotte, currently in the MS in Artificial Intelligence Early Entry program, concentrating in AI, Robotics, and Gaming. My coursework and research have centered on computer vision and human-centered AI, including work on spatial audio-augmented navigation tools using Apple Vision Pro, ARKit, and RealityKit to support accessibility for visually impaired users. I am actively applying what I learn through hands-on research and development, working across Swift, Python, and machine learning frameworks to build and test real systems.</p>
-                    <p class="section-text">Alongside my technical work, I have experience mentoring first-year CS students and volunteering with FIRST Robotics, where I have supported program coordination and helped others build foundational skills and confidence. I am also a Kode With Klossy Scholar and a UR2PhD Scholar, and I currently work as a research intern at Stevens Institute of Technology.</p>
-                    <p class="section-text">I am particularly interested in research, documentation, and applied AI work that has direct real-world impact, especially where technology can support accessibility and human wellbeing. My goal is to grow into a researcher who can bridge technical development with thoughtful, user-centered design, using intelligently deployed technology to make people's lives better.
+                        I am a Computer Science student at UNC Charlotte, currently in the MS in Artificial Intelligence Early Entry program, concentrating in AI, Robotics, and Gaming. My coursework and research have centered on computer vision and human-centered AI, including work on spatial audio-augmented navigation tools using Apple Vision Pro, ARKit, and RealityKit to support accessibility for visually impaired users. I am actively applying what I learn through hands-on research and development, working across Swift, Python, and machine learning frameworks to build and test real systems.
                     </p>
 
+                    <p class="section-text">
+                        Alongside my technical work, I have experience mentoring first-year CS students and volunteering with FIRST Robotics, where I have supported program coordination and helped others build foundational skills and confidence. I am also a Kode With Klossy Scholar and a UR2PhD Scholar, and I currently work as a research intern at Stevens Institute of Technology.
+                    </p>
+
+                    <p class="section-text">
+                        I am particularly interested in research, documentation, and applied AI work that has direct real-world impact, especially where technology can support accessibility and human wellbeing. My goal is to grow into a researcher who can bridge technical development with thoughtful, user-centered design, using intelligently deployed technology to make people's lives better.
+                    </p>
+
+
+                    <!-- ============================================
+                         EXPERIENCE
+                         ============================================ -->
+
                     <div class="experience-timeline">
-                        <h3>Experience</h3>
+
+                        <h3>
+                            Experience
+                        </h3>
+
+
+                        <!-- STEVENS -->
 
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/stevens-logo.png" alt="Stevens Institute of Technology" />
+
+                                <img
+                                    src="./images/stevens-logo.png"
+                                    alt="Stevens Institute of Technology"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Research Intern</h4>
-                                    <p class="timeline-company">Stevens Institute of Technology, Dr. Jina Huh-Yoo</p>
-                                    <p class="timeline-meta">Jun 2026 – Present · Part-time · Remote</p>
+
+                                    <h4 class="timeline-title">
+                                        Research Intern
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        Stevens Institute of Technology, Dr. Jina Huh-Yoo
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Jun 2026 – Present · Part-time · Remote
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Built rq-system, a two-phase automated literature pipeline using the PubMed E-utilities, CrossRef, and Perplexity API, processing 345+ papers with a 74.4% inclusion rate across deterministic filtering, AI gating, and structured extraction, and synthesized the findings into structured research questions on mental health and social media data sharing for a funded multi-site consortium.
                                 </p>
+
                             </div>
+
                         </div>
 
+
+                        <!-- ITSC 1213 -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+
+                                <img
+                                    src="./images/cci-logo.png"
+                                    alt="UNC Charlotte CCI"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Lead Instructional Assistant, ITSC 1213</h4>
-                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Aug 2026 – Present · Part-time</p>
+
+                                    <h4 class="timeline-title">
+                                        Lead Instructional Assistant, ITSC 1213
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        UNC Charlotte College of Computing and Informatics
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Aug 2026 – Present · Part-time
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Lead TA for an asynchronous, fully online Python course, overseeing grading workflows and rubric development across all sections and coordinating a team of TAs to keep feedback consistent. Hold regular office hours to help students work through programming assignments, debug logic errors, and build stronger fundamentals, while working directly with the instructor on assignment design and course policy.
                                 </p>
+
                             </div>
+
                         </div>
 
+
+                        <!-- ITSC 3160 -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+
+                                <img
+                                    src="./images/cci-logo.png"
+                                    alt="UNC Charlotte CCI"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Instructional Assistant, ITSC 3160</h4>
-                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Aug 2026 – Present · Part-time</p>
+
+                                    <h4 class="timeline-title">
+                                        Instructional Assistant, ITSC 3160
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        UNC Charlotte College of Computing and Informatics
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Aug 2026 – Present · Part-time
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Support a database design course by holding office hours and monitoring course platforms, proactively tracking student progress and reaching out to students who fall behind. Provide targeted help on relational modeling, normalization, and SQL assignments, and assist the instructor with grading and clarifying project requirements.
                                 </p>
+
                             </div>
+
                         </div>
 
+
+                        <!-- ITSC 1212 -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+
+                                <img
+                                    src="./images/cci-logo.png"
+                                    alt="UNC Charlotte CCI"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Instructional Assistant, ITSC 1212</h4>
-                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Jun 2026 – Aug 2026 · Part-time</p>
+
+                                    <h4 class="timeline-title">
+                                        Instructional Assistant, ITSC 1212
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        UNC Charlotte College of Computing and Informatics
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Jun 2026 – Aug 2026 · Part-time
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Led weekly lab sections for an introductory programming course, walking students through core computer science concepts such as control flow, data structures, and functions. Helped students debug their own code, reinforced lecture material with hands-on practice, and graded lab work with feedback aimed at building lasting fundamentals.
                                 </p>
+
                             </div>
+
                         </div>
 
+
+                        <!-- PEER MENTOR -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+
+                                <img
+                                    src="./images/cci-logo.png"
+                                    alt="UNC Charlotte CCI"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Peer Mentor</h4>
-                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Aug 2025 – Present · Part-time</p>
+
+                                    <h4 class="timeline-title">
+                                        Peer Mentor
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        UNC Charlotte College of Computing and Informatics
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Aug 2025 – Present · Part-time
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Supported first-year students with academic engagement and personal growth through check-ins, group discussions, and events, guiding their performance by promoting effective study habits and campus resources.
                                 </p>
+
                             </div>
+
                         </div>
 
+
+                        <!-- UNDERGRADUATE RESEARCH -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/cci-logo.png" alt="UNC Charlotte CCI" />
+
+                                <img
+                                    src="./images/cci-logo.png"
+                                    alt="UNC Charlotte CCI"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Undergraduate Researcher</h4>
-                                    <p class="timeline-company">UNC Charlotte College of Computing and Informatics</p>
-                                    <p class="timeline-meta">Aug 2025 – May 2026 · Part-time</p>
+
+                                    <h4 class="timeline-title">
+                                        Undergraduate Researcher
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        UNC Charlotte College of Computing and Informatics
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Aug 2025 – May 2026 · Part-time
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Focused on AR/VR accessibility research developing spatial audio-augmented computer vision solutions for visually impaired users. Built Swift-based prototypes using Apple Vision Pro integrating spatial audio cues with machine learning for object identification, targeting 85% accuracy and 30% improved navigation efficiency.
                                 </p>
+
+
                                 <div class="timeline-skills">
-                                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+
+                                    <svg
+                                        viewBox="0 0 16 16"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
                                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/>
                                     </svg>
-                                    <span>Swift · ARKit · RealityKit · Computer Vision</span>
+
+                                    <span>
+                                        Swift · ARKit · RealityKit · Computer Vision
+                                    </span>
+
                                 </div>
+
                             </div>
+
                         </div>
 
+
+                        <!-- AOE -->
+
                         <div class="timeline-item">
+
                             <div class="timeline-logo">
-                                <img src="./images/aoe-logo.png" alt="Alpha Omega Epsilon" />
+
+                                <img
+                                    src="./images/aoe-logo.png"
+                                    alt="Alpha Omega Epsilon"
+                                />
+
                             </div>
+
                             <div class="timeline-content">
+
                                 <div class="timeline-header">
-                                    <h4 class="timeline-title">Formal Committee Head</h4>
-                                    <p class="timeline-company">Alpha Omega Epsilon, Beta Kappa Chapter</p>
-                                    <p class="timeline-meta">Aug 2025 – May 2026 · Seasonal</p>
+
+                                    <h4 class="timeline-title">
+                                        Formal Committee Head
+                                    </h4>
+
+                                    <p class="timeline-company">
+                                        Alpha Omega Epsilon, Beta Kappa Chapter
+                                    </p>
+
+                                    <p class="timeline-meta">
+                                        Aug 2025 – May 2026 · Seasonal
+                                    </p>
+
                                 </div>
+
                                 <p class="timeline-description">
                                     Coordinated all planning, logistics, and communication for formal events to ensure smooth execution aligned with executive board expectations.
                                 </p>
+
                             </div>
+
                         </div>
 
                     </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="section" aria-labelledby="contact-title">
+
+        <!-- ============================================
+             CONTACT
+             ============================================ -->
+
+        <section
+            id="contact"
+            class="section"
+            aria-labelledby="contact-title"
+        >
+
             <div class="container section-center">
-                <h3>Get In Touch</h3>
-                <h2 class="section-title" id="contact-title">Let's Work Together</h2>
+
+                <h3>
+                    Get In Touch
+                </h3>
+
+                <h2
+                    class="section-title"
+                    id="contact-title"
+                >
+                    Let's Work Together
+                </h2>
+
+
                 <div class="section-content">
+
                     <p class="section-text">
-                        I'm always interested in hearing about new projects and opportunities. Whether you have a
-                        question or just want to say hello, feel free to reach out.
-                    </p>
-                    <p class="section-text">
-                        Reach me directly at <a href="mailto:aeckard3@charlotte.edu" style="text-decoration:underline;">aeckard3@charlotte.edu</a>.
+                        I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hello, feel free to reach out.
                     </p>
 
-                    <form id="contact-form" class="form-container" action="https://formspree.io/f/meewoodz" method="POST">
+                    <p class="section-text">
+                        Reach me directly at
+                        <a
+                            href="mailto:aeckard3@charlotte.edu"
+                            style="text-decoration: underline;"
+                        >
+                            aeckard3@charlotte.edu
+                        </a>.
+                    </p>
+
+
+                    <form
+                        id="contact-form"
+                        class="form-container"
+                        action="https://formspree.io/f/meewoodz"
+                        method="POST"
+                    >
+
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required class="form-input" />
+
+                            <label for="name">
+                                Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="form-input"
+                            />
+
                         </div>
+
+
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required class="form-input" />
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="form-input"
+                            />
+
                         </div>
+
+
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required rows="5" class="form-input"></textarea>
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                required
+                                rows="5"
+                                class="form-input"
+                            ></textarea>
+
                         </div>
-                        <button type="submit" class="button">Send Message</button>
-                        <div id="form-message" aria-live="polite"></div>
+
+
+                        <button
+                            type="submit"
+                            class="button"
+                        >
+                            Send Message
+                        </button>
+
+
+                        <div
+                            id="form-message"
+                            aria-live="polite"
+                        ></div>
+
                     </form>
+
                 </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <!-- GARDEN -->
-    <!-- FOOTER -->
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+
     <footer class="footer">
+
         <div class="container footer-content">
-            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+
+            <p style="font-size: 0.8125rem; color: var(--gray);">
+                &copy; 2026 Amelia Eckard
+            </p>
+
+
             <div class="footer-links">
-                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
-                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="/bug">Report a Bug</a>
-                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+
+                <a href="mailto:aeckard3@charlotte.edu">
+                    School Email
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/ameliaeckard"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/ameliaeckard"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a href="/bug">
+                    Report a Bug
+                </a>
+
+                <a
+                    href="https://herasgarden.net"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="footer-garden-link"
+                >
+                    hera's garden *
+                </a>
+
             </div>
+
         </div>
+
     </footer>
-    
+
+
     <script src="script.js?v=2"></script>
+
 </body>
+
 </html>
