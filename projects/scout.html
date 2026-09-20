@@ -1,0 +1,100 @@
+---
+layout: null
+carousel: true
+order: 7
+card_title: "Scout: Internship & Hackathon Bot"
+card_description: "An opt-in Discord opportunity bot that helps students discover new internships and hackathons through private, personalized digests. Built with Python, discord.py, SQLite, scheduled source syncs, and duplicate-safe notification tracking."
+card_placeholder: "gradient-1"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scout: Internship & Hackathon Bot | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-doc" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">Scout</h1>
+                <p class="hero-subtitle">Internship & Hackathon Discovery Bot</p>
+                <div class="hero-meta">
+                    <span>Python</span>
+                    <span>discord.py</span>
+                    <span>SQLite</span>
+                    <span>SimplifyJobs</span>
+                    <span>Scheduled DMs</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="project-page-content">
+                    <div class="project-page-thumbnail gradient-1"></div>
+
+                    <h2 class="section-title">The Problem</h2>
+                    <p class="section-text">Internship and hackathon listings move quickly, but most discovery tools either expect students to repeatedly check a website or send broad notifications that become easy to ignore. Scout is a Discord bot built for a student community that turns new opportunities into a lightweight, opt-in feed delivered where students already communicate.</p>
+                    <p class="section-text">The design deliberately avoids turning the server into an announcement wall. Students choose whether they want notifications at all, what kinds of opportunities they care about, and how often Scout should contact them. Scheduled updates are private, so opting in never creates noise for everyone else.</p>
+
+                    <h2 class="section-title">How Scout Works</h2>
+                    <div class="project-feature-list">
+                        <div class="project-feature"><h4>Explicit Opt-In</h4><p>Students choose whether Scout should notify them. No one is enrolled into opportunity alerts automatically.</p></div>
+                        <div class="project-feature"><h4>Personalized Opportunity Types</h4><p>Preferences can include internships, hackathons, or both, so each digest reflects what the student actually wants to see.</p></div>
+                        <div class="project-feature"><h4>Daily or Weekly Delivery</h4><p>Students can receive a daily digest or a weekly Sunday digest without changing the experience for anyone else in the server.</p></div>
+                        <div class="project-feature"><h4>Private Discord Digests</h4><p>Scheduled opportunity updates are sent directly to the student instead of posting repeated alerts into public channels.</p></div>
+                        <div class="project-feature"><h4>Paginated Listings</h4><p>Digests show five opportunities at a time with Previous and Next controls plus direct buttons for viewing the original posting or event.</p></div>
+                        <div class="project-feature"><h4>Preference Controls</h4><p>Students can revisit their settings, change delivery preferences, or unsubscribe without needing an administrator.</p></div>
+                    </div>
+
+                    <h2 class="section-title">Source and Delivery Pipeline</h2>
+                    <p class="section-text">Scout synchronizes internship listings from the SimplifyJobs Summer 2027 internship repository and uses a structured source for hackathon discovery. Source checks run incrementally, and the bot stores enough local state to recognize listings it has already seen instead of repeatedly notifying students about the same opportunity.</p>
+                    <p class="section-text">A persistent opportunity panel gives students a predictable place to open the same preference flow used by the slash command. The interface keeps setup private and lightweight, while scheduled delivery remains separate from the public server experience.</p>
+
+                    <h2 class="section-title">Technical Details</h2>
+                    <p class="section-text">Scout is written in Python with discord.py and uses SQLite for subscription preferences, source state, and duplicate protection. Source synchronization is separated from delivery scheduling so discovering an opportunity and notifying a student are not treated as the same operation. This makes it possible to retry feeds, avoid duplicate messages, and support different schedules from the same shared opportunity pool.</p>
+                    <p class="section-text">The Discord UI is button-driven wherever that makes the interaction easier: opportunity type, frequency, pagination, preferences, unsubscribe, and direct posting links are all exposed without requiring students to memorize a collection of commands.</p>
+
+                    <div class="project-page-links">
+                        <a href="https://github.com/Heras-Garden/opportunity-notifier-bot" target="_blank" rel="noreferrer" class="button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="/bug">Report a Bug</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>
