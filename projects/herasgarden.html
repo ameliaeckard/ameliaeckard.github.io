@@ -3,7 +3,7 @@ layout: null
 carousel: true
 order: 4
 card_title: "Hera's Garden"
-card_description: "A creative studio and community hub at herasgarden.net, home for writing, photography, and game development. Built with Node.js and Express, hosted on Railway with a Discord OAuth2-protected admin dashboard and persistent file storage."
+card_description: "A creative studio and community ecosystem spanning herasgarden.net, Discord, custom community tooling, and The Garden SMP. The platform combines web development, automation, game systems, and infrastructure into one independently managed project."
 card_placeholder: "gradient-4"
 ---
 
@@ -36,13 +36,15 @@ card_placeholder: "gradient-4"
             <div class="container">
                 <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
                 <h1 class="hero-title" id="project-title">Hera's Garden</h1>
-                <p class="hero-subtitle">Creative Studio and Community Hub</p>
+                <p class="hero-subtitle">Creative Studio and Community Ecosystem</p>
                 <div class="hero-meta">
                     <span>Node.js</span>
                     <span>Express</span>
                     <span>Railway</span>
-                    <span>Discord OAuth2</span>
-                    <span>herasgarden.net</span>
+                    <span>Discord</span>
+                    <span>Java</span>
+                    <span>MariaDB</span>
+                    <span>Minecraft Paper</span>
                 </div>
             </div>
         </section>
@@ -50,59 +52,33 @@ card_placeholder: "gradient-4"
         <section class="section">
             <div class="container">
                 <div class="project-page-content">
-
-                    <div class="project-page-thumbnail gradient-4">
-                    </div>
+                    <div class="project-page-thumbnail gradient-4"></div>
 
                     <h2 class="section-title">What It Is</h2>
-                    <p class="section-text">
-                        Hera's Garden is my personal creative universe, a hub for writing, photography, coding, and game development, with a community built around it. It operates under the handle Heraclid and lives at herasgarden.net. Rather than scattering creative work across a dozen platforms with no connective tissue, Hera's Garden is a system: a public-facing website, a Discord community, a Minecraft server, and the infrastructure to hold it all together.
-                    </p>
-                    <p class="section-text">
-                        The aesthetic is "botanical journal meets cozy creative studio", soft, deliberate, and built to feel like a real place rather than just another portfolio page. Every component of the stack is designed around the creator's need for control and visibility, not general-purpose flexibility.
-                    </p>
+                    <p class="section-text">Hera's Garden is my personal creative and technical ecosystem, a home for writing, photography, software projects, community spaces, and game development. It operates under the Heraclid identity and connects a public website, Discord community, custom automation, and The Garden SMP instead of treating each project as an unrelated account on a different platform.</p>
+                    <p class="section-text">The visual direction is botanical, quiet, and deliberate, but the system underneath it is highly practical. I use Hera's Garden as a place to build the tools I wish existed for my own communities, then connect those tools through shared infrastructure so the experience feels consistent from the website to Discord to Minecraft.</p>
 
                     <h2 class="section-title">The Website</h2>
-                    <p class="section-text">
-                        herasgarden.net is a Node.js and Express application hosted on Railway with a persistent volume for file storage. The public side surfaces creative work and community information. Behind a Discord OAuth2 login, an admin dashboard gives full control over content, member management, and site configuration, access is gated by a whitelist of Discord user IDs rather than a traditional account system, which keeps the setup lean and eliminates a whole category of credential management.
-                    </p>
-                    <p class="section-text">
-                        Storage is intentionally flat: a structured directory of JSON files rather than a database, which keeps the deployment simple and the data portable. File uploads are handled via Multer. DNS runs through Squarespace with the www subdomain active and the bare domain forwarding to it.
-                    </p>
+                    <p class="section-text">herasgarden.net is a Node.js and Express application hosted on Railway with persistent storage. The public site surfaces creative work and community information, while Discord OAuth2 protects administrative tools and lets the site use the same community identity people already have instead of maintaining another password system.</p>
+                    <p class="section-text">Content management is intentionally lightweight and portable. The site favors simple structured storage and direct control over a large general-purpose CMS, which keeps the deployment understandable and makes the project easier to maintain independently.</p>
 
                     <h2 class="section-title">The Ecosystem</h2>
                     <div class="project-feature-list">
-                        <div class="project-feature">
-                            <h4>Iris</h4>
-                            <p>The operational program powering the community behind the scenes, Discord automation, calendar sync, and the Express API that the website connects to for live member data. Iris is Hera's Garden's infrastructure layer.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Discord Community</h4>
-                            <p>The primary community surface. Iris operates here, handling events, member XP, moderation, and scheduled reports. Discord scheduled events sync automatically to the Hera's Garden brand calendar.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>The Garden SMP</h4>
-                            <p>A survival multiplayer Minecraft server built for the community, with self-coded datapacks and a custom resource pack shaping the gameplay and the look of the world beyond what vanilla Minecraft offers.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Billy</h4>
-                            <p>A custom Discord bot who silently observes all story activity in the SGUT community, logs it to a database, and reports back weekly in character as a deadpan surveillance AI. See the Billy project page for details.</p>
-                        </div>
+                        <div class="project-feature"><h4>Iris</h4><p>The operational layer behind the community, including Discord automation, moderation, XP, private member channels, GitHub issue intake, calendar features, and the bridge into The Garden SMP.</p></div>
+                        <div class="project-feature"><h4>Iris Calliope</h4><p>A separate privacy-conscious roleplay memory system that watches approved story channels, keeps raw text temporarily, and preserves long-term narrative context through summaries rather than player profiling.</p></div>
+                        <div class="project-feature"><h4>The Garden SMP</h4><p>A Paper-based Minecraft server backed by a custom Java plugin suite for land, trade, civics, events, moderation, mail, cosmetics, and shared platform services, plus a custom resource pack and MariaDB-backed integration.</p></div>
+                        <div class="project-feature"><h4>Community Infrastructure</h4><p>Shared logging, account linking, event handoff, project tracking, and deployment infrastructure connect systems that run in different places without requiring them to be online at exactly the same moment.</p></div>
                     </div>
 
                     <h2 class="section-title">Why Build It</h2>
-                    <p class="section-text">
-                        The alternative is the standard scattered-accounts setup: creative work on one platform, community on another, no persistent infrastructure, no single place to manage any of it. Hera's Garden exists because I wanted creative work to have a real home, not a collection of accounts, but a system I actually control, with the infrastructure to support it long-term.
-                    </p>
-                    <p class="section-text">
-                        Building and maintaining all of it, the website, the community systems, the Minecraft server, the bots, is also how I stay close to the full stack. It is a live project, not a portfolio piece. Everything in it is running.
-                    </p>
+                    <p class="section-text">The alternative is a collection of disconnected platforms: creative work in one place, community in another, game systems somewhere else, and no single view of how any of it fits together. Hera's Garden exists because I wanted those pieces to feel like one environment I can understand, design, and operate myself.</p>
+                    <p class="section-text">It is also a long-running engineering project. Maintaining the website, bots, game plugins, databases, integrations, and community workflows keeps me working across product design, backend systems, UI and UX, deployment, and the messy edge cases that only appear once software has real users.</p>
 
                     <div class="project-page-links">
                         <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="button">Visit herasgarden.net</a>
-                        <a href="./billy.html" class="button">Billy Project Page</a>
+                        <a href="./iris.html" class="button">Iris Project Page</a>
+                        <a href="./billy.html" class="button">Iris Calliope Project Page</a>
                     </div>
-
                 </div>
             </div>
         </section>

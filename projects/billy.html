@@ -2,8 +2,8 @@
 layout: null
 carousel: true
 order: 3
-card_title: "Billy: SGUT Historian Bot"
-card_description: "Discord bot for a storytelling community that silently tracks every scene, scores participation, and posts AI-generated weekly chronicles in character as BILLY, a deadpan surveillance AI. Built with Python, discord.py, MariaDB, and a local Ollama LLM."
+card_title: "Iris Calliope: Roleplay Chronicle System"
+card_description: "A privacy-conscious Discord bot that watches admin-selected roleplay channels, captures trusted Tupperbox scenes, and turns them into searchable summaries and chronicles. Built with Python, discord.py, encrypted SQLite storage, and self-hosted language models."
 card_placeholder: "gradient-2"
 ---
 
@@ -12,7 +12,7 @@ card_placeholder: "gradient-2"
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Billy: SGUT Historian Bot | Amelia Eckard</title>
+    <title>Iris Calliope: Roleplay Chronicle System | Amelia Eckard</title>
     <link rel="stylesheet" href="../styles.css?v=2" />
     <link rel="icon" type="image/x-icon" href="../images/logo.png" />
 </head>
@@ -35,13 +35,15 @@ card_placeholder: "gradient-2"
         <section class="hero hero-doc" aria-labelledby="project-title">
             <div class="container">
                 <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
-                <h1 class="hero-title" id="project-title">Billy</h1>
-                <p class="hero-subtitle">SGUT Historian Bot</p>
+                <h1 class="hero-title" id="project-title">Iris Calliope</h1>
+                <p class="hero-subtitle">Roleplay Chronicle System</p>
                 <div class="hero-meta">
                     <span>Python</span>
                     <span>discord.py</span>
-                    <span>MariaDB</span>
-                    <span>Ollama (LLaMA 3.1)</span>
+                    <span>SQLite</span>
+                    <span>Fernet Encryption</span>
+                    <span>Self-Hosted LLM</span>
+                    <span>Railway</span>
                 </div>
             </div>
         </section>
@@ -49,62 +51,27 @@ card_placeholder: "gradient-2"
         <section class="section">
             <div class="container">
                 <div class="project-page-content">
-
-                    <div class="project-page-thumbnail gradient-2">
-                    </div>
+                    <div class="project-page-thumbnail gradient-2"></div>
 
                     <h2 class="section-title">The Concept</h2>
-                    <p class="section-text">
-                        SGUT is an active Discord community built around a custom character system and a constant stream of collaborative storytelling. Scenes open and close, characters do things, dramatic moments happen, and then everyone moves on and forgets about it a week later.
-                    </p>
-                    <p class="section-text">
-                        Billy exists to fix that. She is a custom Discord bot built to silently observe all story activity, log it to a database, and report back weekly, in character. Her persona is BILLY: a deadpan surveillance AI who has been watching everyone their entire lives. She is permanently unimpressed about it.
-                    </p>
+                    <p class="section-text">Iris Calliope is a roleplay memory system for collaborative Discord storytelling. Long-running scenes create a lot of context very quickly, and the details that make a shared story feel coherent can disappear into months of channel history. Calliope exists to preserve the story itself without turning the people writing it into a dataset.</p>
+                    <p class="section-text">The bot stays silent while roleplay is happening. It watches only administrator-selected channels and accepts roleplay from trusted Tupperbox webhook sources. From that limited stream, it creates a temporary encrypted record that can be summarized, searched, and shaped into useful story memory later.</p>
 
-                    <h2 class="section-title">What It Does</h2>
-                    <p class="section-text">
-                        Billy runs continuously in the background, tracking every message sent through Tupperbox (the proxy system players use to speak as their characters). It correlates webhook messages back to the players behind them, opens and closes scenes based on activity gaps, and builds up a structured database of everything that happens in the community.
-                    </p>
-                    <p class="section-text">
-                        Every Sunday, Billy posts a full weekly report covering the previous seven days. The report includes an AI-generated story chronicle, a narrative summary of what actually happened that week, grounded entirely in the stored transcripts, plus a scoreboard, six weekly awards, and a "Quote of the Week" surfaced from flagged high-drama lines. Between reports, Billy rotates sassy status messages generated from live context every ten minutes and responds in character whenever mentioned.
-                    </p>
+                    <h2 class="section-title">Privacy by Design</h2>
+                    <p class="section-text">Calliope is intentionally narrow about what it records. It is built to narrate roleplay, not profile users. Raw roleplay text is retained for seven days and then removed, while summaries can remain as the long-term story record. The system does not score participation, rank writers, build identity profiles, or silently backfill old server history.</p>
 
-                    <h2 class="section-title">Awards System</h2>
                     <div class="project-feature-list">
-                        <div class="project-feature">
-                            <h4>The Bard</h4>
-                            <p>Most messages sent that week.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>The Dramatist</h4>
-                            <p>Most notable/flagged moments across the week.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>The Novelist</h4>
-                            <p>Highest average message length, the one writing paragraphs.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>The Traveler</h4>
-                            <p>Active across the most different scenes or channels.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>The Consistent</h4>
-                            <p>Posted on the most active days that week.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Quote of the Week</h4>
-                            <p>One flagged line surfaced from the week's transcripts, no context, no explanation.</p>
-                        </div>
+                        <div class="project-feature"><h4>Trusted Sources Only</h4><p>Administrators explicitly choose which channels and Tupperbox webhook sources Calliope is allowed to observe.</p></div>
+                        <div class="project-feature"><h4>Seven-Day Raw Retention</h4><p>Raw roleplay text exists only long enough to support recent context and summarization, then expires automatically.</p></div>
+                        <div class="project-feature"><h4>Searchable Story Memory</h4><p>Retained summaries make it possible to find characters, scenes, details, and past developments without digging through months of Discord history.</p></div>
+                        <div class="project-feature"><h4>Story Suggestions</h4><p>Calliope can suggest possible directions from retained context without treating those suggestions as canon.</p></div>
+                        <div class="project-feature"><h4>Silent During Scenes</h4><p>The bot does not interrupt active roleplay with commentary, scoring, or automated reactions.</p></div>
+                        <div class="project-feature"><h4>Self-Hosted Inference</h4><p>Language-model processing is designed around custom or self-hosted inference rather than sending roleplay text to a general external AI service.</p></div>
                     </div>
 
                     <h2 class="section-title">Technical Details</h2>
-                    <p class="section-text">
-                        Billy is written in Python using discord.py for the bot layer and aiomysql for async database access against a MariaDB instance. The AI layer runs locally via Ollama with LLaMA 3.1 8B, all story summaries, BILLY responses, and status lines are generated on-device, no external API calls. Tupperbox webhook correlation is handled by matching webhook user IDs and display names against a known-proxies table to reconstruct which player was speaking as which character.
-                    </p>
-                    <p class="section-text">
-                        Scene detection is automatic: a scene is considered open when messages are flowing and closed after two hours of inactivity in the same channel. The historical scan command lets admins backfill the database from messages sent before the bot was running. Week boundaries are Sunday-to-Saturday throughout the entire codebase. The bot is self-hosted on a personal server alongside the other programs that make up the Hera's Garden infrastructure.
-                    </p>
-
+                    <p class="section-text">Calliope is written in Python with discord.py and runs on Railway. Its working data is stored in SQLite on persistent storage, with sensitive retained content encrypted before it is written. The bot separates Discord collection, retention, search, summarization, and model inference so each part can fail independently without turning an active roleplay channel into a dependency on the AI layer.</p>
+                    <p class="section-text">The interaction layer keeps administrative controls explicit. Channel and source trust are configurable, search is invoked intentionally, and privacy-facing responses are kept ephemeral where appropriate. The result is a system that can remember a fictional world while keeping the scope of that memory understandable to the people using it.</p>
                 </div>
             </div>
         </section>

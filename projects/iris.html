@@ -3,7 +3,7 @@ layout: null
 carousel: true
 order: 2
 card_title: "Iris: Personal Memory & Community System"
-card_description: "A two-part local-first AI system. Iris Aelios passively records screen and audio into a searchable, threaded memory. Iris Phylax guards the Hera's Garden Discord servers with verification, XP ranking, and moderation. Built with Electron, SQLite, Ollama, and Node.js."
+card_description: "A two-part local-first AI and community system. Iris Aelios turns screen, audio, and calendar activity into searchable personal memory, while Iris Phylax manages Discord community operations and bridges Hera's Garden with The Garden SMP."
 card_placeholder: "gradient-3"
 ---
 
@@ -53,86 +53,37 @@ card_placeholder: "gradient-3"
         <section class="section">
             <div class="container">
                 <div class="project-page-content">
+                    <div class="project-page-thumbnail gradient-3"></div>
 
-                    <div class="project-page-thumbnail gradient-3">
-                    </div>
-
-                    <h2 class="section-title">The Problem</h2>
-                    <p class="section-text">
-                        Iris is a two-part personal system built and run by a single person. The name comes from the Greek messenger goddess, and the two halves split along the line her role naturally divides into: the part that observes and remembers, and the part that carries messages and keeps order. Iris Aelios is a passive record of my working life, and Iris Phylax is the guardian of the Hera's Garden Discord servers. They share a visual identity and a name, but they do not share a database, a process, or a deployment.
-                    </p>
+                    <h2 class="section-title">The System</h2>
+                    <p class="section-text">Iris is a two-part system built around memory, coordination, and community infrastructure. Iris Aelios is a local-first record of my working life. Iris Phylax is the operational layer behind the Hera's Garden Discord community and its connection to The Garden SMP. They share a name and design philosophy, but they run as separate systems with different data, responsibilities, and deployment boundaries.</p>
 
                     <h2 class="section-title">Iris Aelios: Personal Memory</h2>
-                    <p class="section-text">
-                        Aelios runs in the background, notices what I do, and turns that into something I can ask questions of later. When I sit down to write a status update, prepare for a research meeting, or simply remember what I was doing three Tuesdays ago, the information otherwise exists only in scattered artifacts: a commit here, a browser tab there, a conversation half remembered. Aelios keeps the record so reconstruction is a query instead of an archaeology project. Everything runs locally, with all model inference going through Ollama against locally hosted weights, and the only outbound calls it makes are to Google Calendar, scoped to my own calendars.
-                    </p>
+                    <p class="section-text">Aelios runs in the background, notices what I do, and turns that activity into something I can ask questions of later. Instead of reconstructing a week from scattered commits, browser tabs, screenshots, meetings, and half-remembered notes, Aelios creates a searchable record that keeps those pieces connected.</p>
+
                     <div class="project-feature-list">
-                        <div class="project-feature">
-                            <h4>Screen Capture with Change Detection</h4>
-                            <p>Takes periodic screenshots and discards near-duplicate frames by sampling a fixed pixel grid, cutting stored frames by 80 to 90% with no meaningful loss of signal.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Vision and OCR Pipeline</h4>
-                            <p>A local vision model extracts a description, the active application, and legible text from every written frame, processed through an in-memory FIFO queue so partial results always stay chronological.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Audio Capture and Transcription</h4>
-                            <p>Records system audio and microphone input on demand and transcribes locally with whisper.cpp, so meetings and conversations that never touch a screen still enter the record.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Accomplishment Record</h4>
-                            <p>Each day, captures and transcripts are distilled into accomplishment, learning, and development entries, grouped into persistent threads so ongoing work reads as one continuous story instead of scattered daily notes.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Hybrid Search</h4>
-                            <p>Full-text search through SQLite FTS5 and semantic search through sqlite-vec run in parallel and merge into one result set, so both exact strings and conceptual matches surface.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Local Chat with Memory</h4>
-                            <p>A conversational interface backed by hybrid search over captured history, bounded to recent messages plus a handful of retrieved captures so answers stay grounded and specific.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Calendar Layer</h4>
-                            <p>Coordinates three Google Calendars, mirrors busy time across them so no calendar shows a false-empty hour, and delivers morning and weekly briefings.</p>
-                        </div>
+                        <div class="project-feature"><h4>Screen Capture with Change Detection</h4><p>Periodic captures are compared before storage so near-duplicate frames can be discarded instead of filling the archive with repeated screens.</p></div>
+                        <div class="project-feature"><h4>Vision and OCR Pipeline</h4><p>Local processing extracts visible text, application context, and a useful description from captured frames while keeping the pipeline ordered and retriable.</p></div>
+                        <div class="project-feature"><h4>Audio and Transcription</h4><p>System audio and microphone recordings can be transcribed locally with whisper.cpp so meetings and conversations can become part of the same searchable record.</p></div>
+                        <div class="project-feature"><h4>Hybrid Search</h4><p>SQLite full-text search and sqlite-vec semantic search combine exact matches with conceptual retrieval.</p></div>
+                        <div class="project-feature"><h4>Local Chat with Memory</h4><p>A conversational interface retrieves relevant history before answering so responses stay grounded in recorded context rather than general model memory.</p></div>
+                        <div class="project-feature"><h4>Calendar Layer</h4><p>Google Calendar integration coordinates schedules and supports daily and weekly briefings without turning the memory system into a cloud-first application.</p></div>
                     </div>
 
                     <h2 class="section-title">Iris Phylax: Community Guardian</h2>
-                    <p class="section-text">
-                        Phylax handles the work that would otherwise require a moderator to be permanently awake across the Hera's Garden Discord servers: verifying new members, catching spam and rule violations, tracking participation, managing support tickets, and reporting what happened to staff. It does not create community, it protects the conditions under which community can happen.
-                    </p>
+                    <p class="section-text">Phylax handles the operational work behind Hera's Garden: member verification, moderation, participation systems, support workflows, private member communication, GitHub issue intake, and the bridge between Discord and The Garden SMP. The goal is not to automate the community itself. It is to remove repetitive infrastructure work so the community can run more consistently.</p>
+
                     <div class="project-feature-list">
-                        <div class="project-feature">
-                            <h4>Member Verification</h4>
-                            <p>New members confirm their age and accept the rules through a button-driven flow before receiving the Verified role, with returning members automatically matched and restored.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>XP and Ranking</h4>
-                            <p>Members progress through seven ranks by earning XP from messages and active voice participation, with cooldowns and activity checks that reward sustained presence over flooding.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Auto-Moderation</h4>
-                            <p>Detects spam and rule violations in real time, escalates delinquency points, and applies cross-server timeouts so a person removed from one server can't simply reappear in another.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Ticket System</h4>
-                            <p>Members open private support channels through a button, and inactive tickets archive automatically after 48 hours so the conversation is preserved rather than lost.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Self-Assignable Roles</h4>
-                            <p>Button-driven role selection across pronouns, timezones, and notification preferences, so members control their own presentation without asking staff.</p>
-                        </div>
-                        <div class="project-feature">
-                            <h4>Ace Hub Reporting</h4>
-                            <p>Real-time alerts and scheduled digests report community activity to the staff server via webhooks, independent of the bot's own connection state.</p>
-                        </div>
+                        <div class="project-feature"><h4>Member Verification</h4><p>New members move through a button-driven verification flow before receiving access, while returning members can be recognized and restored.</p></div>
+                        <div class="project-feature"><h4>XP and Ranking</h4><p>Members earn XP from eligible Discord messages, active voice participation, and linked Garden SMP playtime, with cooldowns and activity checks designed to reward sustained participation rather than spam.</p></div>
+                        <div class="project-feature"><h4>Private Iris Channels</h4><p>One reusable private channel per member gives Iris a server-side place for personal notices, support, and rank-up messages without posting them publicly.</p></div>
+                        <div class="project-feature"><h4>Garden SMP Bridge</h4><p>Discord and Minecraft communicate through durable MariaDB integration events and commands, supporting account linking, XP, moderation, server notices, reports, and other cross-platform workflows.</p></div>
+                        <div class="project-feature"><h4>Auto-Moderation</h4><p>Spam and rule violations can be detected and escalated across the community while keeping punishment history available to staff.</p></div>
+                        <div class="project-feature"><h4>GitHub Issue Intake</h4><p>Structured Discord bug reports can be turned into GitHub issues and routed into the Hera's Garden project workflow without requiring reporters to leave Discord.</p></div>
                     </div>
 
                     <h2 class="section-title">Design Principles</h2>
-                    <p class="section-text">
-                        Both systems follow the same core rules. Nothing polls in a loop. Every recurring task, from morning briefings to ticket archiving, computes its next fire time explicitly rather than running on a fixed interval from process boot. Capture never blocks on processing, so a slow or offline model never stalls the thing being recorded. Data is written once and read many times, with derived data cached and invalidated explicitly rather than recomputed. And every component is built to degrade rather than fail outright: a vision failure leaves a frame unprocessed and retriable, a transcription failure still leaves the audio file on disk, and no single failure loses data.
-                    </p>
-
+                    <p class="section-text">Both halves of Iris are built around explicit boundaries and durable state. High-frequency Discord behavior keeps hot-path work small, longer-running tasks are scheduled deliberately, and Minecraft integration uses stored events instead of assuming two services will always be online at the same time. Local inference is preferred where personal data is involved, retriable work is kept retriable, and failures are designed to degrade a feature rather than silently lose the underlying information.</p>
                 </div>
             </div>
         </section>
