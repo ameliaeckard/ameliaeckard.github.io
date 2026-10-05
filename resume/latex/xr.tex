@@ -1,0 +1,139 @@
+\documentclass[letterpaper,10pt]{article}
+
+% ============================================================
+% Amelia Eckard - Master Resume
+% Canonical source resume; intentionally longer than one page.
+% Use % TAGS comments to generate tailored versions later.
+% ============================================================
+
+\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\resumeentry}[4]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\newcommand{\projectentry}[3]{
+  \noindent\textbf{#1} \textbar{} \textit{#2} \hfill #3
+}
+
+\newcommand{\activityentry}[2]{
+  \noindent\textbf{#1} \hfill #2
+}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  topsep=0pt,
+  itemsep=0pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+
+% ============================================================
+% HEADER
+% ============================================================
+
+\begin{center}
+  {\Large\textbf{Amelia Eckard}} \\[3pt]
+  Charlotte, NC \textbar{}
+  \href{https://ameliaeckard.com}{ameliaeckard.com} \textbar{}
+  \href{https://github.com/ameliaeckard}{github.com/ameliaeckard} \textbar{}
+  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard}
+\end{center}
+
+\section{Education}
+
+% TAGS: ai-ml, research, software
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
+
+\smallskip
+
+% TAGS: ai-ml, research, software, xr
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+
+% TAGS: research, xr, computer-vision, accessibility, ai-ml, swift
+\resumeentry
+  {Undergraduate Researcher}{Charlotte, NC}
+  {UNC Charlotte, Dr. Todd Dobbs}{August 2025 -- May 2026}
+\begin{itemize}
+  \item Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.
+  \item Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, research, nlp, data, llm
+\resumeentry
+  {Research Intern}{Remote}
+  {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
+\begin{itemize}
+  \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+\section{Projects}
+
+% TAGS: ai-ml, computer-vision, research, python
+\projectentry
+  {CNN Scene Classification}
+  {Python, PyTorch, torchvision, CUDA}
+  {2026}
+\begin{itemize}
+  \item Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.
+\end{itemize}
+
+\smallskip
+
+% TAGS: computer-vision, web, creative-tech, javascript
+\projectentry
+  {Vision Lab: ASCII Reconstruction}
+  {JavaScript, HTML/CSS, Image Processing}
+  {2026 -- Present}
+\begin{itemize}
+  \item Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.
+  \item Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure.
+\end{itemize}
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+
+\noindent\textbf{Languages} \quad Swift, Python, C++, JavaScript \\[1pt]
+\noindent\textbf{Spatial/AI} \quad ARKit, RealityKit, Core ML, OpenCV, ObjectTrackingProvider, HRTF spatial audio \\[1pt]
+\noindent\textbf{Tools} \quad Git, CUDA, NumPy, PyTorch, HTML/CSS
+
+% ---------- CERTIFICATIONS \& INVOLVEMENT ----------
+\section{Certifications \& Involvement}
+
+% TAGS: research, program
+\activityentry
+  {UR2PhD Training Course, Computing Research Association}{December 2025}
+
+\end{document}

@@ -1,0 +1,661 @@
+/* Interactive resume page. This file intentionally builds on ../styles.css. */
+
+.resume-page {
+    background: #f8f8f8;
+}
+
+.resume-wide {
+    width: min(92rem, calc(100% - 3rem));
+    margin: 0 auto;
+}
+
+.resume-hero {
+    padding: 7rem 0 3.5rem;
+}
+
+.resume-kicker {
+    margin: 0 0 0.7rem;
+    color: var(--gray);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.resume-hero h1 {
+    max-width: 900px;
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.6rem, 6vw, 5.4rem);
+    font-weight: 200;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.resume-lede {
+    max-width: 760px;
+    color: var(--gray);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.resume-builder {
+    padding: 1.5rem 0 3rem;
+}
+
+.builder-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 500px);
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: 1.4rem;
+}
+
+.builder-heading h2,
+.preview-heading h2,
+.resume-note h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    font-weight: 200;
+}
+
+.builder-summary {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.profile-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.profile-button {
+    min-height: 44px;
+    padding: 0.7rem 1.1rem;
+    border: 0;
+    border-radius: 999px;
+    background: #f8f8f8;
+    color: var(--gray);
+    font: 400 0.78rem/1 var(--font);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: var(--neu-shadow-sm);
+    transition: color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.profile-button:hover {
+    color: var(--black);
+}
+
+.profile-button[aria-pressed="true"] {
+    color: var(--black);
+    background: #eeeeee;
+    box-shadow: var(--neu-inset);
+}
+
+.profile-button:focus-visible,
+.resume-action:focus-visible,
+.code-scroll:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 3px;
+}
+
+.resume-workspace {
+    padding: 0 0 5rem;
+}
+
+.workspace-grid {
+    display: grid;
+    grid-template-columns: minmax(360px, 0.92fr) minmax(520px, 1.08fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.code-panel,
+.preview-panel {
+    min-width: 0;
+    border-radius: 20px;
+}
+
+.code-panel {
+    position: sticky;
+    top: 116px;
+    overflow: hidden;
+    background: #202020;
+    color: #f0f0f0;
+    box-shadow: 0 14px 42px rgba(0,0,0,0.14);
+}
+
+.panel-topbar {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    align-items: center;
+    min-height: 58px;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: #252525;
+}
+
+.editor-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.editor-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #686868;
+}
+
+.panel-file {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.panel-file > span:first-child {
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.panel-file > span:last-child {
+    overflow: hidden;
+    margin-top: 0.2rem;
+    color: #8f8f8f;
+    font: 0.68rem/1.2 var(--font-mono);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.compile-status {
+    padding: 0.35rem 0.55rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    color: #bdbdbd;
+    font: 0.65rem/1 var(--font-mono);
+    text-transform: uppercase;
+}
+
+.compile-status.is-building {
+    color: #f2f2f2;
+}
+
+.compile-status.is-done {
+    color: #d7e4db;
+    border-color: rgba(215,228,219,0.28);
+}
+
+.code-scroll {
+    position: relative;
+    height: min(57vh, 620px);
+    min-height: 420px;
+    overflow: auto;
+    padding: 1rem 0 1.25rem;
+    scrollbar-color: #555 #202020;
+}
+
+.code-lines {
+    width: max-content;
+    min-width: 100%;
+    font: 0.74rem/1.65 var(--font-mono);
+}
+
+.code-line {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(max-content, 1fr);
+    min-height: 1.65em;
+    padding-right: 1rem;
+}
+
+.code-number {
+    padding-right: 0.9rem;
+    color: #626262;
+    text-align: right;
+    user-select: none;
+}
+
+.code-text {
+    white-space: pre;
+}
+
+.syn-command { color: #dedede; }
+.syn-comment { color: #758477; }
+.syn-brace { color: #969696; }
+.syn-number { color: #c7c7c7; }
+
+.code-cursor {
+    display: inline-block;
+    width: 7px;
+    height: 1.05em;
+    margin-left: 3.5rem;
+    background: #e8e8e8;
+    vertical-align: text-bottom;
+    animation: cursorBlink 850ms steps(1) infinite;
+}
+
+@keyframes cursorBlink {
+    50% { opacity: 0.15; }
+}
+
+.terminal {
+    min-height: 126px;
+    padding: 0.85rem 1rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: #181818;
+}
+
+.terminal-label {
+    margin-bottom: 0.45rem;
+    color: #747474;
+    font: 0.62rem/1 var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.terminal pre {
+    margin: 0;
+    overflow-x: auto;
+    color: #bcbcbc;
+    font: 0.68rem/1.55 var(--font-mono);
+    white-space: pre-wrap;
+}
+
+.preview-panel {
+    padding: 1.4rem;
+    background: #efefef;
+    box-shadow: var(--neu-inset);
+}
+
+.preview-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+    align-items: flex-end;
+    padding: 0.4rem 0.35rem 1.25rem;
+}
+
+.preview-heading p:last-child {
+    margin: 0.35rem 0 0;
+    color: var(--gray);
+    font-size: 0.78rem;
+}
+
+.resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.resume-action {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.62rem 0.85rem;
+    border: 0;
+    border-radius: 10px;
+    background: #242424;
+    color: #f8f8f8;
+    font: 400 0.72rem/1 var(--font);
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    box-shadow: var(--neu-shadow-sm);
+    transition: transform 140ms ease, background 140ms ease;
+}
+
+.resume-action:hover {
+    background: #111;
+}
+
+.resume-action:active {
+    transform: translateY(1px);
+}
+
+.resume-action.secondary {
+    background: #f8f8f8;
+    color: var(--black);
+}
+
+.resume-action.secondary:hover {
+    background: #e8e8e8;
+}
+
+.resume-document {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.resume-document.is-building {
+    opacity: 0.38;
+    transform: translateY(4px);
+}
+
+.resume-paper {
+    width: min(100%, 720px);
+    aspect-ratio: 8.5 / 11;
+    min-height: 0;
+    padding: 4.1% 5.25%;
+    background: #fff;
+    color: #121212;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 10px 34px rgba(0,0,0,0.12);
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(7px, 0.76vw, 10px);
+    line-height: 1.14;
+}
+
+.resume-paper + .resume-paper {
+    margin-top: 0.35rem;
+}
+
+.paper-header {
+    margin-bottom: 0.62em;
+    text-align: center;
+}
+
+.paper-name {
+    margin: 0 0 0.26em;
+    font-size: 1.72em;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.paper-contact {
+    font-size: 0.89em;
+    white-space: normal;
+}
+
+.paper-contact a {
+    text-decoration: none;
+}
+
+.paper-section {
+    margin-top: 0.62em;
+}
+
+.paper-section-title {
+    margin: 0 0 0.36em;
+    padding-bottom: 0.16em;
+    border-bottom: 1px solid #333;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.13em;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #111;
+}
+
+.paper-entry {
+    margin-bottom: 0.46em;
+}
+
+.paper-entry:last-child {
+    margin-bottom: 0;
+}
+
+.paper-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55em;
+    align-items: baseline;
+}
+
+.paper-entry-title,
+.paper-entry-date {
+    font-weight: 700;
+}
+
+.paper-entry-title {
+    min-width: 0;
+}
+
+.paper-entry-subtitle,
+.paper-entry-location {
+    font-style: italic;
+}
+
+.paper-entry-date,
+.paper-entry-location {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.paper-project-title {
+    font-weight: 700;
+}
+
+.paper-project-tech {
+    font-style: italic;
+}
+
+.paper-bullets {
+    margin: 0.15em 0 0 1.18em;
+    padding: 0;
+}
+
+.paper-bullets li {
+    margin: 0.06em 0;
+    padding-left: 0.12em;
+}
+
+.paper-skill {
+    margin: 0.08em 0;
+}
+
+.paper-skill strong {
+    display: inline-block;
+    margin-right: 0.7em;
+}
+
+.resume-note {
+    padding: 5rem 0 6rem;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.note-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+    gap: 4rem;
+    align-items: start;
+}
+
+.note-grid > p {
+    max-width: 720px;
+    margin: 0;
+    color: var(--gray);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+}
+
+.note-grid code {
+    padding: 0.12em 0.34em;
+    border-radius: 5px;
+    background: #ededed;
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+}
+
+@media (max-width: 1120px) {
+    .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .code-panel {
+        position: relative;
+        top: auto;
+    }
+
+    .code-scroll {
+        height: 430px;
+        min-height: 0;
+    }
+
+    .resume-paper {
+        font-size: clamp(7px, 1.35vw, 10px);
+    }
+}
+
+@media (max-width: 760px) {
+    .resume-wide {
+        width: min(100% - 1.5rem, 92rem);
+    }
+
+    .resume-hero {
+        padding: 5rem 0 2.5rem;
+    }
+
+    .builder-heading,
+    .note-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .profile-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profile-button {
+        width: 100%;
+        padding-inline: 0.7rem;
+        font-size: 0.68rem;
+    }
+
+    .preview-panel {
+        padding: 0.75rem;
+        border-radius: 14px;
+    }
+
+    .preview-toolbar {
+        display: block;
+    }
+
+    .resume-actions {
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+
+    .resume-action {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+
+    .resume-paper {
+        padding: 4.4% 5.1%;
+        font-size: clamp(5.1px, 1.46vw, 8px);
+    }
+}
+
+@media (max-width: 520px) {
+    .profile-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .code-scroll {
+        height: 360px;
+    }
+
+    .code-line {
+        grid-template-columns: 2.75rem minmax(max-content, 1fr);
+    }
+
+    .code-cursor {
+        margin-left: 2.75rem;
+    }
+
+    .resume-action {
+        flex-basis: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .code-cursor {
+        animation: none;
+    }
+
+    .resume-document,
+    .profile-button,
+    .resume-action {
+        transition: none;
+    }
+}
+
+@media print {
+    @page {
+        size: letter;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 8.5in;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+
+    .no-print,
+    .resume-note,
+    .code-panel,
+    .preview-toolbar,
+    .footer,
+    .header {
+        display: none !important;
+    }
+
+    main,
+    .resume-workspace,
+    .resume-wide,
+    .workspace-grid,
+    .preview-panel,
+    .resume-document {
+        display: block !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .resume-paper {
+        width: 8.5in !important;
+        min-height: 11in !important;
+        height: 11in !important;
+        aspect-ratio: auto !important;
+        margin: 0 !important;
+        padding: 0.35in 0.45in !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        font-size: 9.5pt !important;
+        line-height: 1.12 !important;
+        break-after: page;
+        page-break-after: always;
+        overflow: hidden;
+    }
+
+    .resume-paper:last-child {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .paper-contact a {
+        color: #111 !important;
+        text-decoration: none !important;
+    }
+}

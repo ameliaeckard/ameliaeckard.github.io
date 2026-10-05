@@ -1,0 +1,321 @@
+\documentclass[letterpaper,10pt]{article}
+
+% ============================================================
+% Amelia Eckard - Master Resume
+% Canonical source resume; intentionally longer than one page.
+% Use % TAGS comments to generate tailored versions later.
+% ============================================================
+
+\usepackage[margin=0.58in, top=0.48in, bottom=0.48in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{8pt}{3pt}
+
+\newcommand{\resumeentry}[4]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\newcommand{\projectentry}[3]{
+  \noindent\textbf{#1} \textbar{} \textit{#2} \hfill #3
+}
+
+\newcommand{\activityentry}[2]{
+  \noindent\textbf{#1} \hfill #2
+}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  topsep=1pt,
+  itemsep=1pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+
+\begin{center}
+  {\Large\textbf{Amelia Eckard}} \\[3pt]
+  Charlotte, NC \textbar{}
+  \href{https://ameliaeckard.com}{ameliaeckard.com} \textbar{}
+  \href{https://github.com/ameliaeckard}{github.com/ameliaeckard} \textbar{}
+  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard}
+\end{center}
+
+% ---------- EDUCATION ----------
+\section{Education}
+
+% TAGS: ai-ml, research, software
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
+
+\smallskip
+
+% TAGS: ai-ml, research, software, xr
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
+
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+
+% TAGS: ai-ml, research, nlp, data, llm
+\resumeentry
+  {Research Intern}{Remote}
+  {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
+\begin{itemize}
+  \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
+  \item Implemented dataset tagging, a seven-category research-question taxonomy, explicit screening/classification/extraction gates, and gold-sample validation using precision, recall, F1, accuracy, and confusion matrices.
+\end{itemize}
+
+\smallskip
+
+% TAGS: research, xr, computer-vision, accessibility, ai-ml, swift
+\resumeentry
+  {Undergraduate Researcher}{Charlotte, NC}
+  {UNC Charlotte, Dr. Todd Dobbs}{August 2025 -- May 2026}
+\begin{itemize}
+  \item Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.
+  \item Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows.
+\end{itemize}
+
+
+% TAGS: teaching, python, software, leadership
+\resumeentry
+  {Lead Instructional Assistant, ITSC 1213}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
+\begin{itemize}
+  \item Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor.
+  \item Build and debug Python autograders and test suites for programming assignments, emphasizing executable behavior, edge cases, and clear feedback for students. Review submission patterns and course analytics to identify recurring implementation errors and improve assignment guidance, testing instructions, and pre-submission checks.
+\end{itemize}
+
+\smallskip
+
+% TAGS: teaching, databases, sql
+\resumeentry
+  {Instructional Assistant, ITSC 3160}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
+\begin{itemize}
+  \item Support database-design students through grading, office hours, and targeted assistance with relational modeling, normalization, SQL, and semester project requirements.
+  \item Provide debugging and design feedback that connects conceptual database models to working queries and implementation decisions.
+\end{itemize}
+
+\smallskip
+
+% TAGS: teaching, python, software
+\resumeentry
+  {Instructional Assistant, ITSC 1212}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{June 2026 -- August 2026}
+\begin{itemize}
+  \item Led introductory programming lab support covering control flow, functions, data structures, debugging, and foundational problem-solving.
+  \item Reviewed student code, graded assignments, and provided individualized explanations to help students translate programming concepts into working solutions.
+\end{itemize}
+
+\smallskip
+
+% TAGS: leadership, mentorship
+\resumeentry
+  {Peer Mentor}{Charlotte, NC}
+  {UNC Charlotte}{August 2025 -- Present}
+\begin{itemize}
+  \item Support first-year students through individual check-ins, group discussions, events, study-strategy guidance, and navigation of university resources.
+\end{itemize}
+
+
+% ---------- PROJECTS ----------
+\section{Projects}
+
+% TAGS: ai-ml, computer-vision, research, python
+\projectentry
+  {CNN Scene Classification}
+  {Python, PyTorch, torchvision, CUDA}
+  {2026}
+\begin{itemize}
+  \item Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.
+  \item Improved validation accuracy from 42.25\% to 51.46\% through image augmentation while comparing preprocessing choices, training behavior, and model performance.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, data-science, explainability, python
+\projectentry
+  {Emergency Fund Predictor}
+  {Python, scikit-learn, pandas, SHAP}
+  {2025}
+\begin{itemize}
+  \item Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability.
+  \item Compared three classifiers and applied SHAP explainability to identify the strongest drivers of financial fragility and model predictions.
+\end{itemize}
+
+\smallskip
+
+% TAGS: software, web, collaboration, education
+\projectentry
+  {RoomCode}
+  {Python, Flask, JavaScript}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.
+  \item Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows.
+\end{itemize}
+
+\smallskip
+
+% TAGS: software, automation, data, discord, deployment
+\projectentry
+  {Scout Opportunity Notifier}
+  {Python, Discord API, SQLite, Railway}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.
+  \item Implemented personalized daily/weekly Discord digests, category-specific subscriptions, preference controls, unsubscribe flows, paginated listings, administrative broadcasts, and scheduled delivery windows.
+\end{itemize}
+
+\smallskip
+
+% TAGS: software, web, backend, systems, discord, java
+\projectentry
+  {Hera's Garden}
+  {Node.js, Express, MariaDB, Discord.js, Java, Paper API, Railway}
+  {2024 -- Present}
+\begin{itemize}
+  \item Built and maintain a persistent creative-community platform spanning a full-stack website, Discord automation, and a custom Minecraft server ecosystem with scheduled releases, rank-gated access, OAuth2 administration, moderation, and persistent progression systems.
+  \item Designed Java/Paper systems for claims, territories, governments, housing, shops, mail, events, NPC societies, and economy features while integrating identity and progression across web, Discord, and game services.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai, software, local-first, llm, discord
+\projectentry
+  {Iris}
+  {Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB}
+  {2025 -- Present}
+\begin{itemize}
+  \item Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.
+  \item Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec and Ollama-based local retrieval and model components.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai, nlp, software, privacy, discord
+\projectentry
+  {Iris Calliope}
+  {Python, discord.py, SQLite, Fernet, LLMs, Railway}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built a privacy-conscious Discord roleplay chronicle system that summarizes approved bot-generated activity without publicly ranking or profiling users.
+  \item Implemented encrypted storage, configurable retention, weekly summaries, channel watchlists, character lookup, and deletion of short-lived raw records while preserving higher-level continuity summaries.
+\end{itemize}
+
+\smallskip
+
+% TAGS: computer-vision, web, creative-tech, javascript
+\projectentry
+  {Vision Lab: ASCII Reconstruction}
+  {JavaScript, HTML/CSS, Image Processing}
+  {2026 -- Present}
+\begin{itemize}
+  \item Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.
+  \item Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure.
+\end{itemize}
+
+
+% TAGS: ai-ml, product, fintech, hackathon
+\projectentry
+  {Resolve -- LPL Financial University Hackathon}
+  {AI/ML, Workflow Intelligence, FinTech}
+  {2026}
+\begin{itemize}
+  \item Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.
+  \item Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations.
+\end{itemize}
+
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+
+\noindent\textbf{Languages} \quad Python, Java, JavaScript, Swift, SQL, C++, HTML/CSS \\[1pt]
+\noindent\textbf{AI/Data} \quad PyTorch, torchvision, scikit-learn, NumPy, pandas, OpenCV, SHAP, Core ML, Ollama \\[1pt]
+\noindent\textbf{Frameworks} \quad Flask, Node.js, Express, Discord.js, ARKit, RealityKit \\[1pt]
+\noindent\textbf{Infrastructure/APIs} \quad SQLite, MariaDB, Git, Docker, Railway, CUDA, PubMed E-utilities, CrossRef, Perplexity API
+
+% ---------- CERTIFICATIONS & INVOLVEMENT ----------
+\section{Certifications \& Involvement}
+
+% TAGS: leadership, community
+\activityentry
+  {Formal Committee Head, Alpha Omega Epsilon -- Beta Kappa}{August 2025 -- May 2026}
+\begin{itemize}
+  \item Coordinated formal-event planning, logistics, communication, and committee execution for the professional and social sorority.
+\end{itemize}
+
+\smallskip
+
+% TAGS: robotics, outreach, service
+\activityentry
+  {Volunteer Judge \& Field Reset, FIRST Robotics}{2025 -- Present}
+\begin{itemize}
+  \item Support robotics competitions through judging and field operations, helping maintain organized and fair event execution.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, program
+\activityentry
+  {Kode With Klossy \texttimes{} Goldman Sachs Machine Learning Challenge}{December 2025}
+
+\smallskip
+
+% TAGS: research, program
+\activityentry
+  {UR2PhD Training Course, Computing Research Association}{December 2025}
+
+\smallskip
+
+% TAGS: research, compliance
+\activityentry
+  {Social and Behavioral Research, CITI Program}{September 2025}
+
+
+% ============================================================
+% MASTER-RESUME NOTES
+% ============================================================
+%
+% This document is intentionally comprehensive.
+%
+% Suggested profile filters for the interactive resume:
+%   ai-ml       -> Research Intern, CNN, Emergency Fund, Resolve, Vision Lab
+%   research    -> Stevens, Vision Pro research, CNN, UR2PhD, CITI
+%   software    -> RoomCode, Scout, Hera's Garden, Iris, Calliope
+%   xr          -> Vision Pro research
+%   creative    -> Hera's Garden, Vision Lab, Iris
+%   teaching    -> ITSC 1213, ITSC 3160, ITSC 1212, Peer Mentor
+%
+% Tailored job applications should normally select the highest-value
+% entries and bullets from this master rather than shrinking the entire
+% document to fit one page.
+%
+% ============================================================
+
+\end{document}

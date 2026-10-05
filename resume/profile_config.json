@@ -1,0 +1,137 @@
+{
+  "ai-ml": {
+    "label": "AI / ML",
+    "short_label": "AI / ML",
+    "summary": "Machine learning, computer vision, model evaluation, explainability, and AI-backed systems.",
+    "experience": {
+      "Research Intern": 2,
+      "Undergraduate Researcher": 2,
+      "Lead Instructional Assistant, ITSC 1213": 1
+    },
+    "projects": {
+      "CNN Scene Classification": 2,
+      "Emergency Fund Predictor": 2,
+      "Resolve -- LPL Financial University Hackathon": 1,
+      "Vision Lab: ASCII Reconstruction": 1
+    },
+    "skills": [
+      ["Languages", "Python, SQL, Java, JavaScript, Swift"],
+      ["AI/Data", "PyTorch, torchvision, scikit-learn, NumPy, pandas, OpenCV, SHAP, Core ML, Ollama"],
+      ["Tools/APIs", "CUDA, Git, Docker, Railway, PubMed E-utilities, CrossRef, Perplexity API"]
+    ],
+    "involvement": {
+      "Kode With Klossy \\texttimes{} Goldman Sachs Machine Learning Challenge": 0,
+      "UR2PhD Training Course, Computing Research Association": 0
+    }
+  },
+  "research": {
+    "label": "AI Research",
+    "short_label": "Research",
+    "summary": "Research pipelines, evaluation methodology, literature intelligence, accessible computing, and computer vision.",
+    "experience": {
+      "Research Intern": 2,
+      "Undergraduate Researcher": 2
+    },
+    "projects": {
+      "CNN Scene Classification": 2,
+      "Emergency Fund Predictor": 1,
+      "Resolve -- LPL Financial University Hackathon": 1
+    },
+    "skills": [
+      ["Research/AI", "PyTorch, scikit-learn, NumPy, pandas, OpenCV, SHAP, Core ML, LLM APIs"],
+      ["Methods", "Precision, recall, F1, accuracy, confusion matrices, structured extraction, taxonomy design"],
+      ["Tools/APIs", "Python, Git, CUDA, PubMed E-utilities, CrossRef, Perplexity API"]
+    ],
+    "involvement": {
+      "UR2PhD Training Course, Computing Research Association": 0,
+      "Social and Behavioral Research, CITI Program": 0,
+      "Kode With Klossy \\texttimes{} Goldman Sachs Machine Learning Challenge": 0
+    }
+  },
+  "software": {
+    "label": "Software Engineering",
+    "short_label": "Software",
+    "summary": "Backend systems, automation, databases, deployment, real-time collaboration, and persistent applications.",
+    "experience": {
+      "Lead Instructional Assistant, ITSC 1213": 2,
+      "Instructional Assistant, ITSC 3160": 1
+    },
+    "projects": {
+      "RoomCode": 2,
+      "Scout Opportunity Notifier": 2,
+      "Hera's Garden": 2,
+      "Iris": 1
+    },
+    "skills": [
+      ["Languages", "Python, Java, JavaScript, SQL, C++, HTML/CSS"],
+      ["Frameworks", "Flask, Node.js, Express, Discord.js"],
+      ["Systems", "SQLite, MariaDB, Git, Docker, Railway, REST APIs"]
+    ],
+    "involvement": {}
+  },
+  "xr": {
+    "label": "XR / Spatial Computing",
+    "short_label": "XR",
+    "summary": "Apple Vision Pro, ARKit, RealityKit, object tracking, spatial audio, and accessible navigation.",
+    "experience": {
+      "Undergraduate Researcher": 2,
+      "Research Intern": 1
+    },
+    "projects": {
+      "CNN Scene Classification": 1,
+      "Vision Lab: ASCII Reconstruction": 2
+    },
+    "skills": [
+      ["Languages", "Swift, Python, C++, JavaScript"],
+      ["Spatial/AI", "ARKit, RealityKit, Core ML, OpenCV, ObjectTrackingProvider, HRTF spatial audio"],
+      ["Tools", "Git, CUDA, NumPy, PyTorch, HTML/CSS"]
+    ],
+    "involvement": {
+      "UR2PhD Training Course, Computing Research Association": 0
+    }
+  },
+  "creative": {
+    "label": "Creative Technology",
+    "short_label": "Creative Tech",
+    "summary": "Interactive web experiences, creative systems, computer vision, spatial computing, and community platforms.",
+    "experience": {
+      "Undergraduate Researcher": 2
+    },
+    "projects": {
+      "Hera's Garden": 2,
+      "Vision Lab: ASCII Reconstruction": 2,
+      "Iris": 1,
+      "RoomCode": 1
+    },
+    "skills": [
+      ["Languages", "JavaScript, HTML/CSS, Python, Java, Swift"],
+      ["Creative Tech", "ARKit, RealityKit, OpenCV, Core ML, image processing"],
+      ["Web/Systems", "Node.js, Express, Flask, SQLite, MariaDB, Git, Railway"]
+    ],
+    "involvement": {
+      "Formal Committee Head, Alpha Omega Epsilon -- Beta Kappa": 1
+    }
+  },
+  "teaching": {
+    "label": "Teaching / Mentorship",
+    "short_label": "Teaching",
+    "summary": "Python instruction, autograding, database support, course operations, mentoring, and technical communication.",
+    "experience": {
+      "Lead Instructional Assistant, ITSC 1213": 2,
+      "Instructional Assistant, ITSC 3160": 2,
+      "Instructional Assistant, ITSC 1212": 2,
+      "Peer Mentor": 1
+    },
+    "projects": {
+      "RoomCode": 2
+    },
+    "skills": [
+      ["Programming", "Python, Java, SQL, JavaScript"],
+      ["Teaching/Testing", "Autograders, unit tests, edge-case design, debugging, rubric design, technical feedback"],
+      ["Data/Tools", "SQLite, MariaDB, Git, Flask"]
+    ],
+    "involvement": {
+      "Volunteer Judge \\& Field Reset, FIRST Robotics": 1
+    }
+  }
+}

@@ -1,0 +1,153 @@
+\documentclass[letterpaper,10pt]{article}
+
+% ============================================================
+% Amelia Eckard - Master Resume
+% Canonical source resume; intentionally longer than one page.
+% Use % TAGS comments to generate tailored versions later.
+% ============================================================
+
+\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\resumeentry}[4]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\newcommand{\projectentry}[3]{
+  \noindent\textbf{#1} \textbar{} \textit{#2} \hfill #3
+}
+
+\newcommand{\activityentry}[2]{
+  \noindent\textbf{#1} \hfill #2
+}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  topsep=0pt,
+  itemsep=0pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+
+% ============================================================
+% HEADER
+% ============================================================
+
+\begin{center}
+  {\Large\textbf{Amelia Eckard}} \\[3pt]
+  Charlotte, NC \textbar{}
+  \href{https://ameliaeckard.com}{ameliaeckard.com} \textbar{}
+  \href{https://github.com/ameliaeckard}{github.com/ameliaeckard} \textbar{}
+  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard}
+\end{center}
+
+\section{Education}
+
+% TAGS: ai-ml, research, software
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
+
+\smallskip
+
+% TAGS: ai-ml, research, software, xr
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+
+% TAGS: teaching, python, software, leadership
+\resumeentry
+  {Lead Instructional Assistant, ITSC 1213}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
+\begin{itemize}
+  \item Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor.
+  \item Build and debug Python autograders and test suites for programming assignments, emphasizing executable behavior, edge cases, and clear feedback for students. Review submission patterns and course analytics to identify recurring implementation errors and improve assignment guidance, testing instructions, and pre-submission checks.
+\end{itemize}
+
+\smallskip
+
+% TAGS: teaching, databases, sql
+\resumeentry
+  {Instructional Assistant, ITSC 3160}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
+\begin{itemize}
+  \item Support database-design students through grading, office hours, and targeted assistance with relational modeling, normalization, SQL, and semester project requirements.
+  \item Provide debugging and design feedback that connects conceptual database models to working queries and implementation decisions.
+\end{itemize}
+
+\smallskip
+
+% TAGS: teaching, python, software
+\resumeentry
+  {Instructional Assistant, ITSC 1212}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{June 2026 -- August 2026}
+\begin{itemize}
+  \item Led introductory programming lab support covering control flow, functions, data structures, debugging, and foundational problem-solving.
+  \item Reviewed student code, graded assignments, and provided individualized explanations to help students translate programming concepts into working solutions.
+\end{itemize}
+
+\smallskip
+
+% TAGS: leadership, mentorship
+\resumeentry
+  {Peer Mentor}{Charlotte, NC}
+  {UNC Charlotte}{August 2025 -- Present}
+\begin{itemize}
+  \item Support first-year students through individual check-ins, group discussions, events, study-strategy guidance, and navigation of university resources.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+\section{Projects}
+
+% TAGS: software, web, collaboration, education
+\projectentry
+  {RoomCode}
+  {Python, Flask, JavaScript}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.
+  \item Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows.
+\end{itemize}
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+
+\noindent\textbf{Programming} \quad Python, Java, SQL, JavaScript \\[1pt]
+\noindent\textbf{Teaching/Testing} \quad Autograders, unit tests, edge-case design, debugging, rubric design, technical feedback \\[1pt]
+\noindent\textbf{Data/Tools} \quad SQLite, MariaDB, Git, Flask
+
+% ---------- CERTIFICATIONS \& INVOLVEMENT ----------
+\section{Certifications \& Involvement}
+
+% TAGS: robotics, outreach, service
+\activityentry
+  {Volunteer Judge \& Field Reset, FIRST Robotics}{2025 -- Present}
+\begin{itemize}
+  \item Support robotics competitions through judging and field operations, helping maintain organized and fair event execution.
+\end{itemize}
+
+\end{document}

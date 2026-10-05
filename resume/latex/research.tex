@@ -1,0 +1,186 @@
+\documentclass[letterpaper,10pt]{article}
+
+% ============================================================
+% Amelia Eckard - Master Resume
+% Canonical source resume; intentionally longer than one page.
+% Use % TAGS comments to generate tailored versions later.
+% ============================================================
+
+\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\titleformat{\section}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing{\section}{0pt}{5pt}{2pt}
+
+\newcommand{\resumeentry}[4]{
+  \noindent\textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\newcommand{\projectentry}[3]{
+  \noindent\textbf{#1} \textbar{} \textit{#2} \hfill #3
+}
+
+\newcommand{\activityentry}[2]{
+  \noindent\textbf{#1} \hfill #2
+}
+
+\setlist[itemize]{
+  leftmargin=1.25em,
+  topsep=0pt,
+  itemsep=0pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+
+% ============================================================
+% HEADER
+% ============================================================
+
+\begin{center}
+  {\Large\textbf{Amelia Eckard}} \\[3pt]
+  Charlotte, NC \textbar{}
+  \href{https://ameliaeckard.com}{ameliaeckard.com} \textbar{}
+  \href{https://github.com/ameliaeckard}{github.com/ameliaeckard} \textbar{}
+  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard}
+\end{center}
+
+\section{Education}
+
+% TAGS: ai-ml, research, software
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
+
+\smallskip
+
+% TAGS: ai-ml, research, software, xr
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+
+% TAGS: ai-ml, research, nlp, data, llm
+\resumeentry
+  {Research Intern}{Remote}
+  {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
+\begin{itemize}
+  \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
+  \item Implemented dataset tagging, a seven-category research-question taxonomy, explicit screening/classification/extraction gates, and gold-sample validation using precision, recall, F1, accuracy, and confusion matrices.
+\end{itemize}
+
+\smallskip
+
+% TAGS: research, xr, computer-vision, accessibility, ai-ml, swift
+\resumeentry
+  {Undergraduate Researcher}{Charlotte, NC}
+  {UNC Charlotte, Dr. Todd Dobbs}{August 2025 -- May 2026}
+\begin{itemize}
+  \item Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.
+  \item Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows.
+\end{itemize}
+
+% ---------- PROJECTS ----------
+\section{Projects}
+
+% TAGS: ai-ml, computer-vision, research, python
+\projectentry
+  {CNN Scene Classification}
+  {Python, PyTorch, torchvision, CUDA}
+  {2026}
+\begin{itemize}
+  \item Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.
+  \item Improved validation accuracy from 42.25\% to 51.46\% through image augmentation while comparing preprocessing choices, training behavior, and model performance.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, data-science, explainability, python
+\projectentry
+  {Emergency Fund Predictor}
+  {Python, scikit-learn, pandas, SHAP}
+  {2025}
+\begin{itemize}
+  \item Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, product, fintech, hackathon
+\projectentry
+  {Resolve -- LPL Financial University Hackathon}
+  {AI/ML, Workflow Intelligence, FinTech}
+  {2026}
+\begin{itemize}
+  \item Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.
+\end{itemize}
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+
+\noindent\textbf{Research/AI} \quad PyTorch, scikit-learn, NumPy, pandas, OpenCV, SHAP, Core ML, LLM APIs \\[1pt]
+\noindent\textbf{Methods} \quad Precision, recall, F1, accuracy, confusion matrices, structured extraction, taxonomy design \\[1pt]
+\noindent\textbf{Tools/APIs} \quad Python, Git, CUDA, PubMed E-utilities, CrossRef, Perplexity API
+
+% ---------- CERTIFICATIONS \& INVOLVEMENT ----------
+\section{Certifications \& Involvement}
+
+% TAGS: research, program
+\activityentry
+  {UR2PhD Training Course, Computing Research Association}{December 2025}
+
+\smallskip
+
+% TAGS: research, compliance
+\activityentry
+  {Social and Behavioral Research, CITI Program}{September 2025}
+
+
+% ============================================================
+% MASTER-RESUME NOTES
+% ============================================================
+%
+% This document is intentionally comprehensive.
+%
+% Suggested profile filters for the interactive resume:
+%   ai-ml       -> Research Intern, CNN, Emergency Fund, Resolve, Vision Lab
+%   research    -> Stevens, Vision Pro research, CNN, UR2PhD, CITI
+%   software    -> RoomCode, Scout, Hera's Garden, Iris, Calliope
+%   xr          -> Vision Pro research
+%   creative    -> Hera's Garden, Vision Lab, Iris
+%   teaching    -> ITSC 1213, ITSC 3160, ITSC 1212, Peer Mentor
+%
+% Tailored job applications should normally select the highest-value
+% entries and bullets from this master rather than shrinking the entire
+% document to fit one page.
+%
+% ============================================================
+
+\end{document}
+
+\smallskip
+
+% TAGS: ai-ml, program
+\activityentry
+  {Kode With Klossy \texttimes{} Goldman Sachs Machine Learning Challenge}{December 2025}
+
+\end{document}
