@@ -28,7 +28,7 @@ window.RESUME_DATA = {
       "tex": "latex/ai-ml.tex",
       "downloadName": "Amelia-Eckard-ai-ml-Resume.pdf",
       "pages": 1,
-      "recipe": "% selected profile: AI / ML\n\\profile{ai-ml}\n\\includeexperience{Research Intern, Undergraduate Researcher, Lead Instructional Assistant, ITSC 1213}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Resolve – LPL Financial University Hackathon, Vision Lab: ASCII Reconstruction}\n\\includeinvolvement{Kode With Klossy × Goldman Sachs Machine Learning Challenge, UR2PhD Training Course, Computing Research Association}\n\\compileResume{Amelia-Eckard-ai-ml.pdf}",
+      "recipe": "\\profile{ai-ml}\n\\includeexperience{Research Intern, Undergraduate Researcher, Lead Instructional Assistant, ITSC 1213}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Resolve – LPL Financial University Hackathon, Vision Lab: ASCII Reconstruction}\n\\includeinvolvement{Kode With Klossy × Goldman Sachs Machine Learning Challenge, UR2PhD Training Course, Computing Research Association}\n\\compileResume{Amelia-Eckard-ai-ml.pdf}",
       "education": [
         {
           "kind": "experience",
@@ -152,7 +152,8 @@ window.RESUME_DATA = {
           "subtitle": "AI/ML, Workflow Intelligence, FinTech",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall."
+            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.",
+            "Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations."
           ],
           "tags": [
             "ai-ml",
@@ -167,7 +168,8 @@ window.RESUME_DATA = {
           "subtitle": "JavaScript, HTML/CSS, Image Processing",
           "date": "2026 – Present",
           "bullets": [
-            "Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com."
+            "Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.",
+            "Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure."
           ],
           "tags": [
             "computer-vision",
@@ -222,7 +224,7 @@ window.RESUME_DATA = {
       "tex": "latex/research.tex",
       "downloadName": "Amelia-Eckard-research-Resume.pdf",
       "pages": 1,
-      "recipe": "% selected profile: AI Research\n\\profile{research}\n\\includeexperience{Research Intern, Undergraduate Researcher}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Resolve – LPL Financial University Hackathon}\n\\includeinvolvement{UR2PhD Training Course, Computing Research Association, Social and Behavioral Research, CITI Program, Kode With Klossy × Goldman Sachs Machine Learning Challenge}\n\\compileResume{Amelia-Eckard-research.pdf}",
+      "recipe": "\\profile{research}\n\\includeexperience{Research Intern, Undergraduate Researcher, Lead Instructional Assistant, ITSC 1213}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Resolve – LPL Financial University Hackathon, Vision Lab: ASCII Reconstruction}\n\\includeinvolvement{UR2PhD Training Course, Computing Research Association, Social and Behavioral Research, CITI Program, Kode With Klossy × Goldman Sachs Machine Learning Challenge}\n\\compileResume{Amelia-Eckard-research.pdf}",
       "education": [
         {
           "kind": "experience",
@@ -289,6 +291,22 @@ window.RESUME_DATA = {
             "ai-ml",
             "swift"
           ]
+        },
+        {
+          "kind": "experience",
+          "title": "Lead Instructional Assistant, ITSC 1213",
+          "location": "Charlotte, NC",
+          "subtitle": "UNC Charlotte College of Computing and Informatics",
+          "date": "August 2026 – Present",
+          "bullets": [
+            "Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor."
+          ],
+          "tags": [
+            "teaching",
+            "python",
+            "software",
+            "leadership"
+          ]
         }
       ],
       "projects": [
@@ -314,7 +332,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, scikit-learn, pandas, SHAP",
           "date": "2025",
           "bullets": [
-            "Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability."
+            "Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability.",
+            "Compared three classifiers and applied SHAP explainability to identify the strongest drivers of financial fragility and model predictions."
           ],
           "tags": [
             "ai-ml",
@@ -329,13 +348,29 @@ window.RESUME_DATA = {
           "subtitle": "AI/ML, Workflow Intelligence, FinTech",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall."
+            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.",
+            "Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations."
           ],
           "tags": [
             "ai-ml",
             "product",
             "fintech",
             "hackathon"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Vision Lab: ASCII Reconstruction",
+          "subtitle": "JavaScript, HTML/CSS, Image Processing",
+          "date": "2026 – Present",
+          "bullets": [
+            "Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com."
+          ],
+          "tags": [
+            "computer-vision",
+            "web",
+            "creative-tech",
+            "javascript"
           ]
         }
       ],
@@ -394,7 +429,7 @@ window.RESUME_DATA = {
       "tex": "latex/software.tex",
       "downloadName": "Amelia-Eckard-software-Resume.pdf",
       "pages": 1,
-      "recipe": "% selected profile: Software Engineering\n\\profile{software}\n\\includeexperience{Lead Instructional Assistant, ITSC 1213, Instructional Assistant, ITSC 3160}\n\\includeprojects{RoomCode, Scout Opportunity Notifier, Hera's Garden, Iris}\n\\includeinvolvement{none}\n\\compileResume{Amelia-Eckard-software.pdf}",
+      "recipe": "\\profile{software}\n\\includeexperience{Lead Instructional Assistant, ITSC 1213, Instructional Assistant, ITSC 3160, Research Intern}\n\\includeprojects{RoomCode, Scout Opportunity Notifier, Hera's Garden, Iris, Iris Calliope}\n\\includeinvolvement{none}\n\\compileResume{Amelia-Eckard-software.pdf}",
       "education": [
         {
           "kind": "experience",
@@ -456,6 +491,23 @@ window.RESUME_DATA = {
             "databases",
             "sql"
           ]
+        },
+        {
+          "kind": "experience",
+          "title": "Research Intern",
+          "location": "Remote",
+          "subtitle": "Stevens Institute of Technology, Dr. Jina Huh-Yoo",
+          "date": "June 2026 – Present",
+          "bullets": [
+            "Engineered rq-system/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers."
+          ],
+          "tags": [
+            "ai-ml",
+            "research",
+            "nlp",
+            "data",
+            "llm"
+          ]
         }
       ],
       "projects": [
@@ -516,13 +568,30 @@ window.RESUME_DATA = {
           "subtitle": "Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB",
           "date": "2025 – Present",
           "bullets": [
-            "Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations."
+            "Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.",
+            "Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec and Ollama-based local retrieval and model components."
           ],
           "tags": [
             "ai",
             "software",
             "local-first",
             "llm",
+            "discord"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Iris Calliope",
+          "subtitle": "Python, discord.py, SQLite, Fernet, LLMs, Railway",
+          "date": "2026 – Present",
+          "bullets": [
+            "Built a privacy-conscious Discord roleplay chronicle system that summarizes approved bot-generated activity without publicly ranking or profiling users."
+          ],
+          "tags": [
+            "ai",
+            "nlp",
+            "software",
+            "privacy",
             "discord"
           ]
         }
@@ -551,7 +620,226 @@ window.RESUME_DATA = {
       "tex": "latex/xr.tex",
       "downloadName": "Amelia-Eckard-xr-Resume.pdf",
       "pages": 1,
-      "recipe": "% selected profile: XR / Spatial Computing\n\\profile{xr}\n\\includeexperience{Undergraduate Researcher, Research Intern}\n\\includeprojects{CNN Scene Classification, Vision Lab: ASCII Reconstruction}\n\\includeinvolvement{UR2PhD Training Course, Computing Research Association}\n\\compileResume{Amelia-Eckard-xr.pdf}",
+      "recipe": "\\profile{xr}\n\\includeexperience{Undergraduate Researcher, Research Intern, Lead Instructional Assistant, ITSC 1213}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Vision Lab: ASCII Reconstruction, Iris, Resolve – LPL Financial University Hackathon}\n\\includeinvolvement{UR2PhD Training Course, Computing Research Association, Social and Behavioral Research, CITI Program, Kode With Klossy × Goldman Sachs Machine Learning Challenge}\n\\compileResume{Amelia-Eckard-xr.pdf}",
+      "education": [
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
+          "date": "Expected May 2027",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software",
+            "xr"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "kind": "experience",
+          "title": "Undergraduate Researcher",
+          "location": "Charlotte, NC",
+          "subtitle": "UNC Charlotte, Dr. Todd Dobbs",
+          "date": "August 2025 – May 2026",
+          "bullets": [
+            "Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.",
+            "Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows."
+          ],
+          "tags": [
+            "research",
+            "xr",
+            "computer-vision",
+            "accessibility",
+            "ai-ml",
+            "swift"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "Research Intern",
+          "location": "Remote",
+          "subtitle": "Stevens Institute of Technology, Dr. Jina Huh-Yoo",
+          "date": "June 2026 – Present",
+          "bullets": [
+            "Engineered rq-system/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers."
+          ],
+          "tags": [
+            "ai-ml",
+            "research",
+            "nlp",
+            "data",
+            "llm"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "Lead Instructional Assistant, ITSC 1213",
+          "location": "Charlotte, NC",
+          "subtitle": "UNC Charlotte College of Computing and Informatics",
+          "date": "August 2026 – Present",
+          "bullets": [
+            "Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor."
+          ],
+          "tags": [
+            "teaching",
+            "python",
+            "software",
+            "leadership"
+          ]
+        }
+      ],
+      "projects": [
+        {
+          "kind": "project",
+          "title": "CNN Scene Classification",
+          "subtitle": "Python, PyTorch, torchvision, CUDA",
+          "date": "2026",
+          "bullets": [
+            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.",
+            "Improved validation accuracy from 42.25% to 51.46% through image augmentation while comparing preprocessing choices, training behavior, and model performance."
+          ],
+          "tags": [
+            "ai-ml",
+            "computer-vision",
+            "research",
+            "python"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Emergency Fund Predictor",
+          "subtitle": "Python, scikit-learn, pandas, SHAP",
+          "date": "2025",
+          "bullets": [
+            "Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability."
+          ],
+          "tags": [
+            "ai-ml",
+            "data-science",
+            "explainability",
+            "python"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Vision Lab: ASCII Reconstruction",
+          "subtitle": "JavaScript, HTML/CSS, Image Processing",
+          "date": "2026 – Present",
+          "bullets": [
+            "Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.",
+            "Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure."
+          ],
+          "tags": [
+            "computer-vision",
+            "web",
+            "creative-tech",
+            "javascript"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Iris",
+          "subtitle": "Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB",
+          "date": "2025 – Present",
+          "bullets": [
+            "Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations."
+          ],
+          "tags": [
+            "ai",
+            "software",
+            "local-first",
+            "llm",
+            "discord"
+          ]
+        },
+        {
+          "kind": "project",
+          "title": "Resolve – LPL Financial University Hackathon",
+          "subtitle": "AI/ML, Workflow Intelligence, FinTech",
+          "date": "2026",
+          "bullets": [
+            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall."
+          ],
+          "tags": [
+            "ai-ml",
+            "product",
+            "fintech",
+            "hackathon"
+          ]
+        }
+      ],
+      "skills": [
+        [
+          "Languages",
+          "Swift, Python, C++, JavaScript"
+        ],
+        [
+          "Spatial/AI",
+          "ARKit, RealityKit, Core ML, OpenCV, ObjectTrackingProvider, HRTF spatial audio"
+        ],
+        [
+          "Tools",
+          "Git, CUDA, NumPy, PyTorch, HTML/CSS"
+        ]
+      ],
+      "involvement": [
+        {
+          "kind": "activity",
+          "title": "UR2PhD Training Course, Computing Research Association",
+          "date": "December 2025",
+          "bullets": [],
+          "tags": [
+            "research",
+            "program"
+          ]
+        },
+        {
+          "kind": "activity",
+          "title": "Social and Behavioral Research, CITI Program",
+          "date": "September 2025",
+          "bullets": [],
+          "tags": [
+            "research",
+            "compliance"
+          ]
+        },
+        {
+          "kind": "activity",
+          "title": "Kode With Klossy × Goldman Sachs Machine Learning Challenge",
+          "date": "December 2025",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "program"
+          ]
+        }
+      ]
+    },
+    "creative": {
+      "label": "Creative Technology",
+      "shortLabel": "Creative Tech",
+      "summary": "Interactive web experiences, creative systems, computer vision, spatial computing, and community platforms.",
+      "pdf": "pdfs/creative.pdf",
+      "tex": "latex/creative.tex",
+      "downloadName": "Amelia-Eckard-creative-Resume.pdf",
+      "pages": 1,
+      "recipe": "\\profile{creative}\n\\includeexperience{Undergraduate Researcher, Research Intern}\n\\includeprojects{Hera's Garden, Vision Lab: ASCII Reconstruction, Iris, RoomCode}\n\\includeinvolvement{Formal Committee Head, Alpha Omega Epsilon – Beta Kappa, Volunteer Judge & Field Reset, FIRST Robotics}\n\\compileResume{Amelia-Eckard-creative.pdf}",
       "education": [
         {
           "kind": "experience",
@@ -622,125 +910,6 @@ window.RESUME_DATA = {
       "projects": [
         {
           "kind": "project",
-          "title": "CNN Scene Classification",
-          "subtitle": "Python, PyTorch, torchvision, CUDA",
-          "date": "2026",
-          "bullets": [
-            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images."
-          ],
-          "tags": [
-            "ai-ml",
-            "computer-vision",
-            "research",
-            "python"
-          ]
-        },
-        {
-          "kind": "project",
-          "title": "Vision Lab: ASCII Reconstruction",
-          "subtitle": "JavaScript, HTML/CSS, Image Processing",
-          "date": "2026 – Present",
-          "bullets": [
-            "Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.",
-            "Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure."
-          ],
-          "tags": [
-            "computer-vision",
-            "web",
-            "creative-tech",
-            "javascript"
-          ]
-        }
-      ],
-      "skills": [
-        [
-          "Languages",
-          "Swift, Python, C++, JavaScript"
-        ],
-        [
-          "Spatial/AI",
-          "ARKit, RealityKit, Core ML, OpenCV, ObjectTrackingProvider, HRTF spatial audio"
-        ],
-        [
-          "Tools",
-          "Git, CUDA, NumPy, PyTorch, HTML/CSS"
-        ]
-      ],
-      "involvement": [
-        {
-          "kind": "activity",
-          "title": "UR2PhD Training Course, Computing Research Association",
-          "date": "December 2025",
-          "bullets": [],
-          "tags": [
-            "research",
-            "program"
-          ]
-        }
-      ]
-    },
-    "creative": {
-      "label": "Creative Technology",
-      "shortLabel": "Creative Tech",
-      "summary": "Interactive web experiences, creative systems, computer vision, spatial computing, and community platforms.",
-      "pdf": "pdfs/creative.pdf",
-      "tex": "latex/creative.tex",
-      "downloadName": "Amelia-Eckard-creative-Resume.pdf",
-      "pages": 1,
-      "recipe": "% selected profile: Creative Technology\n\\profile{creative}\n\\includeexperience{Undergraduate Researcher}\n\\includeprojects{Hera's Garden, Vision Lab: ASCII Reconstruction, Iris, RoomCode}\n\\includeinvolvement{Formal Committee Head, Alpha Omega Epsilon – Beta Kappa}\n\\compileResume{Amelia-Eckard-creative.pdf}",
-      "education": [
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
-          "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
-          "date": "Expected May 2027",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software",
-            "xr"
-          ]
-        }
-      ],
-      "experience": [
-        {
-          "kind": "experience",
-          "title": "Undergraduate Researcher",
-          "location": "Charlotte, NC",
-          "subtitle": "UNC Charlotte, Dr. Todd Dobbs",
-          "date": "August 2025 – May 2026",
-          "bullets": [
-            "Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.",
-            "Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows."
-          ],
-          "tags": [
-            "research",
-            "xr",
-            "computer-vision",
-            "accessibility",
-            "ai-ml",
-            "swift"
-          ]
-        }
-      ],
-      "projects": [
-        {
-          "kind": "project",
           "title": "Hera's Garden",
           "subtitle": "Node.js, Express, MariaDB, Discord.js, Java, Paper API, Railway",
           "date": "2024 – Present",
@@ -779,7 +948,8 @@ window.RESUME_DATA = {
           "subtitle": "Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB",
           "date": "2025 – Present",
           "bullets": [
-            "Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations."
+            "Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.",
+            "Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec and Ollama-based local retrieval and model components."
           ],
           "tags": [
             "ai",
@@ -795,7 +965,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, Flask, JavaScript",
           "date": "2026 – Present",
           "bullets": [
-            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees."
+            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.",
+            "Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows."
           ],
           "tags": [
             "software",
@@ -831,6 +1002,17 @@ window.RESUME_DATA = {
             "leadership",
             "community"
           ]
+        },
+        {
+          "kind": "activity",
+          "title": "Volunteer Judge & Field Reset, FIRST Robotics",
+          "date": "2025 – Present",
+          "bullets": [],
+          "tags": [
+            "robotics",
+            "outreach",
+            "service"
+          ]
         }
       ]
     },
@@ -842,7 +1024,7 @@ window.RESUME_DATA = {
       "tex": "latex/teaching.tex",
       "downloadName": "Amelia-Eckard-teaching-Resume.pdf",
       "pages": 1,
-      "recipe": "% selected profile: Teaching / Mentorship\n\\profile{teaching}\n\\includeexperience{Lead Instructional Assistant, ITSC 1213, Instructional Assistant, ITSC 3160, Instructional Assistant, ITSC 1212, Peer Mentor}\n\\includeprojects{RoomCode}\n\\includeinvolvement{Volunteer Judge & Field Reset, FIRST Robotics}\n\\compileResume{Amelia-Eckard-teaching.pdf}",
+      "recipe": "\\profile{teaching}\n\\includeexperience{Lead Instructional Assistant, ITSC 1213, Instructional Assistant, ITSC 3160, Instructional Assistant, ITSC 1212, Peer Mentor}\n\\includeprojects{RoomCode, Scout Opportunity Notifier}\n\\includeinvolvement{Volunteer Judge & Field Reset, FIRST Robotics, Formal Committee Head, Alpha Omega Epsilon – Beta Kappa}\n\\compileResume{Amelia-Eckard-teaching.pdf}",
       "education": [
         {
           "kind": "experience",
@@ -953,6 +1135,22 @@ window.RESUME_DATA = {
             "collaboration",
             "education"
           ]
+        },
+        {
+          "kind": "project",
+          "title": "Scout Opportunity Notifier",
+          "subtitle": "Python, Discord API, SQLite, Railway",
+          "date": "2026 – Present",
+          "bullets": [
+            "Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage."
+          ],
+          "tags": [
+            "software",
+            "automation",
+            "data",
+            "discord",
+            "deployment"
+          ]
         }
       ],
       "skills": [
@@ -982,6 +1180,18 @@ window.RESUME_DATA = {
             "outreach",
             "service"
           ]
+        },
+        {
+          "kind": "activity",
+          "title": "Formal Committee Head, Alpha Omega Epsilon – Beta Kappa",
+          "date": "August 2025 – May 2026",
+          "bullets": [
+            "Coordinated formal-event planning, logistics, communication, and committee execution for the professional and social sorority."
+          ],
+          "tags": [
+            "leadership",
+            "community"
+          ]
         }
       ]
     },
@@ -994,7 +1204,7 @@ window.RESUME_DATA = {
       "downloadName": "Amelia-Eckard-Master-Resume.pdf",
       "pages": 2,
       "pageBreakBefore": "RoomCode",
-      "recipe": "% canonical source\n\\profile{master}\n\\include{all-experience}\n\\include{all-projects}\n\\include{all-skills}\n\\compileResume{Amelia-Eckard-Master-Resume.pdf}",
+      "recipe": "\\profile{master}\n\\include{all-experience}\n\\include{all-projects}\n\\include{all-skills}\n\\compileResume{Amelia-Eckard-Master-Resume.pdf}",
       "education": [
         {
           "kind": "experience",

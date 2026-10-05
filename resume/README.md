@@ -6,7 +6,7 @@ This folder is designed to be copied directly into the root of `ameliaeckard/ame
 
 - `index.html` - interactive resume page
 - `resume.css` - styles for the builder, code editor, resume preview, and print view
-- `resume.js` - profile switching, LaTeX build animation, print/download behavior
+- `resume.js` - profile switching, LaTeX build animation, printing, and PDF download behavior
 - `resume-data.js` - generated structured resume content used by the web preview
 - `latex/master.tex` - canonical master resume
 - `latex/*.tex` - generated tailored LaTeX resumes
@@ -53,4 +53,4 @@ python build_pdfs.py
 
 ## Print behavior
 
-The Print button calls the browser print dialog and the print stylesheet hides the website UI so only the currently selected resume is printed. The page is formatted as US Letter (8.5 × 11 in). The Master Resume prints as two pages; tailored profiles print as one page.
+The Print button calls the browser print dialog and the print stylesheet hides the website UI so only the currently selected resume is printed. The page is formatted as US Letter (8.5 × 11 in). The Master Resume prints as two pages; tailored profiles print as one page. The public page exposes only PDF downloads; the LaTeX source remains part of the site package for maintenance and the live build animation.

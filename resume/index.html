@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Interactive resume for Amelia Eckard. Choose a focus area and watch a tailored LaTeX resume build in real time." />
     <title>Interactive Resume | Amelia Eckard</title>
     <link rel="stylesheet" href="../styles.css?v=2" />
-    <link rel="stylesheet" href="resume.css?v=1" />
+    <link rel="stylesheet" href="resume.css?v=2" />
     <link rel="icon" type="image/x-icon" href="../images/logo.png" />
 </head>
 <body class="resume-page">
@@ -85,23 +85,10 @@ layout: null
                             <button id="replay-build" class="resume-action secondary" type="button">Replay build</button>
                             <button id="print-resume" class="resume-action" type="button">Print</button>
                             <a id="download-pdf" class="resume-action" href="pdfs/ai-ml.pdf" download>Download PDF</a>
-                            <a id="download-tex" class="resume-action secondary" href="latex/ai-ml.tex" download>Download LaTeX</a>
                         </div>
                     </div>
                     <div id="resume-document" class="resume-document" aria-live="polite"></div>
                 </section>
-            </div>
-        </section>
-
-        <section class="resume-note no-print">
-            <div class="resume-wide note-grid">
-                <div>
-                    <p class="resume-kicker">How it works</p>
-                    <h2>One source of truth.</h2>
-                </div>
-                <p>
-                    The full resume lives in <code>latex/master.tex</code>. Profile rules choose the strongest entries for each audience, generate a tailored LaTeX file, and compile the matching PDF. The preview, print view, PDF, and source download all follow the same profile selection.
-                </p>
             </div>
         </section>
     </main>
@@ -119,7 +106,7 @@ layout: null
         </div>
     </footer>
 
-    <script src="resume-data.js?v=1"></script>
-    <script src="resume.js?v=1"></script>
+    <script src="resume-data.js?v=2"></script>
+    <script src="resume.js?v=2"></script>
 </body>
 </html>

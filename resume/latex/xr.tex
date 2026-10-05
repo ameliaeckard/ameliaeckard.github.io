@@ -1,12 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
-% ============================================================
-% Amelia Eckard - Master Resume
-% Canonical source resume; intentionally longer than one page.
-% Use % TAGS comments to generate tailored versions later.
-% ============================================================
-
-\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage[margin=0.58in, top=0.48in, bottom=0.48in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[T1]{fontenc}
@@ -24,7 +18,7 @@
   {}
   [\titlerule]
 
-\titlespacing{\section}{0pt}{5pt}{2pt}
+\titlespacing{\section}{0pt}{8pt}{3pt}
 
 \newcommand{\resumeentry}[4]{
   \noindent\textbf{#1} \hfill #2 \\
@@ -41,18 +35,13 @@
 
 \setlist[itemize]{
   leftmargin=1.25em,
-  topsep=0pt,
-  itemsep=0pt,
+  topsep=1pt,
+  itemsep=1pt,
   parsep=0pt,
   partopsep=0pt
 }
 
 \begin{document}
-
-
-% ============================================================
-% HEADER
-% ============================================================
 
 \begin{center}
   {\Large\textbf{Amelia Eckard}} \\[3pt]
@@ -64,22 +53,18 @@
 
 \section{Education}
 
-% TAGS: ai-ml, research, software
 \resumeentry
   {University of North Carolina at Charlotte}{Charlotte, NC}
   {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
 
 \smallskip
 
-% TAGS: ai-ml, research, software, xr
 \resumeentry
   {University of North Carolina at Charlotte}{Charlotte, NC}
   {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
 
-% ---------- EXPERIENCE ----------
 \section{Experience}
 
-% TAGS: research, xr, computer-vision, accessibility, ai-ml, swift
 \resumeentry
   {Undergraduate Researcher}{Charlotte, NC}
   {UNC Charlotte, Dr. Todd Dobbs}{August 2025 -- May 2026}
@@ -90,7 +75,6 @@
 
 \smallskip
 
-% TAGS: ai-ml, research, nlp, data, llm
 \resumeentry
   {Research Intern}{Remote}
   {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
@@ -98,21 +82,38 @@
   \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
 \end{itemize}
 
-% ---------- PROJECTS ----------
+\smallskip
+
+\resumeentry
+  {Lead Instructional Assistant, ITSC 1213}{Charlotte, NC}
+  {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
+\begin{itemize}
+  \item Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor.
+\end{itemize}
+
 \section{Projects}
 
-% TAGS: ai-ml, computer-vision, research, python
 \projectentry
   {CNN Scene Classification}
   {Python, PyTorch, torchvision, CUDA}
   {2026}
 \begin{itemize}
   \item Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.
+  \item Improved validation accuracy from 42.25\% to 51.46\% through image augmentation while comparing preprocessing choices, training behavior, and model performance.
 \end{itemize}
 
 \smallskip
 
-% TAGS: computer-vision, web, creative-tech, javascript
+\projectentry
+  {Emergency Fund Predictor}
+  {Python, scikit-learn, pandas, SHAP}
+  {2025}
+\begin{itemize}
+  \item Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability.
+\end{itemize}
+
+\smallskip
+
 \projectentry
   {Vision Lab: ASCII Reconstruction}
   {JavaScript, HTML/CSS, Image Processing}
@@ -122,18 +123,47 @@
   \item Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure.
 \end{itemize}
 
-% ---------- TECHNICAL SKILLS ----------
+\smallskip
+
+\projectentry
+  {Iris}
+  {Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB}
+  {2025 -- Present}
+\begin{itemize}
+  \item Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.
+\end{itemize}
+
+\smallskip
+
+\projectentry
+  {Resolve -- LPL Financial University Hackathon}
+  {AI/ML, Workflow Intelligence, FinTech}
+  {2026}
+\begin{itemize}
+  \item Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.
+\end{itemize}
+
 \section{Technical Skills}
 
 \noindent\textbf{Languages} \quad Swift, Python, C++, JavaScript \\[1pt]
 \noindent\textbf{Spatial/AI} \quad ARKit, RealityKit, Core ML, OpenCV, ObjectTrackingProvider, HRTF spatial audio \\[1pt]
 \noindent\textbf{Tools} \quad Git, CUDA, NumPy, PyTorch, HTML/CSS
 
-% ---------- CERTIFICATIONS \& INVOLVEMENT ----------
 \section{Certifications \& Involvement}
 
-% TAGS: research, program
 \activityentry
   {UR2PhD Training Course, Computing Research Association}{December 2025}
+
+\smallskip
+
+\activityentry
+  {Social and Behavioral Research, CITI Program}{September 2025}
+
+\end{document}
+
+\smallskip
+
+\activityentry
+  {Kode With Klossy \texttimes{} Goldman Sachs Machine Learning Challenge}{December 2025}
 
 \end{document}

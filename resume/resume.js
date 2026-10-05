@@ -17,8 +17,7 @@
         document: document.getElementById("resume-document"),
         print: document.getElementById("print-resume"),
         replay: document.getElementById("replay-build"),
-        pdf: document.getElementById("download-pdf"),
-        tex: document.getElementById("download-tex")
+        pdf: document.getElementById("download-pdf")
     };
 
     const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -297,13 +296,21 @@
         els.document.replaceChildren(...pages);
     }
 
+    function cleanSourceForDisplay(source) {
+        const lines = source.replace(/\r\n/g, "\n").split("\n");
+        const cleaned = lines.filter(line => !line.trimStart().startsWith("%"));
+        while (cleaned.length && !cleaned[0].trim()) cleaned.shift();
+        while (cleaned.length && !cleaned[cleaned.length - 1].trim()) cleaned.pop();
+        return cleaned.join("\n");
+    }
+
     async function loadSource(profile) {
         try {
             const response = await fetch(profile.tex, { cache: "no-store" });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return await response.text();
+            return cleanSourceForDisplay(await response.text());
         } catch (error) {
-            return `${profile.recipe}\n\n% Full source available at ${profile.tex}`;
+            return cleanSourceForDisplay(profile.recipe);
         }
     }
 
@@ -363,8 +370,6 @@
         els.previewMeta.textContent = `${profile.label} · ${profile.pages} page${profile.pages === 1 ? "" : "s"}`;
         els.pdf.href = profile.pdf;
         els.pdf.download = profile.downloadName;
-        els.tex.href = profile.tex;
-        els.tex.download = profile.tex.split("/").pop();
         els.document.classList.add("is-building");
         setStatus("writing", "building");
 

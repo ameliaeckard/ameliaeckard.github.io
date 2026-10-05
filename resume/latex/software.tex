@@ -1,12 +1,6 @@
 \documentclass[letterpaper,10pt]{article}
 
-% ============================================================
-% Amelia Eckard - Master Resume
-% Canonical source resume; intentionally longer than one page.
-% Use % TAGS comments to generate tailored versions later.
-% ============================================================
-
-\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}
+\usepackage[margin=0.58in, top=0.48in, bottom=0.48in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[T1]{fontenc}
@@ -24,7 +18,7 @@
   {}
   [\titlerule]
 
-\titlespacing{\section}{0pt}{5pt}{2pt}
+\titlespacing{\section}{0pt}{8pt}{3pt}
 
 \newcommand{\resumeentry}[4]{
   \noindent\textbf{#1} \hfill #2 \\
@@ -41,18 +35,13 @@
 
 \setlist[itemize]{
   leftmargin=1.25em,
-  topsep=0pt,
-  itemsep=0pt,
+  topsep=1pt,
+  itemsep=1pt,
   parsep=0pt,
   partopsep=0pt
 }
 
 \begin{document}
-
-
-% ============================================================
-% HEADER
-% ============================================================
 
 \begin{center}
   {\Large\textbf{Amelia Eckard}} \\[3pt]
@@ -64,22 +53,18 @@
 
 \section{Education}
 
-% TAGS: ai-ml, research, software
 \resumeentry
   {University of North Carolina at Charlotte}{Charlotte, NC}
   {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
 
 \smallskip
 
-% TAGS: ai-ml, research, software, xr
 \resumeentry
   {University of North Carolina at Charlotte}{Charlotte, NC}
   {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
 
-% ---------- EXPERIENCE ----------
 \section{Experience}
 
-% TAGS: teaching, python, software, leadership
 \resumeentry
   {Lead Instructional Assistant, ITSC 1213}{Charlotte, NC}
   {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
@@ -90,7 +75,6 @@
 
 \smallskip
 
-% TAGS: teaching, databases, sql
 \resumeentry
   {Instructional Assistant, ITSC 3160}{Charlotte, NC}
   {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
@@ -98,10 +82,17 @@
   \item Support database-design students through grading, office hours, and targeted assistance with relational modeling, normalization, SQL, and semester project requirements.
 \end{itemize}
 
-% ---------- PROJECTS ----------
+\smallskip
+
+\resumeentry
+  {Research Intern}{Remote}
+  {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
+\begin{itemize}
+  \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
+\end{itemize}
+
 \section{Projects}
 
-% TAGS: software, web, collaboration, education
 \projectentry
   {RoomCode}
   {Python, Flask, JavaScript}
@@ -113,7 +104,6 @@
 
 \smallskip
 
-% TAGS: software, automation, data, discord, deployment
 \projectentry
   {Scout Opportunity Notifier}
   {Python, Discord API, SQLite, Railway}
@@ -125,7 +115,6 @@
 
 \smallskip
 
-% TAGS: software, web, backend, systems, discord, java
 \projectentry
   {Hera's Garden}
   {Node.js, Express, MariaDB, Discord.js, Java, Paper API, Railway}
@@ -137,16 +126,25 @@
 
 \smallskip
 
-% TAGS: ai, software, local-first, llm, discord
 \projectentry
   {Iris}
   {Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB}
   {2025 -- Present}
 \begin{itemize}
   \item Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.
+  \item Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec and Ollama-based local retrieval and model components.
 \end{itemize}
 
-% ---------- TECHNICAL SKILLS ----------
+\smallskip
+
+\projectentry
+  {Iris Calliope}
+  {Python, discord.py, SQLite, Fernet, LLMs, Railway}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built a privacy-conscious Discord roleplay chronicle system that summarizes approved bot-generated activity without publicly ranking or profiling users.
+\end{itemize}
+
 \section{Technical Skills}
 
 \noindent\textbf{Languages} \quad Python, Java, JavaScript, SQL, C++, HTML/CSS \\[1pt]

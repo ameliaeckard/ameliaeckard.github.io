@@ -163,7 +163,6 @@ def profile_recipe(slug: str, p: dict) -> str:
         vals = [latex_plain(x) for x in p.get(key, {}).keys()]
         return ", ".join(vals) if vals else "none"
     lines = [
-        f"% selected profile: {p['label']}",
         rf"\profile{{{slug}}}",
         rf"\includeexperience{{{names('experience')}}}",
         rf"\includeprojects{{{names('projects')}}}",
@@ -212,7 +211,7 @@ def main() -> None:
         "downloadName": "Amelia-Eckard-Master-Resume.pdf",
         "pages": 2,
         "pageBreakBefore": "RoomCode",
-        "recipe": "% canonical source\n\\profile{master}\n\\include{all-experience}\n\\include{all-projects}\n\\include{all-skills}\n\\compileResume{Amelia-Eckard-Master-Resume.pdf}",
+        "recipe": "\\profile{master}\n\\include{all-experience}\n\\include{all-projects}\n\\include{all-skills}\n\\compileResume{Amelia-Eckard-Master-Resume.pdf}",
         "education": education,
         "experience": experience,
         "projects": projects,

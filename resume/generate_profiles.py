@@ -21,14 +21,6 @@ ENTRY_MACROS = ("\\resumeentry", "\\projectentry", "\\activityentry")
 
 
 def tighten_preamble(text: str) -> str:
-    replacements = {
-        r"\usepackage[margin=0.58in, top=0.48in, bottom=0.48in]{geometry}": r"\usepackage[margin=0.45in, top=0.35in, bottom=0.35in]{geometry}",
-        r"\titlespacing{\section}{0pt}{8pt}{3pt}": r"\titlespacing{\section}{0pt}{5pt}{2pt}",
-        "  topsep=1pt,": "  topsep=0pt,",
-        "  itemsep=1pt,": "  itemsep=0pt,",
-    }
-    for old, new in replacements.items():
-        text = text.replace(old, new)
     return text
 
 
@@ -54,6 +46,8 @@ def first_braced_argument(lines: list[str], macro_index: int) -> str:
 def trim_bullets(block: str, max_bullets: int) -> str:
     if max_bullets < 0 or "\\begin{itemize}" not in block:
         return block
+    if max_bullets == 0:
+        return re.sub(r"\n?\\begin\{itemize\}.*?\\end\{itemize\}", "", block, flags=re.S).rstrip()
     lines = block.splitlines()
     kept = []
     bullet_count = 0
@@ -143,6 +137,20 @@ def build_section(title: str, selected: dict[str, int], entries: dict[str, str])
     return f"% ---------- {title.upper()} ----------\n\\section{{{title}}}\n\n" + "\n\n\\smallskip\n\n".join(blocks)
 
 
+def strip_comment_only_lines(text: str) -> str:
+    """Remove generator/master annotation comments from tailored LaTeX output."""
+    lines = [line for line in text.splitlines() if not line.lstrip().startswith("%")]
+    compact: list[str] = []
+    blank = False
+    for line in lines:
+        is_blank = not line.strip()
+        if is_blank and blank:
+            continue
+        compact.append(line)
+        blank = is_blank
+    return "\n".join(compact).strip() + "\n"
+
+
 def main() -> None:
     master_text = MASTER.read_text(encoding="utf-8")
     preamble, header, sections = parse_master(master_text)
@@ -169,7 +177,7 @@ def main() -> None:
         if inv:
             parts += ["", inv]
         parts += ["", r"\end{document}", ""]
-        output = "\n".join(parts)
+        output = strip_comment_only_lines("\n".join(parts))
         (LATEX / f"{slug}.tex").write_text(output, encoding="utf-8")
         print(f"generated latex/{slug}.tex")
 
