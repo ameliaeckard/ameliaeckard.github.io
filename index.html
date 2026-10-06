@@ -217,7 +217,7 @@ layout: null
                                             <div class="project-card-actions">
 
                                                 <a
-                                                    href="{{ project.url | relative_url }}"
+                                                    href="{% if project.read_more_url %}{{ project.read_more_url }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if project.read_more_url %} target="_blank" rel="noreferrer"{% endif %}
                                                     class="button btn-small btn-read"
                                                 >
                                                     Read More
