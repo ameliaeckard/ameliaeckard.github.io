@@ -14,6 +14,28 @@ layout: null
 
     <link rel="stylesheet" href="styles.css?v=3" />
     <link rel="icon" type="image/x-icon" href="./images/logo.png" />
+    <style>
+        /* Featured work: lighter cards, readable summaries, and text-only skill pills. */
+        #work .carousel-container { margin-top: 0.5rem; padding: 1.5rem 0; }
+        #work .project-card { background: transparent; border: 1px solid rgba(31,31,31,.09); border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,.035); height: 100%; }
+        #work .project-card:hover { box-shadow: 0 9px 26px rgba(0,0,0,.055); }
+        #work .project-info { padding: clamp(1.3rem, 3vw, 2rem); gap: .85rem; }
+        #work .project-info h3 { font-family: var(--font-serif); font-size: clamp(1.65rem, 3vw, 2.1rem); line-height: 1.15; font-weight: 500; margin: 0; }
+        #work .project-info .section-text { font-size: .95rem !important; line-height: 1.65; color: var(--gray); margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+        #work .project-skills { display: flex; flex-wrap: wrap; gap: .5rem; margin: .2rem 0 .4rem; }
+        #work .project-skills span { display: inline-flex; align-items: center; padding: .3rem .8rem; border-radius: 999px; background: #eeeeee; border: 1px solid rgba(31,31,31,.065); color: #555; font-size: .74rem; font-weight: 400; line-height: 1.35; white-space: nowrap; }
+        #work .project-card-actions { flex-wrap: wrap; gap: .7rem; }
+        #work .project-card-actions .button { border-radius: 999px; box-shadow: none; border: 1px solid var(--gray-border); background: transparent; padding: .5rem 1.15rem; font-size: .8rem; }
+        #work .project-card-actions .button:hover { background: #eeeeee; }
+        #work .carousel-controls { margin-top: 1.25rem; }
+        @media (max-width: 600px) {
+            #work .carousel-slide { flex-basis: 92%; padding: 0 .35rem; }
+            #work .project-info { padding: 1.25rem; }
+            #work .project-info h3 { font-size: 1.6rem; }
+            #work .project-skills { gap: .4rem; }
+            #work .project-skills span { font-size: .69rem; padding: .27rem .65rem; }
+        }
+    </style>
 </head>
 
 <body>
@@ -184,6 +206,36 @@ layout: null
                                                 {{ project.card_description }}
                                             </p>
 
+
+                                            <div class="project-skills" aria-label="Skills and technologies used">
+                                                {% case project.card_title %}
+                                                    {% when "RoomCode" %}
+                                                        <span>JavaScript</span><span>Collaboration</span><span>Developer Tools</span>
+                                                    {% when "Spatial Audio AR/VR Research" %}
+                                                        <span>Swift</span><span>ARKit</span><span>Computer Vision</span>
+                                                    {% when "R'Solv" %}
+                                                        <span>AI</span><span>Document Analysis</span><span>Machine Learning</span>
+                                                    {% when "CNN Scene Classification" %}
+                                                        <span>Python</span><span>PyTorch</span><span>Computer Vision</span>
+                                                    {% when "Scout Opportunity Notifier" %}
+                                                        <span>Python</span><span>Discord API</span><span>SQLite</span>
+                                                    {% when "Emergency Fund Predictor" %}
+                                                        <span>Python</span><span>Machine Learning</span><span>Data Analysis</span>
+                                                    {% when "Hera's Garden" %}
+                                                        <span>Java</span><span>SQLite</span><span>Systems Design</span>
+                                                    {% when "Iris: Personal Memory & Community System" %}
+                                                        <span>Discord API</span><span>SQLite</span><span>Automation</span>
+                                                    {% when "Iris Calliope: Roleplay Chronicle System" %}
+                                                        <span>Discord API</span><span>Summarization</span><span>Automation</span>
+                                                    {% else %}
+                                                        {% if project.skills %}
+                                                            {% assign skill_items = project.skills | split: "," %}
+                                                            {% for skill in skill_items limit: 4 %}<span>{{ skill | strip }}</span>{% endfor %}
+                                                        {% else %}
+                                                            <span>Software Development</span>
+                                                        {% endif %}
+                                                {% endcase %}
+                                            </div>
 
                                             <div class="project-card-actions">
 
