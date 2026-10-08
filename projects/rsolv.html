@@ -1,0 +1,116 @@
+---
+layout: null
+carousel: true
+order: 3
+card_title: "R'Solv"
+card_description: "A human-in-the-loop exception review prototype that combines Claude through Amazon Bedrock for document understanding, deterministic requirement checks, and XGBoost as a secondary model signal."
+card_placeholder: "gradient-3"
+github: "https://github.com/ameliaeckard/lplhackathon"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="R'Solv is Amelia Eckard's human-in-the-loop exception review prototype using Amazon Bedrock, Claude, deterministic rules, XGBoost, Flask, and Python." />
+    <title>R'Solv | Amelia Eckard</title>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="/" class="logo" aria-label="Amelia Eckard home">
+                <img src="../images/logo.png" alt="AE logo" class="logo-img" />
+            </a>
+            <nav aria-label="Primary">
+                <a href="/#work">Work</a>
+                <a href="/#about">About</a>
+                <a href="/#contact">Contact</a>
+                <a href="/resume/">Resume</a>
+                <a href="https://lab.ameliaeckard.com" target="_blank" rel="noreferrer">Lab</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-doc" aria-labelledby="project-title">
+            <div class="container">
+                <p class="hero-subtitle"><a href="/#work">&larr; Back to Projects</a></p>
+                <h1 class="hero-title" id="project-title">R'Solv</h1>
+                <p class="hero-subtitle">Human-in-the-Loop Exception Review</p>
+                <div class="hero-meta">
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>Amazon Bedrock</span>
+                    <span>Claude</span>
+                    <span>XGBoost</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="project-page-content">
+                    <div class="project-page-thumbnail gradient-3"></div>
+
+                    <h2 class="section-title">What It Is</h2>
+                    <p class="section-text">
+                        R'Solv is a beneficiary-claim exception review prototype built for the LPL Financial University Hackathon. It reads claim documents, extracts structured case information, checks explicit requirements, and gives reviewers a second model signal without turning the system into an automatic approval engine.
+                    </p>
+
+                    <h2 class="section-title">Why the System Is Split</h2>
+                    <p class="section-text">
+                        Different parts of the problem call for different tools. Claude through Amazon Bedrock handles the fuzzy work of interpreting document language and turning it into structured facts. Deterministic rules handle requirements that should be explicit and reproducible. XGBoost acts as an additional signal rather than a replacement for those rules.
+                    </p>
+
+                    <div class="project-feature-list">
+                        <div class="project-feature">
+                            <h4>Document Understanding</h4>
+                            <p>Extracts structured case information from beneficiary claim PDFs using Claude through Amazon Bedrock.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Deterministic Checks</h4>
+                            <p>Evaluates explicit requirements with rules that are visible and repeatable instead of asking a model to guess everything.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Secondary ML Signal</h4>
+                            <p>Uses XGBoost alongside the rule system and surfaces disagreements rather than hiding them.</p>
+                        </div>
+                        <div class="project-feature">
+                            <h4>Human Review</h4>
+                            <p>Keeps approval and financial decisions with the reviewer while presenting the evidence and reasoning needed to investigate exceptions.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title">Design Principle</h2>
+                    <p class="section-text">
+                        R'Solv is an example of how I prefer to use AI: for a bounded part of a workflow where it is useful, surrounded by conventional software where conventional software is more reliable, and with a person retaining the final decision.
+                    </p>
+
+                    <div class="project-page-links">
+                        <a href="https://github.com/ameliaeckard/lplhackathon" target="_blank" rel="noreferrer" class="button">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p style="font-size: 0.8125rem; color: var(--gray);">&copy; 2026 Amelia Eckard</p>
+            <div class="footer-links">
+                <a href="mailto:aeckard3@charlotte.edu">School Email</a>
+                <a href="https://linkedin.com/in/ameliaeckard" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/ameliaeckard" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="/bug">Report a Bug</a>
+                <a href="https://herasgarden.net" target="_blank" rel="noreferrer" class="footer-garden-link">hera's garden *</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js?v=2"></script>
+</body>
+</html>

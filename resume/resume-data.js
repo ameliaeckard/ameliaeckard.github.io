@@ -7,13 +7,15 @@ window.RESUME_DATA = {
     "github": "github.com/ameliaeckard",
     "githubUrl": "https://github.com/ameliaeckard",
     "linkedin": "linkedin.com/in/ameliaeckard",
-    "linkedinUrl": "https://linkedin.com/in/ameliaeckard"
+    "linkedinUrl": "https://linkedin.com/in/ameliaeckard",
+    "email": "aeckard3@charlotte.edu",
+    "emailUrl": "mailto:aeckard3@charlotte.edu"
   },
-  "defaultProfile": "ai-ml",
+  "defaultProfile": "software",
   "profileOrder": [
+    "software",
     "ai-ml",
     "research",
-    "software",
     "xr",
     "creative",
     "teaching",
@@ -23,26 +25,13 @@ window.RESUME_DATA = {
     "ai-ml": {
       "label": "AI / ML",
       "shortLabel": "AI / ML",
-      "summary": "Machine learning, computer vision, model evaluation, explainability, and AI-backed systems.",
+      "summary": "Applied machine learning, computer vision, model evaluation, and human-in-the-loop AI systems.",
       "pdf": "pdfs/ai-ml.pdf",
       "tex": "latex/ai-ml.tex",
       "downloadName": "Amelia-Eckard-ai-ml-Resume.pdf",
       "pages": 1,
       "recipe": "\\profile{ai-ml}\n\\includeexperience{Research Intern, Undergraduate Researcher, Lead Instructional Assistant, ITSC 1213}\n\\includeprojects{CNN Scene Classification, Emergency Fund Predictor, Resolve – LPL Financial University Hackathon, Vision Lab: ASCII Reconstruction}\n\\includeinvolvement{Kode With Klossy × Goldman Sachs Machine Learning Challenge, UR2PhD Training Course, Computing Research Association}\n\\compileResume{Amelia-Eckard-ai-ml.pdf}",
       "education": [
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
         {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
@@ -55,6 +44,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -120,8 +122,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, PyTorch, torchvision, CUDA",
           "date": "2026",
           "bullets": [
-            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.",
-            "Improved validation accuracy from 42.25% to 51.46% through image augmentation while comparing preprocessing choices, training behavior, and model performance."
+            "Built a 16-class scene-recognition pipeline on 2,400 images and compared a baseline CNN, augmentation strategies, RGB preprocessing, and transfer learning.",
+            "Reached 89.79% best validation accuracy and 90.25% final test accuracy with an ImageNet-pretrained ResNet18 after earlier experiments exposed limited generalization in the baseline architecture."
           ],
           "tags": [
             "ai-ml",
@@ -148,12 +150,12 @@ window.RESUME_DATA = {
         },
         {
           "kind": "project",
-          "title": "Resolve – LPL Financial University Hackathon",
-          "subtitle": "AI/ML, Workflow Intelligence, FinTech",
+          "title": "R'Solv — LPL Financial University Hackathon",
+          "subtitle": "Python, Flask, Amazon Bedrock, Claude, XGBoost",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.",
-            "Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations."
+            "Built a beneficiary-claim exception-review prototype that uses Claude through Amazon Bedrock for document understanding, deterministic rules for explicit requirements, and XGBoost as a secondary model signal.",
+            "Surfaced disagreements between rules and ML predictions with case explanations while keeping final approval decisions with a human reviewer."
           ],
           "tags": [
             "ai-ml",
@@ -230,19 +232,6 @@ window.RESUME_DATA = {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
           "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
           "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
           "date": "Expected May 2027",
           "bullets": [],
@@ -251,6 +240,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -316,8 +318,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, PyTorch, torchvision, CUDA",
           "date": "2026",
           "bullets": [
-            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.",
-            "Improved validation accuracy from 42.25% to 51.46% through image augmentation while comparing preprocessing choices, training behavior, and model performance."
+            "Built a 16-class scene-recognition pipeline on 2,400 images and compared a baseline CNN, augmentation strategies, RGB preprocessing, and transfer learning.",
+            "Reached 89.79% best validation accuracy and 90.25% final test accuracy with an ImageNet-pretrained ResNet18 after earlier experiments exposed limited generalization in the baseline architecture."
           ],
           "tags": [
             "ai-ml",
@@ -344,12 +346,12 @@ window.RESUME_DATA = {
         },
         {
           "kind": "project",
-          "title": "Resolve – LPL Financial University Hackathon",
-          "subtitle": "AI/ML, Workflow Intelligence, FinTech",
+          "title": "R'Solv — LPL Financial University Hackathon",
+          "subtitle": "Python, Flask, Amazon Bedrock, Claude, XGBoost",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.",
-            "Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations."
+            "Built a beneficiary-claim exception-review prototype that uses Claude through Amazon Bedrock for document understanding, deterministic rules for explicit requirements, and XGBoost as a secondary model signal.",
+            "Surfaced disagreements between rules and ML predictions with case explanations while keeping final approval decisions with a human reviewer."
           ],
           "tags": [
             "ai-ml",
@@ -424,26 +426,13 @@ window.RESUME_DATA = {
     "software": {
       "label": "Software Engineering",
       "shortLabel": "Software",
-      "summary": "Backend systems, automation, databases, deployment, real-time collaboration, and persistent applications.",
+      "summary": "Software systems, developer tools, backend services, deployment, databases, and real-world product engineering.",
       "pdf": "pdfs/software.pdf",
       "tex": "latex/software.tex",
       "downloadName": "Amelia-Eckard-software-Resume.pdf",
       "pages": 1,
       "recipe": "\\profile{software}\n\\includeexperience{Lead Instructional Assistant, ITSC 1213, Instructional Assistant, ITSC 3160, Research Intern}\n\\includeprojects{RoomCode, Scout Opportunity Notifier, Hera's Garden, Iris, Iris Calliope}\n\\includeinvolvement{none}\n\\compileResume{Amelia-Eckard-software.pdf}",
       "education": [
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
         {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
@@ -456,6 +445,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -514,10 +516,10 @@ window.RESUME_DATA = {
         {
           "kind": "project",
           "title": "RoomCode",
-          "subtitle": "Python, Flask, JavaScript",
+          "subtitle": "Python, Flask, JavaScript, Yjs/CRDT",
           "date": "2026 – Present",
           "bullets": [
-            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.",
+            "Built a self-hosted, browser-based collaborative coding environment with real-time CRDT synchronization, live cursors, session-scoped file trees, host permissions, and shared code execution.",
             "Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows."
           ],
           "tags": [
@@ -533,8 +535,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, Discord API, SQLite, Railway",
           "date": "2026 – Present",
           "bullets": [
-            "Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.",
-            "Implemented personalized daily/weekly Discord digests, category-specific subscriptions, preference controls, unsubscribe flows, paginated listings, administrative broadcasts, and scheduled delivery windows."
+            "Built and deployed an opt-in opportunity-delivery service with automated internship and hackathon ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.",
+            "Implemented personalized daily/weekly digests, category subscriptions, unsubscribe flows, paginated results, administrative broadcasts, and scheduled delivery windows."
           ],
           "tags": [
             "software",
@@ -626,19 +628,6 @@ window.RESUME_DATA = {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
           "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
           "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
           "date": "Expected May 2027",
           "bullets": [],
@@ -647,6 +636,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -711,8 +713,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, PyTorch, torchvision, CUDA",
           "date": "2026",
           "bullets": [
-            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.",
-            "Improved validation accuracy from 42.25% to 51.46% through image augmentation while comparing preprocessing choices, training behavior, and model performance."
+            "Built a 16-class scene-recognition pipeline on 2,400 images and compared a baseline CNN, augmentation strategies, RGB preprocessing, and transfer learning.",
+            "Reached 89.79% best validation accuracy and 90.25% final test accuracy with an ImageNet-pretrained ResNet18 after earlier experiments exposed limited generalization in the baseline architecture."
           ],
           "tags": [
             "ai-ml",
@@ -770,11 +772,12 @@ window.RESUME_DATA = {
         },
         {
           "kind": "project",
-          "title": "Resolve – LPL Financial University Hackathon",
-          "subtitle": "AI/ML, Workflow Intelligence, FinTech",
+          "title": "R'Solv — LPL Financial University Hackathon",
+          "subtitle": "Python, Flask, Amazon Bedrock, Claude, XGBoost",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall."
+            "Built a beneficiary-claim exception-review prototype that uses Claude through Amazon Bedrock for document understanding, deterministic rules for explicit requirements, and XGBoost as a secondary model signal.",
+            "Surfaced disagreements between rules and ML predictions with case explanations while keeping final approval decisions with a human reviewer."
           ],
           "tags": [
             "ai-ml",
@@ -845,19 +848,6 @@ window.RESUME_DATA = {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
           "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
           "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
           "date": "Expected May 2027",
           "bullets": [],
@@ -866,6 +856,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -962,10 +965,10 @@ window.RESUME_DATA = {
         {
           "kind": "project",
           "title": "RoomCode",
-          "subtitle": "Python, Flask, JavaScript",
+          "subtitle": "Python, Flask, JavaScript, Yjs/CRDT",
           "date": "2026 – Present",
           "bullets": [
-            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.",
+            "Built a self-hosted, browser-based collaborative coding environment with real-time CRDT synchronization, live cursors, session-scoped file trees, host permissions, and shared code execution.",
             "Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows."
           ],
           "tags": [
@@ -1030,19 +1033,6 @@ window.RESUME_DATA = {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
           "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
           "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
           "date": "Expected May 2027",
           "bullets": [],
@@ -1051,6 +1041,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -1123,10 +1126,10 @@ window.RESUME_DATA = {
         {
           "kind": "project",
           "title": "RoomCode",
-          "subtitle": "Python, Flask, JavaScript",
+          "subtitle": "Python, Flask, JavaScript, Yjs/CRDT",
           "date": "2026 – Present",
           "bullets": [
-            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.",
+            "Built a self-hosted, browser-based collaborative coding environment with real-time CRDT synchronization, live cursors, session-scoped file trees, host permissions, and shared code execution.",
             "Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows."
           ],
           "tags": [
@@ -1142,7 +1145,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, Discord API, SQLite, Railway",
           "date": "2026 – Present",
           "bullets": [
-            "Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage."
+            "Built and deployed an opt-in opportunity-delivery service with automated internship and hackathon ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.",
+            "Implemented personalized daily/weekly digests, category subscriptions, unsubscribe flows, paginated results, administrative broadcasts, and scheduled delivery windows."
           ],
           "tags": [
             "software",
@@ -1210,19 +1214,6 @@ window.RESUME_DATA = {
           "kind": "experience",
           "title": "University of North Carolina at Charlotte",
           "location": "Charlotte, NC",
-          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
-          "date": "Expected May 2028",
-          "bullets": [],
-          "tags": [
-            "ai-ml",
-            "research",
-            "software"
-          ]
-        },
-        {
-          "kind": "experience",
-          "title": "University of North Carolina at Charlotte",
-          "location": "Charlotte, NC",
           "subtitle": "B.S. in Computer Science | Concentration: AI, Robotics, & Gaming",
           "date": "Expected May 2027",
           "bullets": [],
@@ -1231,6 +1222,19 @@ window.RESUME_DATA = {
             "research",
             "software",
             "xr"
+          ]
+        },
+        {
+          "kind": "experience",
+          "title": "University of North Carolina at Charlotte",
+          "location": "Charlotte, NC",
+          "subtitle": "M.S. in Artificial Intelligence | Early Entry Program",
+          "date": "Expected May 2028",
+          "bullets": [],
+          "tags": [
+            "ai-ml",
+            "research",
+            "software"
           ]
         }
       ],
@@ -1343,8 +1347,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, PyTorch, torchvision, CUDA",
           "date": "2026",
           "bullets": [
-            "Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.",
-            "Improved validation accuracy from 42.25% to 51.46% through image augmentation while comparing preprocessing choices, training behavior, and model performance."
+            "Built a 16-class scene-recognition pipeline on 2,400 images and compared a baseline CNN, augmentation strategies, RGB preprocessing, and transfer learning.",
+            "Reached 89.79% best validation accuracy and 90.25% final test accuracy with an ImageNet-pretrained ResNet18 after earlier experiments exposed limited generalization in the baseline architecture."
           ],
           "tags": [
             "ai-ml",
@@ -1372,10 +1376,10 @@ window.RESUME_DATA = {
         {
           "kind": "project",
           "title": "RoomCode",
-          "subtitle": "Python, Flask, JavaScript",
+          "subtitle": "Python, Flask, JavaScript, Yjs/CRDT",
           "date": "2026 – Present",
           "bullets": [
-            "Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.",
+            "Built a self-hosted, browser-based collaborative coding environment with real-time CRDT synchronization, live cursors, session-scoped file trees, host permissions, and shared code execution.",
             "Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows."
           ],
           "tags": [
@@ -1391,8 +1395,8 @@ window.RESUME_DATA = {
           "subtitle": "Python, Discord API, SQLite, Railway",
           "date": "2026 – Present",
           "bullets": [
-            "Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.",
-            "Implemented personalized daily/weekly Discord digests, category-specific subscriptions, preference controls, unsubscribe flows, paginated listings, administrative broadcasts, and scheduled delivery windows."
+            "Built and deployed an opt-in opportunity-delivery service with automated internship and hackathon ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.",
+            "Implemented personalized daily/weekly digests, category subscriptions, unsubscribe flows, paginated results, administrative broadcasts, and scheduled delivery windows."
           ],
           "tags": [
             "software",
@@ -1472,12 +1476,12 @@ window.RESUME_DATA = {
         },
         {
           "kind": "project",
-          "title": "Resolve – LPL Financial University Hackathon",
-          "subtitle": "AI/ML, Workflow Intelligence, FinTech",
+          "title": "R'Solv — LPL Financial University Hackathon",
+          "subtitle": "Python, Flask, Amazon Bedrock, Claude, XGBoost",
           "date": "2026",
           "bullets": [
-            "Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.",
-            "Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations."
+            "Built a beneficiary-claim exception-review prototype that uses Claude through Amazon Bedrock for document understanding, deterministic rules for explicit requirements, and XGBoost as a secondary model signal.",
+            "Surfaced disagreements between rules and ML predictions with case explanations while keeping final approval decisions with a human reviewer."
           ],
           "tags": [
             "ai-ml",
