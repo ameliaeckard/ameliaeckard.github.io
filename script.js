@@ -1,58 +1,85 @@
-// ── Infinite Carousel ──────────────────────────────────────────
+// Infinite featured project carousel, measured from actual slide geometry.
 (function () {
     const track = document.getElementById('projects-carousel');
-    if (!track) return; // carousel only lives on the homepage
+    const viewport = track && track.closest('.carousel-viewport');
+    if (!track || !viewport) return;
+    const originals = Array.from(track.querySelectorAll('.carousel-slide'));
+    if (!originals.length) return;
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    const prev = document.getElementById('carousel-prev');
+    const next = document.getElementById('carousel-next');
+    const count = originals.length;
+    let position = 1;
+    let busy = false;
+    let touchStart = null;
 
-    let origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
-    const dots     = Array.from(document.querySelectorAll('.carousel-dot'));
-    let pos        = 1;
-    let busy       = false;
+    const before = originals[count - 1].cloneNode(true);
+    const after = originals[0].cloneNode(true);
+    before.classList.remove('active');
+    after.classList.remove('active');
+    before.setAttribute('aria-hidden', 'true');
+    after.setAttribute('aria-hidden', 'true');
+    track.prepend(before);
+    track.append(after);
+    const slides = Array.from(track.querySelectorAll('.carousel-slide'));
 
-    // Clone first & last for seamless wrap
-    const pre = origSlides[origSlides.length - 1].cloneNode(true);
-    const suf = origSlides[0].cloneNode(true);
-    [pre, suf].forEach(c => c.classList.remove('active'));
-    track.prepend(pre);
-    track.appendChild(suf);
-
-    const all = Array.from(track.querySelectorAll('.carousel-slide'));
-    const n   = origSlides.length;
-
-    function moveTo(p, instant) {
-        pos = p;
-        const tx = `translateX(calc(10% - ${p * 80}%))`;
+    function render(instant = false) {
+        const slide = slides[position];
+        if (!slide) return;
+        const x = (viewport.clientWidth - slide.offsetWidth) / 2 - slide.offsetLeft;
+        if (instant) track.style.transition = 'none';
+        track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+        slides.forEach((item, i) => {
+            const active = i === position;
+            item.classList.toggle('active', active);
+            item.setAttribute('aria-hidden', String(!active));
+            item.querySelectorAll('a, button').forEach(link => {
+                if (active) link.removeAttribute('tabindex');
+                else link.setAttribute('tabindex', '-1');
+            });
+        });
+        const dotIndex = ((position - 1) % count + count) % count;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
         if (instant) {
-            track.style.transition = 'none';
-            track.style.transform  = tx;
-            requestAnimationFrame(() => { track.style.transition = ''; });
-        } else {
-            track.style.transform = tx;
+            // Flush the no-transition position before restoring animation.
+            void track.offsetHeight;
+            track.style.transition = '';
         }
-        const ri = ((p - 1) % n + n) % n;
-        all.forEach((s, i) => s.classList.toggle('active', i === p));
-        dots.forEach((d, i) => d.classList.toggle('active', i === ri));
     }
 
-    track.addEventListener('transitionend', (e) => {
-        if (e.propertyName !== 'transform') return;
-        busy = false;
-        if (pos === 0)          moveTo(n,  true);
-        else if (pos === n + 1) moveTo(1,  true);
-    });
-
-    function step(dir) {
-        if (busy) return;
+    function move(dir) {
+        if (busy || count < 2) return;
         busy = true;
-        moveTo(pos + dir, false);
+        position += dir;
+        render();
     }
-
-    document.getElementById('carousel-prev').addEventListener('click', () => step(-1));
-    document.getElementById('carousel-next').addEventListener('click', () => step(1));
-    dots.forEach((d, i) => d.addEventListener('click', () => {
-        if (!busy) { busy = true; moveTo(i + 1, false); }
+    track.addEventListener('transitionend', event => {
+        if (event.target !== track || event.propertyName !== 'transform') return;
+        if (position === 0) position = count;
+        else if (position === count + 1) position = 1;
+        render(true);
+        busy = false;
+    });
+    if (prev) prev.addEventListener('click', () => move(-1));
+    if (next) next.addEventListener('click', () => move(1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+        if (busy || position === i + 1) return;
+        busy = true;
+        position = i + 1;
+        render();
     }));
-
-    moveTo(1, true);
+    viewport.addEventListener('touchstart', e => {
+        if (e.touches.length === 1) touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }, { passive: true });
+    viewport.addEventListener('touchend', e => {
+        if (!touchStart || !e.changedTouches.length) return;
+        const dx = e.changedTouches[0].clientX - touchStart.x;
+        const dy = e.changedTouches[0].clientY - touchStart.y;
+        touchStart = null;
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) move(dx < 0 ? 1 : -1);
+    }, { passive: true });
+    window.addEventListener('resize', () => render(true));
+    render(true);
 })();
 
 // ── Contact form ───────────────────────────────────────────────
