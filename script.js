@@ -158,7 +158,7 @@ if (bugForm) {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'theme-toggle';
-        button.textContent = '☼';
+        button.textContent = '💡︎';
         button.addEventListener('click', () => {
             preference = currentTheme() === 'dark' ? 'light' : 'dark';
             try { localStorage.setItem(storageKey, preference); } catch (_) {}
