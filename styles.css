@@ -1235,3 +1235,36 @@ h4 {
         font-size: 0.7rem;
     }
 }
+
+/* Responsive flexbox layout safeguards across the portfolio. */
+.container, .section-content, .project-page-content { width:100%; min-width:0; }
+img, video, canvas, svg { max-width:100%; }
+pre, code { max-width:100%; overflow-wrap:anywhere; }
+.nav, .nav nav, .footer-content, .footer-links, .project-card-actions, .hero-meta { min-width:0; }
+.nav nav, .footer-links, .hero-meta { flex-wrap:wrap; }
+.timeline-content, .project-info, .section-grid > *, .project-feature { min-width:0; }
+.section-text, .timeline-description, .project-info h3 { overflow-wrap:break-word; }
+.carousel-viewport { overflow:hidden; min-width:0; }
+.carousel-slide { flex:0 0 80%; }
+.carousel-slide .project-card { min-width:0; }
+@media(max-width:768px) {
+    .section-center { min-width:0; }
+    .carousel-slide { flex-basis:90%; }
+    .carousel-controls { gap:1rem; }
+    .footer-links { justify-content:center; }
+}
+@media(max-width:600px) {
+    .carousel-slide { flex-basis:92%; padding:0 .35rem; }
+    .carousel-container { padding:1.25rem 0; }
+    .carousel-controls { margin-top:1rem; }
+    .project-card-actions { flex-wrap:wrap; }
+    .project-skills { flex-wrap:wrap; }
+    .timeline-item { min-width:0; }
+}
+@media(max-width:380px) {
+    .carousel-slide { flex-basis:96%; }
+    .carousel-dots { max-width:60vw; overflow-x:auto; padding:.4rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+    .carousel, .carousel-slide { transition-duration:.01ms; }
+}
