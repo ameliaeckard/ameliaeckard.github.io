@@ -187,8 +187,32 @@ layout: null
 
                                             <div class="project-card-actions">
 
+                                                {% assign lab_url = "https://lab.ameliaeckard.com" %}
+                                                {% case project.card_title %}
+                                                    {% when "RoomCode" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-roomcode" %}
+                                                    {% when "Spatial Audio AR/VR Research" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2025-08-01-spatial-audio-accessible-navigation" %}
+                                                    {% when "R'Solv" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-rsolv" %}
+                                                    {% when "CNN Scene Classification" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-09-26-cnn-scene-classification" %}
+                                                    {% when "Scout Opportunity Notifier" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-scout" %}
+                                                    {% when "Emergency Fund Predictor" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-emergency-fund-predictor" %}
+                                                    {% when "Hera's Garden" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-heras-garden" %}
+                                                    {% when "Iris: Personal Memory & Community System" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-iris" %}
+                                                    {% when "Iris Calliope: Roleplay Chronicle System" %}
+                                                        {% assign lab_url = "https://lab.ameliaeckard.com/notes/2026-10-08-calliope" %}
+                                                {% endcase %}
+
                                                 <a
-                                                    href="{% if project.read_more_url %}{{ project.read_more_url }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if project.read_more_url %} target="_blank" rel="noreferrer"{% endif %}
+                                                    href="{{ lab_url }}"
+                                                    target="_blank"
+                                                    rel="noreferrer"
                                                     class="button btn-small btn-read"
                                                 >
                                                     Read More
