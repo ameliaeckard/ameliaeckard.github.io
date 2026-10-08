@@ -1268,3 +1268,64 @@ pre, code { max-width:100%; overflow-wrap:anywhere; }
 @media(prefers-reduced-motion:reduce) {
     .carousel, .carousel-slide { transition-duration:.01ms; }
 }
+
+
+/* Gray, low-glare dark theme. Light remains the existing site palette. */
+:root { color-scheme:light; }
+html[data-theme="dark"] {
+    color-scheme:dark;
+    --black:#ededed; --white:#303237; --gray:#b5b5b9;
+    --gray-light:#41434a; --gray-border:#5a5b61; --accent:#ededed;
+    --rose-wash:#393a40; --sage-wash:#393d3e; --sky-wash:#383d42;
+    --neu-shadow:0 5px 22px rgba(0,0,0,.19);
+    --neu-shadow-sm:0 3px 12px rgba(0,0,0,.16);
+    --neu-inset:inset 0 2px 8px rgba(0,0,0,.25);
+}
+html[data-theme="dark"] body,
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .section:nth-of-type(odd),
+html[data-theme="dark"] .footer,
+html[data-theme="dark"] #contact { background-color:#303237 !important; color:var(--black); }
+html[data-theme="dark"] .header { background:rgba(48,50,55,.88); }
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] #work .project-card,
+html[data-theme="dark"] .form-container,
+html[data-theme="dark"] #contact .form-container,
+html[data-theme="dark"] .now-card,
+html[data-theme="dark"] .project-feature,
+html[data-theme="dark"] .timeline-logo,
+html[data-theme="dark"] .garden-popup-card,
+html[data-theme="dark"] .garden-popup-backdrop { background:#3a3c42; box-shadow:0 5px 18px rgba(0,0,0,.12); border-color:#55575e; }
+html[data-theme="dark"] .project-card:hover,
+html[data-theme="dark"] #work .project-card:hover { box-shadow:0 7px 23px rgba(0,0,0,.19); }
+html[data-theme="dark"] .section-text,
+html[data-theme="dark"] #contact .section-text,
+html[data-theme="dark"] .project-info .section-text,
+html[data-theme="dark"] #work .project-info .section-text,
+html[data-theme="dark"] .timeline-description,
+html[data-theme="dark"] .now-card p { color:#d8d8db; }
+html[data-theme="dark"] .project-info h3,
+html[data-theme="dark"] #work .project-info h3,
+html[data-theme="dark"] .timeline-title,
+html[data-theme="dark"] .timeline-company { color:#ededed; }
+html[data-theme="dark"] .project-skills span,
+html[data-theme="dark"] #work .project-skills span { background:#4a4b51; color:#dedee1; border-color:#62636a; }
+html[data-theme="dark"] .button,
+html[data-theme="dark"] #contact .button,
+html[data-theme="dark"] #work .project-card-actions .button,
+html[data-theme="dark"] .carousel-btn,
+html[data-theme="dark"] .garden-popup-close { background:#484a50; color:#f1f1f1; border-color:#63656b; box-shadow:none; }
+html[data-theme="dark"] .button:hover,
+html[data-theme="dark"] #contact .button:hover,
+html[data-theme="dark"] #work .project-card-actions .button:hover,
+html[data-theme="dark"] .carousel-btn:hover { background:#565860; }
+html[data-theme="dark"] .form-input,
+html[data-theme="dark"] #contact .form-input { background:#34363b; color:#f1f1f1; border:1px solid #696a71; box-shadow:none; }
+html[data-theme="dark"] .form-input:focus { box-shadow:none; }
+html[data-theme="dark"] .carousel-dot { background:#b6b6bd; }
+html[data-theme="dark"] .carousel-dot.active { background:#f0f0f0; }
+html[data-theme="dark"] .garden-popup-backdrop { background:rgba(29,30,34,.65); }
+.theme-toggle { flex:0 0 auto; border:1px solid var(--gray-border); background:transparent; color:var(--gray); border-radius:999px; width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; font:400 1.45rem/1 var(--font); cursor:pointer; transition:background .2s,color .2s; }
+.theme-toggle:hover { color:var(--black); background:var(--gray-light); }
+.theme-toggle:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+html[data-theme="dark"] .theme-toggle { background:#45474d; color:#e6e6e9; }
