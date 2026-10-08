@@ -133,3 +133,40 @@ if (bugForm) {
         }
     });
 }
+
+
+// Site theme: follow OS preferences until visitor explicitly switches modes.
+(function () {
+    const storageKey = 'amelia-theme';
+    const root = document.documentElement;
+    const system = window.matchMedia('(prefers-color-scheme: dark)');
+    let preference = null;
+    try { preference = localStorage.getItem(storageKey); } catch (_) {}
+    const currentTheme = () => preference === 'light' || preference === 'dark' ? preference : (system.matches ? 'dark' : 'light');
+    function updateTheme() {
+        const mode = currentTheme();
+        root.dataset.theme = mode;
+        root.style.colorScheme = mode;
+        document.querySelectorAll('.theme-toggle').forEach(button => {
+            button.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
+            button.setAttribute('aria-pressed', String(mode === 'dark'));
+            button.title = 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode';
+        });
+    }
+    const footer = document.querySelector('.footer-links') || document.querySelector('.footer-content');
+    if (footer && !footer.querySelector('.theme-toggle')) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'theme-toggle';
+        button.textContent = '☼';
+        button.addEventListener('click', () => {
+            preference = currentTheme() === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem(storageKey, preference); } catch (_) {}
+            updateTheme();
+        });
+        footer.appendChild(button);
+    }
+    updateTheme();
+    if (system.addEventListener) system.addEventListener('change', () => { if (!preference || (preference !== 'light' && preference !== 'dark')) updateTheme(); });
+    else if (system.addListener) system.addListener(() => { if (!preference) updateTheme(); });
+})();
