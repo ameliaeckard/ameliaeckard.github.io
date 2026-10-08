@@ -3,7 +3,7 @@
 % ============================================================
 % Amelia Eckard - Master Resume
 % Canonical source resume; intentionally longer than one page.
-% Use % TAGS comments to generate tailored versions later.
+% Tailored one-page versions should be generated from this file.
 % ============================================================
 
 \usepackage[margin=0.58in, top=0.48in, bottom=0.48in]{geometry}
@@ -56,25 +56,32 @@
 \begin{center}
   {\Large\textbf{Amelia Eckard}} \\[3pt]
   Charlotte, NC \textbar{}
+  \href{mailto:aeckard3@charlotte.edu}{aeckard3@charlotte.edu} \textbar{}
   \href{https://ameliaeckard.com}{ameliaeckard.com} \textbar{}
   \href{https://github.com/ameliaeckard}{github.com/ameliaeckard} \textbar{}
-  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard}
+  \href{https://linkedin.com/in/ameliaeckard}{linkedin.com/in/ameliaeckard} \\[2pt]
+  \textbf{Available for full-time software engineering and applied AI roles beginning May 2027}
 \end{center}
+
+% ---------- PROFILE ----------
+\section{Profile}
+
+Software engineer and applied AI researcher building human-centered systems across developer tools, computer vision, spatial computing, and research infrastructure. Interested in local-first and on-device computing, smaller task-focused models, and human-in-the-loop AI that supports people rather than replacing their judgment or creative work.
 
 % ---------- EDUCATION ----------
 \section{Education}
-
-% TAGS: ai-ml, research, software
-\resumeentry
-  {University of North Carolina at Charlotte}{Charlotte, NC}
-  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
-
-\smallskip
 
 % TAGS: ai-ml, research, software, xr
 \resumeentry
   {University of North Carolina at Charlotte}{Charlotte, NC}
   {B.S. in Computer Science \textbar{} Concentration: AI, Robotics, \& Gaming}{Expected May 2027}
+
+\smallskip
+
+% TAGS: ai-ml, research, software
+\resumeentry
+  {University of North Carolina at Charlotte}{Charlotte, NC}
+  {M.S. in Artificial Intelligence \textbar{} Early Entry Program}{Expected May 2028}
 
 
 % ---------- EXPERIENCE ----------
@@ -85,8 +92,8 @@
   {Research Intern}{Remote}
   {Stevens Institute of Technology, Dr. Jina Huh-Yoo}{June 2026 -- Present}
 \begin{itemize}
-  \item Engineered \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
-  \item Implemented dataset tagging, a seven-category research-question taxonomy, explicit screening/classification/extraction gates, and gold-sample validation using precision, recall, F1, accuracy, and confusion matrices.
+  \item Engineer \textit{rq-system}/LEAF, an AI-assisted literature-analysis pipeline using PubMed E-utilities, CrossRef, and LLM APIs to screen, classify, and extract structured evidence from 345 papers; processed 256 included, 80 excluded, and 9 review-flagged papers.
+  \item Implement dataset tagging, a seven-category research-question taxonomy, explicit screening/classification/extraction gates, and gold-sample validation using precision, recall, F1, accuracy, and confusion matrices while preserving human review for ambiguous decisions.
 \end{itemize}
 
 \smallskip
@@ -96,18 +103,19 @@
   {Undergraduate Researcher}{Charlotte, NC}
   {UNC Charlotte, Dr. Todd Dobbs}{August 2025 -- May 2026}
 \begin{itemize}
-  \item Developed an Apple Vision Pro indoor-navigation prototype for visually impaired users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.
-  \item Investigated object tracking, on-device recognition, and spatial-audio guidance as complementary modalities for accessible indoor navigation. Designed evaluation protocols for object identification, tracking reliability, navigation performance, and spatial-audio feedback workflows.
+  \item Developed an Apple Vision Pro indoor-navigation prototype for blind and low-vision users using Swift, ARKit, RealityKit, ObjectTrackingProvider, Core ML, HRTF spatial audio, and distance-based pitch cues.
+  \item Investigated on-device object tracking and spatial-audio guidance as complementary accessibility modalities; designed evaluation protocols for identification accuracy, tracking reliability, navigation performance, and audio-feedback usability.
 \end{itemize}
 
+\smallskip
 
 % TAGS: teaching, python, software, leadership
 \resumeentry
   {Lead Instructional Assistant, ITSC 1213}{Charlotte, NC}
   {UNC Charlotte College of Computing and Informatics}{August 2026 -- Present}
 \begin{itemize}
-  \item Serve as lead instructional assistant for an asynchronous Python programming course, coordinating grading, rubrics, office hours, student support, and course logistics with the instructor.
-  \item Build and debug Python autograders and test suites for programming assignments, emphasizing executable behavior, edge cases, and clear feedback for students. Review submission patterns and course analytics to identify recurring implementation errors and improve assignment guidance, testing instructions, and pre-submission checks.
+  \item Coordinate grading, rubrics, office hours, student support, and course logistics for an asynchronous Python programming course in collaboration with the instructor.
+  \item Build and debug Python autograders and test suites around executable behavior and edge cases; analyze submission patterns to improve assignment guidance, testing instructions, and pre-submission checks.
 \end{itemize}
 
 \smallskip
@@ -146,14 +154,50 @@
 % ---------- PROJECTS ----------
 \section{Projects}
 
+% TAGS: software, web, collaboration, education, real-time
+\projectentry
+  {RoomCode}
+  {Python, Flask, JavaScript, Yjs/CRDT}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built a self-hosted, browser-based collaborative coding environment with real-time CRDT synchronization, live cursors, session-scoped file trees, host permissions, and shared code execution.
+  \item Deployed the platform across 20+ lab sessions with concurrent users and documented execution-security tradeoffs, resource limits, and trust boundaries rather than treating remote execution as a sandbox.
+\end{itemize}
+
+\smallskip
+
+% TAGS: ai-ml, product, fintech, human-in-loop
+\projectentry
+  {R'Solv -- LPL Financial University Hackathon}
+  {Python, Flask, Amazon Bedrock, Claude, XGBoost}
+  {2026}
+\begin{itemize}
+  \item Built a beneficiary-claim exception-review prototype that uses Claude through Amazon Bedrock for document understanding, deterministic rules for explicit requirements, and XGBoost as a secondary model signal.
+  \item Surfaced disagreements between rules and ML predictions with case explanations while keeping final approval decisions with a human reviewer.
+\end{itemize}
+
+\smallskip
+
 % TAGS: ai-ml, computer-vision, research, python
 \projectentry
   {CNN Scene Classification}
   {Python, PyTorch, torchvision, CUDA}
   {2026}
 \begin{itemize}
-  \item Trained and evaluated convolutional neural networks for 16-class scene recognition on 2,400 images.
-  \item Improved validation accuracy from 42.25\% to 51.46\% through image augmentation while comparing preprocessing choices, training behavior, and model performance.
+  \item Built a 16-class scene-recognition pipeline on 2,400 images and compared a baseline CNN, augmentation strategies, RGB preprocessing, and transfer learning.
+  \item Reached 89.79\% best validation accuracy and 90.25\% final test accuracy with an ImageNet-pretrained ResNet18 after earlier experiments exposed limited generalization in the baseline architecture.
+\end{itemize}
+
+\smallskip
+
+% TAGS: software, automation, data, discord, deployment
+\projectentry
+  {Scout Opportunity Notifier}
+  {Python, Discord API, SQLite, Railway}
+  {2026 -- Present}
+\begin{itemize}
+  \item Built and deployed an opt-in opportunity-delivery service with automated internship and hackathon ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.
+  \item Implemented personalized daily/weekly digests, category subscriptions, unsubscribe flows, paginated results, administrative broadcasts, and scheduled delivery windows.
 \end{itemize}
 
 \smallskip
@@ -165,55 +209,43 @@
   {2025}
 \begin{itemize}
   \item Built an 11-feature machine-learning pipeline using 12,295 Federal Reserve SHED respondents enriched with BEA indicators to study emergency-fund vulnerability.
-  \item Compared three classifiers and applied SHAP explainability to identify the strongest drivers of financial fragility and model predictions.
+  \item Compared logistic regression, random forest, and gradient boosting; used learning curves, error analysis, and SHAP to examine generalization limits and feature influence rather than reporting accuracy alone.
 \end{itemize}
 
 \smallskip
 
-% TAGS: software, web, collaboration, education
-\projectentry
-  {RoomCode}
-  {Python, Flask, JavaScript}
-  {2026 -- Present}
-\begin{itemize}
-  \item Built a multi-session collaborative coding environment with real-time synchronization, host-controlled execution, and isolated file trees.
-  \item Deployed the platform across 20+ lab sessions with concurrent users, supporting collaborative programming and classroom workflows.
-\end{itemize}
-
-\smallskip
-
-% TAGS: software, automation, data, discord, deployment
-\projectentry
-  {Scout Opportunity Notifier}
-  {Python, Discord API, SQLite, Railway}
-  {2026 -- Present}
-\begin{itemize}
-  \item Built and deployed an opt-in internship and hackathon aggregator with automated ingestion, deduplication, persistent subscriber preferences, and restart-safe SQLite storage.
-  \item Implemented personalized daily/weekly Discord digests, category-specific subscriptions, preference controls, unsubscribe flows, paginated listings, administrative broadcasts, and scheduled delivery windows.
-\end{itemize}
-
-\smallskip
-
-% TAGS: software, web, backend, systems, discord, java
+% TAGS: software, web, backend, systems, discord, java, community
 \projectentry
   {Hera's Garden}
-  {Node.js, Express, MariaDB, Discord.js, Java, Paper API, Railway}
+  {Java, Paper API, Node.js, Express, MariaDB, Discord.js, Railway}
   {2024 -- Present}
 \begin{itemize}
-  \item Built and maintain a persistent creative-community platform spanning a full-stack website, Discord automation, and a custom Minecraft server ecosystem with scheduled releases, rank-gated access, OAuth2 administration, moderation, and persistent progression systems.
-  \item Designed Java/Paper systems for claims, territories, governments, housing, shops, mail, events, NPC societies, and economy features while integrating identity and progression across web, Discord, and game services.
+  \item Engineer and operate a persistent community platform spanning a full-stack website, Discord automation, and a custom Minecraft/Paper ecosystem with OAuth2 administration, moderation, identity linking, scheduled releases, and persistent progression.
+  \item Designed Java/Paper systems for claims, territories, governments, housing, shops, mail, events, NPC societies, and economy features while integrating state across web, Discord, and game services.
 \end{itemize}
 
 \smallskip
 
-% TAGS: ai, software, local-first, llm, discord
+% TAGS: ai, software, local-first, llm, discord, privacy
 \projectentry
   {Iris}
   {Electron, Node.js, Discord.js, SQLite, sqlite-vec, Ollama, MariaDB}
   {2025 -- Present}
 \begin{itemize}
   \item Developed a local-first personal-memory and community-automation system combining desktop tooling, persistent memory, local language models, and Discord operations.
-  \item Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec and Ollama-based local retrieval and model components.
+  \item Built verification, moderation, private-channel, XP/ranking, and notification workflows using SQLite/sqlite-vec with Ollama-based local retrieval and model components.
+\end{itemize}
+
+\smallskip
+
+% TAGS: computer-vision, web, creative-tech, python
+\projectentry
+  {Vision Lab: ASCII Reconstruction}
+  {Python, Flask, HTML/CSS, Image Processing}
+  {2026 -- Present}
+\begin{itemize}
+  \item Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.
+  \item Designed reconstruction around luminance, local contrast, detail preservation, and edge-aware character selection to make image-processing decisions visible and understandable to the user.
 \end{itemize}
 
 \smallskip
@@ -228,37 +260,15 @@
   \item Implemented encrypted storage, configurable retention, weekly summaries, channel watchlists, character lookup, and deletion of short-lived raw records while preserving higher-level continuity summaries.
 \end{itemize}
 
-\smallskip
-
-% TAGS: computer-vision, web, creative-tech, javascript
-\projectentry
-  {Vision Lab: ASCII Reconstruction}
-  {JavaScript, HTML/CSS, Image Processing}
-  {2026 -- Present}
-\begin{itemize}
-  \item Developed an image-to-ASCII reconstruction experiment for a web-based computer-vision lab connected to ameliaeckard.com.
-  \item Designed reconstruction logic around luminance mapping, local contrast, detail preservation, and edge-aware character selection to retain recognizable image structure.
-\end{itemize}
-
-
-% TAGS: ai-ml, product, fintech, hackathon
-\projectentry
-  {Resolve -- LPL Financial University Hackathon}
-  {AI/ML, Workflow Intelligence, FinTech}
-  {2026}
-\begin{itemize}
-  \item Developing a proactive exception-intelligence layer that predicts likely blockers before financial-service requests visibly stall.
-  \item Designing case-history and document understanding, workflow-state comparison, anomaly and stall-risk detection, causal explanations, and next-best-action recommendations.
-\end{itemize}
-
 
 % ---------- TECHNICAL SKILLS ----------
 \section{Technical Skills}
 
 \noindent\textbf{Languages} \quad Python, Java, JavaScript, Swift, SQL, C++, HTML/CSS \\[1pt]
-\noindent\textbf{AI/Data} \quad PyTorch, torchvision, scikit-learn, NumPy, pandas, OpenCV, SHAP, Core ML, Ollama \\[1pt]
-\noindent\textbf{Frameworks} \quad Flask, Node.js, Express, Discord.js, ARKit, RealityKit \\[1pt]
-\noindent\textbf{Infrastructure/APIs} \quad SQLite, MariaDB, Git, Docker, Railway, CUDA, PubMed E-utilities, CrossRef, Perplexity API
+\noindent\textbf{AI/Data} \quad PyTorch, torchvision, scikit-learn, XGBoost, NumPy, pandas, OpenCV, SHAP, Core ML, Ollama \\[1pt]
+\noindent\textbf{Frameworks} \quad Flask, Node.js, Express, Electron, Discord.js, Yjs, ARKit, RealityKit \\[1pt]
+\noindent\textbf{Infrastructure/APIs} \quad SQLite, MariaDB, Git, Docker, Railway, CUDA, Amazon Bedrock, PubMed E-utilities, CrossRef, Perplexity API
+
 
 % ---------- CERTIFICATIONS & INVOLVEMENT ----------
 \section{Certifications \& Involvement}
@@ -304,17 +314,21 @@
 %
 % This document is intentionally comprehensive.
 %
-% Suggested profile filters for the interactive resume:
-%   ai-ml       -> Research Intern, CNN, Emergency Fund, Resolve, Vision Lab
-%   research    -> Stevens, Vision Pro research, CNN, UR2PhD, CITI
-%   software    -> RoomCode, Scout, Hera's Garden, Iris, Calliope
-%   xr          -> Vision Pro research
-%   creative    -> Hera's Garden, Vision Lab, Iris
-%   teaching    -> ITSC 1213, ITSC 3160, ITSC 1212, Peer Mentor
+% Positioning:
+%   Primary      -> 2027 New Grad Software Engineer / Product Engineer /
+%                   Applied AI Engineer
+%   Secondary    -> Computer Vision, Research Engineering, Spatial/XR
 %
-% Tailored job applications should normally select the highest-value
-% entries and bullets from this master rather than shrinking the entire
-% document to fit one page.
+% Suggested profile filters for tailored resumes:
+%   software     -> RoomCode, Scout, Hera's Garden, Iris, Stevens
+%   applied-ai   -> Stevens, R'Solv, CNN, Emergency Fund, Spatial Audio
+%   research     -> Stevens, Spatial Audio, CNN, UR2PhD, CITI
+%   xr           -> Spatial Audio research, CNN, Iris
+%   creative     -> Hera's Garden, Vision Lab, Iris, RoomCode
+%   teaching     -> ITSC 1213, ITSC 3160, ITSC 1212, Peer Mentor
+%
+% Tailored applications should select the highest-value entries from this
+% master rather than shrinking the entire document to fit one page.
 %
 % ============================================================
 
