@@ -35,6 +35,18 @@ layout: null
             #work .project-skills { gap: .4rem; }
             #work .project-skills span { font-size: .69rem; padding: .27rem .65rem; }
         }
+    
+        /* Contact section follows the lightweight featured-project styling. */
+        #contact { background: #eeeeee; }
+        #contact .section-content { max-width: 680px; }
+        #contact .form-container { width: 100%; max-width: none; margin-top: 1.7rem; padding: clamp(1.3rem, 4vw, 2.25rem); background: #f8f8f8; border: 1px solid rgba(31,31,31,.09); border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,.035); }
+        #contact .form-input { background: #fff; border: 1px solid #dedede; border-radius: 12px; box-shadow: none; outline-offset: 2px; }
+        #contact .form-input:focus { outline: 2px solid #777; box-shadow: none; }
+        #contact .form-group label { color: #555; }
+        #contact .button { border-radius: 999px; border: 1px solid #d7d7d7; background: #eeeeee; box-shadow: none; padding: .65rem 1.5rem; }
+        #contact .button:hover { background: #e4e4e4; box-shadow: none; }
+        #contact .section-text { color: #444; }
+        @media (max-width: 600px) { #contact .form-container { padding: 1.3rem; } }
     </style>
 </head>
 
@@ -72,10 +84,6 @@ layout: null
 
                 <a href="#contact">
                     Contact
-                </a>
-                
-                <a href="/resume/">
-                    Resume
                 </a>
 
                 <a
