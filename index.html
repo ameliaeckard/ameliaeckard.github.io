@@ -12,8 +12,18 @@ layout: null
 
     <title>Amelia Eckard | Software Engineer & Applied AI Researcher</title>
 
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
     <link rel="icon" type="image/x-icon" href="./images/logo.png" />
+    <script>
+        (function () {
+            var selected = null;
+            try { selected = localStorage.getItem('amelia-theme'); } catch (e) {}
+            var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = selected === 'dark' || selected === 'light' ? selected : (systemDark ? 'dark' : 'light');
+            document.documentElement.dataset.theme = theme;
+            document.documentElement.style.colorScheme = theme;
+        })();
+    </script>
     <style>
         /* Featured work: lighter cards, readable summaries, and text-only skill pills. */
         #work .carousel-container { margin-top: 0.5rem; padding: 1.5rem 0; }
@@ -900,7 +910,7 @@ layout: null
     </footer>
 
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
 
 </body>
 
